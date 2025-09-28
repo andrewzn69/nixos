@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  users.user.zemn = {
+  users.users.zemn = {
     isNormalUser = true;
     description = "Zemn";
     extraGroups = [ "networkmanager" "wheel" ];
