@@ -10,7 +10,7 @@
       dev = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 	modules = [
-	  ./hosts/dev/configuration.nix
+	  ./hosts/dev/default.nix
 	];
       };
     };
