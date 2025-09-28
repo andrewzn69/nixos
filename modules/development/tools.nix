@@ -6,6 +6,7 @@
     fzf
     ripgrep
     fd
+    git
 
     # build tools
     gcc
@@ -14,5 +15,9 @@
     # network tools
     openssh
     rsync
+
+    # etc
+    magic-wormhole
+    claude-code
   ];
 }
