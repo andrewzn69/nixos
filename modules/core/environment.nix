@@ -25,7 +25,7 @@
   # XDG_RUNTIME_DIR = "/run/user/$(id -u)"
 
   # removes background color for mounted directories, because it is fucking unreadable
-  LS_COLORS = "$LS_COLORS:ow=1;34:tw=1;34:";
+  # LS_COLORS = "$LS_COLORS:ow=1;34:tw=1;34:";
 
   # why just why???
   ANSIBLE_NOCOWS = "1";
