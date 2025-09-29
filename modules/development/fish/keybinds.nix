@@ -2,8 +2,9 @@
 
 {
   programs.fish.interactiveShellInit = ''
-    # clear terminal
-    bind --erase --preset ctrl-space
-    bind ctrl-space 'clear; commandline -f repaint'
+    function fish_user_key_bindings
+      bind --erase --preset ctrl-space
+      bind ctrl-space 'clear; commandline -f repaint'
+    end
   '';
 }
