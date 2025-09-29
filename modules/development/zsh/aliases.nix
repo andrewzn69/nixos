@@ -23,7 +23,7 @@
     # useful aliases
     mkdir = "mkdir -p";
     rm = "rm -iv";
-    mv "mv -iv";
+    mv = "mv -iv";
     cp = "cp -iv";
 
     # programs
