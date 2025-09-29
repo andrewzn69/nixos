@@ -5,5 +5,6 @@
     ./languages.nix
     ./tools.nix
     ./editors.nix
+    ./tmux.nix
   ];
 }
