@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  programs.zsh.shellAliases = {
+  programs.fish.shellAliases = {
     # colors
     ls = "ls --color=auto";
     la = "ls -a";
@@ -31,7 +31,7 @@
     # cal = "cal -y";
     # freeram = "sudo sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'";
     wttr = "curl wttr.in";
-    pastebin = "nc termbin.com 999";
+    pastebin = "nc termbin.com 9999";
 
     # kubernetes
     h = "helm";

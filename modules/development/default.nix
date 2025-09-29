@@ -6,6 +6,6 @@
     ./tools.nix
     ./editors.nix
     ./tmux.nix
-    ./zsh
+    ./fish
   ];
 }
