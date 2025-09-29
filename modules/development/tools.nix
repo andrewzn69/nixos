@@ -7,6 +7,8 @@
     ripgrep
     fd
     git
+    tree
+    tmux
 
     # build tools
     gcc
