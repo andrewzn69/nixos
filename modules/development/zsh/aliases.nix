@@ -12,7 +12,7 @@
 
     # nvim
     v = "nvim";
-    vim "nvim";
+    vim = "nvim";
     vi = "nvim";
     oldvim = "vim";
 
