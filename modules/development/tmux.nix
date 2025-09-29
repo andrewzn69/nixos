@@ -3,6 +3,8 @@
 {
   programs.tmux = {
     enable = true;
-    mouse = true;
+    extraConfig = ''
+      set -g mouse on
+    '';
   };
 }
