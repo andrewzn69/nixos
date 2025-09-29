@@ -9,6 +9,7 @@
     git
     tree
     tmux
+    btop
 
     # build tools
     gcc
