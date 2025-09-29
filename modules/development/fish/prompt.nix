@@ -12,7 +12,7 @@
         set_color green
 	echo -n " ("
 	set_color white
-	echo -n " "(git rev-parse --abbrev-ref HEAD)
+	echo -n " "(git rev-parse --abbrev-ref HEAD)
 	set_color green
 	echo -n ")"
       end
