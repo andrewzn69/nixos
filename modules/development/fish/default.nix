@@ -4,6 +4,7 @@
   imports = [
     ./aliases.nix
     ./prompt.nix
+    ./keybinds.nix
   ];
 
   programs.fish = {
