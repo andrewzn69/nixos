@@ -6,6 +6,9 @@
     fzf
     ripgrep
     fd
+    jq
+    gawk
+    wget
     git
     tree
     tmux
@@ -23,5 +26,10 @@
     claude-code-nix.packages.x86_64-linux.default
     magic-wormhole
     neofetch
+
+    # infra
+    kubectl
+    helm
+    k9s
   ];
 }
