@@ -39,6 +39,6 @@
     kn = "kubectl config set-context --current --namespace";
 
     # nixos
-    up = "sudo nixos-rebuild switch --upgrade";
+    up = "nix flake update --flake ~/.config/nixos && sudo nixos-rebuild switch --flake ~/.config/nixos#dev";
   };
 }
