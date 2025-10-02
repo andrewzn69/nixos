@@ -9,6 +9,5 @@
     nodePackages.npm
 
     # shell
-    zsh
   ];
 }
