@@ -7,6 +7,7 @@
     python3Packages.pip
     nodejs
     nodePackages.npm
+    pnpm
 
     # shell
   ];
