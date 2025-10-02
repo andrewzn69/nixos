@@ -2,6 +2,9 @@
 
 {
   programs.fish.interactiveShellInit = ''
+    # disable greeting
+    set fish_greeting
+
     function fish_prompt
         set_color green
         echo -n "󰁕 "
