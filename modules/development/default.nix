@@ -2,10 +2,11 @@
 
 {
   imports = [
+    ./fish
     ./languages.nix
     ./tools.nix
     ./editors.nix
     ./tmux.nix
-    ./fish
+    ./git.nix
   ];
 }
