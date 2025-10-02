@@ -22,5 +22,6 @@
     # etc
     magic-wormhole
     claude-code
+    neofetch
   ];
 }
