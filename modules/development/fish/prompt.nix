@@ -6,7 +6,7 @@
         set_color green
         echo -n "󰁕 "
         set_color blue
-        echo -n (prompt_pwd)
+        echo -n (pwd)
 
         if git rev-parse --git-dir >/dev/null 2>&1
             set_color green
