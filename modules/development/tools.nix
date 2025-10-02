@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, claude-code-nix, ... }:
 
 {
   environment.systemPackages = with pkgs; [
@@ -20,8 +20,8 @@
     rsync
 
     # etc
+    claude-code-nix.packages.x86_64-linux.default
     magic-wormhole
-    claude-code
     neofetch
   ];
 }
