@@ -3,7 +3,7 @@
 {
   environment.sessionVariables = {
   # programs
-  TERMINAL = "kitty";
+  TERMINAL = "xterm";
   # BROWSER = "firefox";
   VISUAL = "nvim";
   EDITOR = "nvim";
