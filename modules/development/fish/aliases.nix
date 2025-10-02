@@ -37,5 +37,8 @@
     h = "helm";
     k = "kubectl";
     kn = "kubectl config set-context --current --namespace";
+
+    # nixos
+    up = "sudo nixos-rebuild switch --upgrade";
   };
 }
