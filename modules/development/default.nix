@@ -3,6 +3,7 @@
 {
   imports = [
     ./fish
+    ./neovim
     ./languages.nix
     ./tools.nix
     ./editors.nix
