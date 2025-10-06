@@ -6,6 +6,7 @@
     ./networking.nix
     ../../modules/core
     ../../modules/development
+    ../../modules/services
     ../../users/zemn
   ];
 
