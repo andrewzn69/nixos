@@ -1,4 +1,9 @@
-{ config, pkgs, claude-code-nix, ... }:
+{
+  config,
+  pkgs,
+  claude-code-nix,
+  ...
+}:
 
 {
   environment.systemPackages = with pkgs; [

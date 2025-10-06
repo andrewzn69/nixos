@@ -4,8 +4,11 @@
   users.users.zemn = {
     isNormalUser = true;
     description = "Zemn";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.fish;
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
   };
 }

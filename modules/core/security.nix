@@ -2,7 +2,7 @@
 
 {
   nixpkgs.config.allowUnfree = true;
-  
+
   services.openssh.enable = true;
 
   # vm-specific services

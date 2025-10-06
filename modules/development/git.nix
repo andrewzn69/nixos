@@ -6,7 +6,7 @@
     config = {
       user = {
         name = "Ondřej Zeman";
-	email = "ondrejzeman@zemn.xyz";
+        email = "ondrejzeman@zemn.xyz";
       };
       credential = {
         helper = "store";
@@ -19,16 +19,16 @@
       };
       alias = {
         d = "difftool";
-	s = "status";
-	c = "commit";
-	mergetool = "!nvim -c DiffviewOpen";
+        s = "status";
+        c = "commit";
+        mergetool = "!nvim -c DiffviewOpen";
       };
       "diff \"nvimdiff\"" = {
         cmd = "nvim -c DiffviewOpen \"$LOCAL\" \"$REMOTE\"";
       };
       core = {
         editor = "nvim";
-	excludesFile = "/home/zemn/.config/git/ignore";
+        excludesFile = "/home/zemn/.config/git/ignore";
       };
     };
   };
