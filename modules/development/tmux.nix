@@ -104,7 +104,7 @@
       set -g status-left "#[fg=$ACCENT_COLOR,bold]  #S #[fg=$INACTIVE_COLOR]│ "
 
       # Status right (path, CPU, RAM)
-      set -g status-right "#[fg=$ACCENT_COLOR]󰉋 #[fg=$TEXT_COLOR]#([ #{pane_current_path} = $HOME ] && echo '~' || basename #{pane_current_path}) #[fg=$INACTIVE_COLOR]│ #[fg=$ACCENT_COLOR]󰍛 #[fg=$TEXT_COLOR]#(top -bn1 | grep 'Cpu(s)' | awk '{print 100 - $8\"%\"}') #[fg=$INACTIVE_COLOR]│ #[fg=$ACCENT_COLOR] #[fg=$TEXT_COLOR]#(free --si h | awk '/^Mem/ { print $3\"/\"$2 }' | tr ',' '.')"
+      set -g status-right "#[fg=$ACCENT_COLOR]󰉋 #[fg=$TEXT_COLOR]#([ #{pane_current_path} = $HOME ] && echo '~' || basename #{pane_current_path}) #[fg=$INACTIVE_COLOR]│ #[fg=$ACCENT_COLOR]󰍛 #[fg=$TEXT_COLOR]#(top -bn1 | grep 'Cpu(s)' | awk '{print 100 - $8\"%\"}') #[fg=$INACTIVE_COLOR]│ #[fg=$ACCENT_COLOR] #[fg=$TEXT_COLOR]#(free --si | awk '/^Mem/ { printf(\"%.1fG/%.1fG\", \$3/1000000, \$2/1000000) }' | tr ',' '.') "
 
       # copy mode styling
       set -g mode-style "bg=$ACTIVE_COLOR,fg=$BG_COLOR"
