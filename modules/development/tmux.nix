@@ -16,6 +16,8 @@
     ];
 
     extraConfig = ''
+      unbind -n C-h
+
       # terminal features
       set-option -sa terminal-features ',xterm-256color:RGB'
       set -g focus-events on
@@ -52,6 +54,9 @@
       bind-key -n C-S-L next-window
       bind -n C-D detach-client
 
+      # toggle fullscreen
+      bind -n C-f resize-pane -Z
+
       # pane creation with Ctrl+t+h/j/k/l (Ctrl+t enters pane_create mode)
       bind -n C-t switch-client -T pane_create
       bind -T pane_create h split-window -hb -c "#{pane_current_path}"
@@ -71,12 +76,12 @@
       set -g @continuum-restore 'on'
       set -g @resurrect-save-shell-history 'on'
 
-      # theme colors
-      BG_COLOR="#1A1D23"
-      ACTIVE_COLOR="#b4befe"
-      INACTIVE_COLOR="#6c7086"
-      TEXT_COLOR="#cdd6f4"
-      ACCENT_COLOR="#b4befe"
+      # theme colors (Everforest)
+      BG_COLOR="#1E2326"
+      ACTIVE_COLOR="#a7c080"
+      INACTIVE_COLOR="#859289"
+      TEXT_COLOR="#d3c6aa"
+      ACCENT_COLOR="#7fbbb3"
 
       # status bar
       set -g status on
@@ -88,7 +93,7 @@
       set -g status-right-length 100
 
       # pane borders
-      set -g pane-border-style "fg=#44475a"
+      set -g pane-border-style "fg=#53605c"
       set -g pane-active-border-style "fg=$ACTIVE_COLOR"
 
       # message style
@@ -101,7 +106,7 @@
       set -g window-status-separator ""
 
       # status left (session name)
-      set -g status-left "#[fg=$ACCENT_COLOR,bold]  #S #[fg=$INACTIVE_COLOR]│ "
+      set -g status-left "#[fg=$ACCENT_COLOR,bold] #S #[fg=$INACTIVE_COLOR]│ "
 
       # Status right (path, CPU, RAM)
       set -g status-right "#[fg=$ACCENT_COLOR]󰉋 #[fg=$TEXT_COLOR]#([ #{pane_current_path} = $HOME ] && echo '~' || basename #{pane_current_path}) #[fg=$INACTIVE_COLOR]│ #[fg=$ACCENT_COLOR]󰍛 #[fg=$TEXT_COLOR]#(top -bn1 | grep 'Cpu(s)' | awk '{print 100 - $8\"%\"}') #[fg=$INACTIVE_COLOR]│ #[fg=$ACCENT_COLOR] #[fg=$TEXT_COLOR]#(free --si | awk '/^Mem/ { printf(\"%.1fG/%.1fG\", \$3/1000000, \$2/1000000) }' | tr ',' '.') "
