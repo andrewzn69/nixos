@@ -46,6 +46,8 @@
             bind -n C-w kill-window
             bind-key -n C-S-H previous-window
             bind-key -n C-S-L next-window
+						bind-key -n C-S-I next-window # ctrl+tab (terminal sends ctrl+shift+i)
+						bind-key -n C-S-N previous-window # ctr+shift+tab
             bind -n C-D detach-client
 
             # pane creation with Ctrl+t+h/j/k/l (Ctrl+t enters pane_create mode)
