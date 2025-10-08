@@ -34,13 +34,17 @@
             # terminal cursor shape changes
             set-option -g terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[ q'
 
-            # vim-like copy mode binds
+            # copy mode binds
+						bind -n C-S-Escape copy-mode
             bind-key -T copy-mode-vi 'v' send -X begin-selection
             bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
             bind-key -T copy-mode-vi 'r' send -X rectangle-toggle
 
             # session rename using prefix + R
             bind R command-prompt -I "#{session_name}" "rename-session '%%'"
+
+            # window rename
+						bind -n C-S-R command-prompt -I "#{window_name}" "rename-window '%%'"
 
             # window management
             bind -n C-w kill-window
