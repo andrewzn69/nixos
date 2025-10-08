@@ -41,5 +41,8 @@
 
     # nixos
     up = "nix flake update --flake ~/.config/nixos && sudo nixos-rebuild switch --flake ~/.config/nixos#dev";
+
+    # etc
+    knowledgebase = "cd /home/zemn/Development/knowledgebase && claude @CLAUDE.md @JOURNAL.md @PROJECTS.md";
   };
 }
