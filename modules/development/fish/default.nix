@@ -5,6 +5,7 @@
     ./aliases.nix
     ./prompt.nix
     ./keybinds.nix
+    ./ssh-tmux.nix
   ];
 
   programs.fish = {
