@@ -26,6 +26,7 @@
     # network tools
     openssh
     rsync
+    mosh
 
     # etc
     claude-code-nix.packages.x86_64-linux.default
