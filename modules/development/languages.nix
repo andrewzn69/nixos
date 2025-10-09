@@ -9,6 +9,9 @@
     nodePackages.npm
     pnpm
 
+    # linting and formatting
+    biome
+
     # shell
   ];
 }
