@@ -37,5 +37,9 @@
     kubectl
     helm
     k9s
+
+    android-tools
   ];
+
+  programs.adb.enable = true;
 }
