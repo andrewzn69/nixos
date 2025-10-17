@@ -37,6 +37,7 @@
     kubectl
     helm
     k9s
+    kubectx
 
     android-tools
   ];
