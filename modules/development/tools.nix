@@ -38,6 +38,7 @@
     kubernetes-helm # `helm` is audio synthesizer wtf??
     k9s
     kubectx
+    argocd
 
     android-tools
   ];
