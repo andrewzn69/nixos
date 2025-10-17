@@ -38,6 +38,7 @@
     h = "helm";
     k = "kubectl";
     kn = "kubectl config set-context --current --namespace";
+    kctx = "kubectx";
 
     # nixos
     up = "nix flake update --flake ~/.config/nixos && sudo nixos-rebuild switch --flake ~/.config/nixos#dev";
