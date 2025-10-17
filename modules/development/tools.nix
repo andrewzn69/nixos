@@ -32,6 +32,7 @@
     claude-code-nix.packages.x86_64-linux.default
     magic-wormhole
     neofetch
+    nfs-utils
 
     # infra
     kubectl
