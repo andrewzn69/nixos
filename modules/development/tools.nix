@@ -35,7 +35,7 @@
 
     # infra
     kubectl
-    helm
+    kubernetes-helm # `helm` is audio synthesizer wtf??
     k9s
     kubectx
 
