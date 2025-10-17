@@ -39,6 +39,7 @@
     k9s
     kubectx
     argocd
+    kubeseal
 
     android-tools
   ];
