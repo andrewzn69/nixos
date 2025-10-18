@@ -42,6 +42,7 @@
     argocd
     kubeseal
     terraform
+    talosctl
 
     android-tools
   ];
