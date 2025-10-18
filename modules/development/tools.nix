@@ -41,6 +41,7 @@
     kubectx
     argocd
     kubeseal
+    terraform
 
     android-tools
   ];
