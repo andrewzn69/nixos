@@ -8,6 +8,7 @@
     nodejs
     nodePackages.npm
     pnpm
+    bash
 
     # linting and formatting
     biome
