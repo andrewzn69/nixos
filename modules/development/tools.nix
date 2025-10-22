@@ -18,6 +18,7 @@
     tree
     tmux
     btop
+    dnsutils
 
     # build tools
     gcc
