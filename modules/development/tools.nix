@@ -15,6 +15,7 @@
     gawk
     wget
     git
+    git-filter-repo
     tree
     tmux
     btop
