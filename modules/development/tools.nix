@@ -20,6 +20,8 @@
     tmux
     btop
     dnsutils
+    podman
+    podman-compose
 
     # build tools
     gcc
