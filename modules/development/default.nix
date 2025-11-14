@@ -9,5 +9,6 @@
     ./editors.nix
     ./tmux.nix
     ./git.nix
+    ./containers.nix
   ];
 }
