@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 
 {
   users.users.zemn = {
@@ -9,6 +9,5 @@
       "wheel"
     ];
     shell = pkgs.fish;
-    packages = with pkgs; [ ];
   };
 }
