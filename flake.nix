@@ -21,6 +21,15 @@
             ./hosts/dev/default.nix
           ];
         };
+
+        # TODO: uncomment when migrating desktop
+        # desktop = nixpkgs.lib.nixosSystem {
+        #   system = "x86_64-linux";
+        #   specialArgs = { inherit claude-code-nix; };
+        #   modules = [
+        #     ./hosts/desktop/default.nix
+        #   ];
+        # };
       };
     };
 }
