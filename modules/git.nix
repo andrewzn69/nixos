@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   programs.git = {
@@ -32,4 +32,8 @@
       };
     };
   };
+
+  environment.systemPackages = with pkgs; [
+    git-filter-repo
+  ];
 }

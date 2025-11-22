@@ -2,6 +2,8 @@
 
 {
   environment.systemPackages = with pkgs; [
-    neovim
+    android-tools
   ];
+
+  programs.adb.enable = true;
 }

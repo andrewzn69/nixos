@@ -2,7 +2,7 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # programming languages
+    # languages
     python3
     python3Packages.pip
     nodejs
@@ -10,9 +10,11 @@
     pnpm
     bash
 
+    # build tools
+    gcc
+    gnumake
+
     # linting and formatting
     biome
-
-    # shell
   ];
 }
