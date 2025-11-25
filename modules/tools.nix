@@ -21,6 +21,7 @@
     magic-wormhole
     fastfetch
     nfs-utils
+    ngrok
     claude-code-nix.packages.x86_64-linux.default
   ];
 }
