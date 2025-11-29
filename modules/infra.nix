@@ -13,5 +13,8 @@
     # iac
     terraform
     talosctl
+
+    # providers
+    oci-cli
   ];
 }
