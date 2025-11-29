@@ -22,6 +22,7 @@
     fastfetch
     nfs-utils
     ngrok
+    qemu-utils
     claude-code-nix.packages.x86_64-linux.default
   ];
 }
