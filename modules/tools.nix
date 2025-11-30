@@ -23,6 +23,7 @@
     nfs-utils
     ngrok
     qemu-utils
+    cosign
     claude-code-nix.packages.x86_64-linux.default
   ];
 }
