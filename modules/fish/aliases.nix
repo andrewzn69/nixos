@@ -43,6 +43,7 @@
     # terraform
     tp = "terraform plan -out .tfplan";
     ta = "terraform apply .tfplan";
+    td = "terraform destroy --auto-approve";
 
     # nixos
     up = "nix flake update --flake ~/.config/nixos && sudo nixos-rebuild switch --flake ~/.config/nixos#dev";
