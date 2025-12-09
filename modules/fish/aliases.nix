@@ -40,6 +40,10 @@
     kn = "kubectl config set-context --current --namespace";
     kctx = "kubectx";
 
+    # terraform
+    tp = "terraform plan -out .tfplan";
+    ta = "terraform apply .tfplan";
+
     # nixos
     up = "nix flake update --flake ~/.config/nixos && sudo nixos-rebuild switch --flake ~/.config/nixos#dev";
 
