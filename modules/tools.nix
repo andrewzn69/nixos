@@ -24,6 +24,7 @@
     ngrok
     qemu-utils
     cosign
+    act
     claude-code-nix.packages.x86_64-linux.default
   ];
 }
