@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    ags = {
+      url = "github:aylur/ags";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -15,6 +19,7 @@
       nixpkgs,
       claude-code-nix,
       home-manager,
+      ags,
       ...
     }:
     {
@@ -37,6 +42,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.zemn = import ./users/zemn/home.nix;
+              home-manager.extraSpecialArgs = { inherit ags; };
             }
           ];
         };
