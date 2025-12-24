@@ -6,6 +6,7 @@
     # ./boot.nix
     # ./hardware.nix
     # ./networking.nix
+    ./defaultsettings.nix
 
     # shared
     ../../modules/base.nix
@@ -18,11 +19,11 @@
 
     # desktop-specific
     ../../modules/hyprland.nix
-    ../../modules/audio.nix
-    ../../modules/gaming.nix
+    # ../../modules/audio.nix
+    # ../../modules/gaming.nix
     ../../modules/apps.nix
   ];
 
   # TODO: set when migrating
-  # system.stateVersion = "25.05";
+  # system.stateVersion = "25.11";
 }

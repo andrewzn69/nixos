@@ -14,6 +14,6 @@
     wl-clipboard
     swaylock
     grimblast
-    rofi-wayland
+    rofi
   ];
 }

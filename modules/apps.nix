@@ -5,7 +5,7 @@
 
   environment.systemPackages = with pkgs; [
     # browsers
-    zen-browser
+    # zen-browser
 
     # communication
     beeper
@@ -20,11 +20,12 @@
 
     # utilities
     qbittorrent
-    thunar
+    xfce.thunar
     gparted
     zathura
     yt-dlp
     wf-recorder
-    bitwarden
+    bitwarden-desktop
+    kitty
   ];
 }
