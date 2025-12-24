@@ -1,19 +1,18 @@
 { pkgs, ... }:
 
 {
-  # TODO: configure when migrating desktop
-
   programs.hyprland.enable = true;
 
   environment.systemPackages = with pkgs; [
     hyprpaper
     hyprpicker
-    waybar
-    swww
-    dunst
+    grimblast
     wl-clipboard
     swaylock
-    grimblast
+    swww
+    # waybar
+    dunst
     rofi
+    wf-recorder
   ];
 }

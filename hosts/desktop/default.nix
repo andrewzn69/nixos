@@ -18,7 +18,7 @@
     ../../users/zemn
 
     # desktop-specific
-    ../../modules/hyprland.nix
+    ../../modules/hyprland
     # ../../modules/audio.nix
     # ../../modules/gaming.nix
     ../../modules/apps.nix
