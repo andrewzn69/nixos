@@ -46,7 +46,7 @@
     td = "terraform destroy --auto-approve";
 
     # nixos
-    up = "nix flake update --flake ~/.config/nixos && sudo nixos-rebuild switch --flake ~/.config/nixos#dev";
+    up = "nix flake update --flake ~/.config/nixos && sudo nixos-rebuild switch --flake ~/.config/nixos#(hostname)";
 
     # etc
     knowledgebase = "cd /home/zemn/Development/knowledgebase && claude @CLAUDE.md @JOURNAL.md @PROJECTS.md";
