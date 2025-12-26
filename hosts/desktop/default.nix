@@ -26,4 +26,6 @@
 
   # TODO: set when migrating
   # system.stateVersion = "25.11";
+
+  services.hardware.openrgb.enable = true;
 }
