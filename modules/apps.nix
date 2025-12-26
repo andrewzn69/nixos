@@ -15,6 +15,8 @@
     # media
     spotify
     spicetify-cli
+    jellyfin-mpv-shim
+    jellyfin-desktop
     mpv
     gimp
 
