@@ -23,6 +23,7 @@
     # utilities
     qbittorrent
     xfce.thunar
+    pavucontrol
     gparted
     zathura
     yt-dlp
