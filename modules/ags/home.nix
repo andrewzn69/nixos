@@ -7,8 +7,8 @@
     enable = true;
   };
 
-  home.file.".config/ags" = {
-    source = ./config;
-    recursive = true;
-  };
+  # home.file.".config/ags" = {
+  #   source = ./config;
+  #   recursive = true;
+  # };
 }
