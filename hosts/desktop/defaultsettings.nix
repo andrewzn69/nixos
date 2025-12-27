@@ -31,7 +31,7 @@
   boot.kernelParams = [ "resume=/dev/vg0/swap" ];
 
   # Use latest kernel.
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
   networking.hostName = "desktop";
 
