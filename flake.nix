@@ -12,6 +12,7 @@
       url = "github:aylur/ags";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    zen-browser.url = "github:0xc000022070/zen-browser-flake";
   };
 
   outputs =
@@ -20,6 +21,7 @@
       claude-code-nix,
       home-manager,
       ags,
+      zen-browser,
       ...
     }:
     {
@@ -42,7 +44,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.zemn = import ./users/zemn/home.nix;
-              home-manager.extraSpecialArgs = { inherit ags; };
+              home-manager.extraSpecialArgs = { inherit ags zen-browser; };
             }
           ];
         };
