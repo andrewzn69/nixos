@@ -16,6 +16,7 @@
 
       extensions.packages = with firefox-addons.packages.${pkgs.system}; [
         ublock-origin
+        dearrow
       ];
 
       settings = {
