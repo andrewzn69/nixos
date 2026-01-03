@@ -22,7 +22,7 @@
 
     # utilities
     qbittorrent
-    xfce.thunar
+    thunar
     pavucontrol
     gparted
     zathura
