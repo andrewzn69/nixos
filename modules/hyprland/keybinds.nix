@@ -3,7 +3,7 @@
 let
   scriptsDir = "$HOME/.config/hypr/scripts";
   term = "kitty";
-  browser = "zemn-browser";
+  browser = "zen";
   files = "thunar";
   screenshot = "${scriptsDir}/screenshit.sh";
   colorpicker = "${scriptsDir}/colorpicker.sh";

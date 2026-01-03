@@ -10,7 +10,7 @@
       # "systemctl --user restart pipewire"
       "hyprpaper"
       "hyprpanel"
-      "[workspace 1 silent] zen-browser"
+      "[workspace 1 silent] zen"
       "[workspace 2 silent] beeper"
       "[workspace 6 silent] spotify"
       "[workspace 7 silent] evolution"
