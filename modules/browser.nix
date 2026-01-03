@@ -12,6 +12,8 @@
     enable = true;
 
     profiles.default = {
+      force = true;
+
       extensions.packages = with firefox-addons.packages.${pkgs.system}; [
         ublock-origin
       ];
