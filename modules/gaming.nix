@@ -1,12 +1,24 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
-  # TODO: configure when migrating desktop
-
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
+  };
 
   environment.systemPackages = with pkgs; [
     protonup-qt
     protontricks
   ];
+
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "steam"
+      "steam-original"
+      "steam-unwrapped"
+      "steam-run"
+    ];
 }
