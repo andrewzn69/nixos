@@ -4,7 +4,7 @@
   imports = [
     ../../modules/hyprland/home.nix
     ../../modules/ags/home.nix
-    ../../modules/browser.nix
+    ../../modules/browser
     ../../modules/theme.nix
   ];
 
