@@ -55,6 +55,15 @@
     fsType = "ext4";
   };
 
+  fileSystems."/mnt" = {
+    device = "/dev/disk/by-uuid/381BD5331FAC60A0";
+    fsType = "ntfs-3g";
+    options = [
+      "rw"
+      "uid=1000"
+    ];
+  };
+
   swapDevices = [
     { device = "/dev/mapper/vg0-swap"; }
   ];
