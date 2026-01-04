@@ -20,7 +20,7 @@
     # desktop-specific
     ../../modules/hyprland
     # ../../modules/audio.nix
-    # ../../modules/gaming.nix
+    ../../modules/gaming.nix
     ../../modules/apps.nix
   ];
 
