@@ -8,7 +8,6 @@
       border_size = 2;
       "col.active_border" = "0xff6A3837";
       "col.inactive_border" = "0xff2A2B2C";
-      no_border_on_floating = false;
     };
 
     decoration = {
@@ -32,11 +31,6 @@
         # range = 10;
         # render_power = 5;
       };
-
-      blurls = [
-        "waybar"
-        "lockscreen"
-      ];
     };
   };
 }
