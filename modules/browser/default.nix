@@ -31,6 +31,7 @@ in
           }
         ) (lib.filterAttrs (_n: v: v ? settings && v.settings != { }) extensions);
       };
+      search = import ./engines.nix;
       settings = import ./settings.nix;
     };
   };
