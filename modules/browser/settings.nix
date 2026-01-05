@@ -1,5 +1,7 @@
 {
   "browser.tabs.warnOnClose" = false;
+  "browser.tabs.closeWindowWithLastTab" = false;
+  "browser.startup.couldRestoreSession.count" = -1;
 
   # allow extensions to be enabled automatically
   "extensions.autoDisableScopes" = 0;
@@ -14,4 +16,9 @@
   "startup.homepage_override_url" = "";
   "browser.messaging-system.whatsNewPanel.enabled" = false;
   "browser.startup.firstrunSkipsHomepage" = true;
+
+  "browser.aboutConfig.showWarning" = false;
+  "signon.rememberSignons" = false;
+
+  "findbar.highlightAll" = true;
 }
