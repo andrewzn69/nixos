@@ -10,7 +10,12 @@
   DisableFirefoxStudies = true;
   DisablePocket = true;
   DisableFirefoxAccounts = true;
+  DisableAccounts = true;
   DisableFeedbackCommands = true;
+  DisableSystemAddonUpdate = true;
+  DisableProfileUpdate = true;
+  DisableDeveloperTools = false;
+  DisableFirefoxScreenshots = true;
 
   # updates
   DisableAppUpdate = true;
