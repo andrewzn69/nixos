@@ -58,4 +58,11 @@
   dearrow = {
     id = "deArrow@ajay.app";
   };
+  return-youtube-dislikes = { };
+  react-devtools = { };
+  # wappalyzer = { };
+  bitwarden = { };
+  stylus = { };
+  tabliss = { };
+  violentmonkey = { };
 }
