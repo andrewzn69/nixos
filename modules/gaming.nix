@@ -11,6 +11,17 @@
   environment.systemPackages = with pkgs; [
     protonup-qt
     protontricks
+    cabextract
+
+    dxvk
+    vkd3d
+
+    winetricks
+    faudio
+
+    gamemode
+    gamescope
+    mangohud
   ];
 
   nixpkgs.config.allowUnfreePredicate =
