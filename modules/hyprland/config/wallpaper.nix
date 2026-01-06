@@ -10,11 +10,11 @@
       wallpaper = [
         {
           monitor = "DP-3";
-          path = "$HOME/Pictures/wallpapers/gruvbox/TPR6JQ.jpg";
+          path = "$HOME/Pictures/wallpapers/gruvbox/GTIH6J.jpg";
         }
         {
           monitor = "HDMI-A-1";
-          path = "$HOME/Pictures/wallpapers/gruvbox/TPR6JQ.jpg";
+          path = "$HOME/Pictures/wallpapers/gruvbox/GTIH6J.jpg";
         }
       ];
     };
