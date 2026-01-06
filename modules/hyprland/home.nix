@@ -11,6 +11,7 @@
     ./config/keybinds.nix
     ./config/startup.nix
     ./config/windowrules.nix
+    ./config/wallpaper.nix
   ];
 
   wayland.windowManager.hyprland.enable = true;
