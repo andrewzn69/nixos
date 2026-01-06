@@ -15,5 +15,6 @@
     rofi
     wf-recorder
     hyprshade
+    wlsunset
   ];
 }
