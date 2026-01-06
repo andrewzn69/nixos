@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 
 {
   force = true;
@@ -12,6 +12,12 @@
       urls = [ { template = "https://www.startpage.com/sp/search?query={searchTerms}"; } ];
       iconMapObj."32" = "https://www.startpage.com/favicon.ico";
       definedAliases = [ "@sp" ];
+    };
+    nix-packages = {
+      name = "Nix Packages";
+      urls = [ { template = "https://search.nixos.org/packages?channel=unstable&query={searchTerms}"; } ];
+      icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
+      definedAliases = [ "@np" ];
     };
   };
 }
