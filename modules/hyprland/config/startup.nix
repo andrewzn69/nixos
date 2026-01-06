@@ -8,7 +8,7 @@
       # "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       # "/usr/lib/polkit-kde-authentication-agent-1"
       # "systemctl --user restart pipewire"
-      "hyprpanel"
+      "ags"
       "[workspace 1 silent] zen"
       "[workspace 2 silent] beeper"
       "[workspace 6 silent] spotify"
