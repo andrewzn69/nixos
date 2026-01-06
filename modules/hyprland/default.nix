@@ -14,5 +14,6 @@
     dunst
     rofi
     wf-recorder
+    hyprshade
   ];
 }
