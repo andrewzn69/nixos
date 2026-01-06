@@ -7,12 +7,15 @@
       ipc = "on";
       splash = false;
 
-      preload = [
-        "$HOME/Pictures/wallpapers/gruvbox/TPR6JQ.jpg"
-      ];
       wallpaper = [
-        "DP-3,$HOME/Pictures/wallpapers/gruvbox/TPR6JQ.jpg"
-        "HDMI-A-1,$HOME/Pictures/wallpapers/gruvbox/TPR6JQ.jpg"
+        {
+          monitor = "DP-3";
+          path = "$HOME/Pictures/wallpapers/gruvbox/TPR6JQ.jpg";
+        }
+        {
+          monitor = "HDMI-A-1";
+          path = "$HOME/Pictures/wallpapers/gruvbox/TPR6JQ.jpg";
+        }
       ];
     };
   };
