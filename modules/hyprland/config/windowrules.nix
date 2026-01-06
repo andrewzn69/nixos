@@ -30,7 +30,7 @@
       "workspace 2,class:^(vesktop)$"
       "workspace 2,class:^(org.kotatogram.desktop)$"
       # "workspace 2,class:^(beeper)$"
-      "workspace 6,class:^(spotify)$"
+      "workspace 6,class:^(Spotify)$"
       "workspace 8,class:^(Steam)$"
       "workspace 8,class:^(steam)$"
       "workspace 8,class:^(steamwebhelper)$"
