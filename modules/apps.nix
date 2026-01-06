@@ -19,6 +19,7 @@
     jellyfin-desktop
     mpv
     gimp
+    xviewer
 
     # utilities
     qbittorrent
