@@ -14,9 +14,9 @@
       "openrgb --profile red" # run twice since it sometimes doesnt apply correctly on the first run
       "[workspace 1 silent] zen"
       "[workspace 2 silent] beeper"
-      "[workspace 6 silent] spotify"
+      "spotify"
       "[workspace 7 silent] evolution"
-      "[workspace 8 silent] steam"
+      "steam"
       "syncthing --no-browser"
       # "$HOME/Development/lights/lighton.sh"
     ];
