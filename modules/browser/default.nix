@@ -31,7 +31,7 @@ in
           }
         ) (lib.filterAttrs (_n: v: v ? settings && v.settings != { }) extensions);
       };
-      search = import ./engines.nix;
+      search = import ./engines.nix { inherit pkgs; };
       settings = import ./settings.nix;
     };
   };
