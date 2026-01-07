@@ -2,7 +2,6 @@
 
 {
   imports = [
-    # TODO: add these when i have actual hardware
     # ./boot.nix
     # ./hardware.nix
     # ./networking.nix
@@ -22,10 +21,8 @@
     # ../../modules/audio.nix
     ../../modules/gaming.nix
     ../../modules/apps.nix
+    ../../modules/fonts.nix
   ];
-
-  # TODO: set when migrating
-  # system.stateVersion = "25.11";
 
   services.hardware.openrgb.enable = true;
 }
