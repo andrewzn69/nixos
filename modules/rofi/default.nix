@@ -50,6 +50,13 @@ in
     enable = true;
     plugins = [ pkgs.rofi-emoji ]; # emoji picker plugin
     theme = drunTheme;
+
+    extraConfig = {
+      modi = "drun";
+      show-icons = true;
+      display-drun = "󰍉";
+      drun-display-format = "{name} [({exec})]";
+    };
   };
 
   home.file = {

@@ -34,15 +34,16 @@ with theme;
 
   inputbar = {
     enabled = true;
-    spacing = 28;
+    spacing = 10;
     margin = 0;
     padding = 15;
     border = mkLiteral "0px solid";
+    border-radius = 0;
     border-color = colors.selected;
     background-color = colors.background;
     text-color = colors.foreground;
     children = map mkLiteral [
-      "promt"
+      "prompt"
       "entry"
     ];
   };
@@ -51,15 +52,24 @@ with theme;
     enabled = true;
     background-color = mkLiteral "inherit";
     text-color = mkLiteral "inherit";
+    margin = 0;
+    padding = 0;
+  };
+
+  textbox-prompt-colon = {
+    enabled = false;
   };
 
   entry = {
     enabled = true;
+    expand = true;
     background-color = mkLiteral "inherit";
     text-color = mkLiteral "inherit";
     cursor = mkLiteral "text";
     placeholder = "Search...";
     placeholder-color = mkLiteral "inherit";
+    margin = 0;
+    padding = 0;
   };
 
   listview = {
