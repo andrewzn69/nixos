@@ -73,6 +73,10 @@ with theme;
     text-color = colors.background;
   };
 
+  element-icon = {
+    enabled = false;
+  };
+
   element-text = {
     font = fonts.icons;
     background-color = mkLiteral "transparent";
