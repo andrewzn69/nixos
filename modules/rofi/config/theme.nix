@@ -17,6 +17,6 @@ in
   fonts = {
     main = "Ubuntu Nerd Font 12";
     emoji = "Noto Color Emoji 27";
-    icons = "feather bold 32";
+    icons = "Ubuntu Nerd Font 32";
   };
 }
