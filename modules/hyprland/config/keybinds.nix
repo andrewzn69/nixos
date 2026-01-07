@@ -83,9 +83,9 @@ in
       "$mainMod, M, exec, ${files}"
 
       # rofi
-      # "$mainMod, D, exec, killall rofi || rofi -show drun -theme ~/.config/rofi/global/rofi.rasi"
-      # "$mainMod, period, exec, killall rofi || rofi -show emoji -emoji-format '{emoji}' -modi emoji -theme ~/.config/rofi/global/emoji"
-      # "$mainMod, code:115, exec, killall rofi || $HOME/.config/rofi/scripts/powermenu.sh"
+      "$mainMod, D, exec, killall rofi || rofi -show drun"
+      "$mainMod, period, exec, killall rofi || rofi -show emoji -emoji-format '{emoji}' -modi emoji"
+      "$mainMod, code:115, exec, killall rofi || $HOME/.config/rofi/scripts/powermenu.sh"
 
       # screenshots
       ", Print, exec, ${screenshot} area"
