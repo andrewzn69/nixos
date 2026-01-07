@@ -6,11 +6,11 @@ pkgs.writeShellScript "rofi-powermenu" ''
 
   uptime="$(uptime -p | sed -e 's/up //g')"
 
-  hibernate='󰒲'
-  shutdown='⏻'
-  reboot='󰜉'
-  lock='󰌾'
-  suspend='󰤄'
+  hibernate='󰽥'
+  shutdown=''
+  reboot=''
+  lock=''
+  suspend='󰒲'
   logout='󰍃'
 
   rofi_cmd() {
