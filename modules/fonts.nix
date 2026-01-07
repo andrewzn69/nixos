@@ -2,13 +2,9 @@
 
 {
   fonts.packages = with pkgs; [
-    (nerdfonts.override {
-      fonts = [
-        "Ubuntu"
-        "JetBrainsMono"
-      ];
-    })
-    noto-fonts-emoji
+    nerd-fonts.ubuntu
+    nerd-fonts.jetbrains-mono
+    noto-fonts-color-emoji
 
     # TODO: add CartographCF later
   ];
