@@ -31,5 +31,6 @@
     wf-recorder
     bitwarden-desktop
     kitty
+    scrcpy
   ];
 }
