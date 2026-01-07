@@ -1,10 +1,17 @@
 { pkgs }:
 
 pkgs.writeShellScript "rofi-powermenu" ''
-  dir="$HOME/.config/rofi"
+  dir="''$HOME/.config/rofi"
   theme='powermenu'
 
-  uptime="$(uptime -p | sed -e 's/up //g')"
+  uptime_sec=''$(awk '{print int(''$1)}' /proc/uptime)
+  days=''$((uptime_sec / 86400))
+  hours=''$((uptime_sec % 86400 / 3600))
+  mins=''$((uptime_sec % 3600 / 60))
+  [ ''$days -eq 1 ] && d='day' || d='days'
+  [ ''$hours -eq 1 ] && h='hour' || h='hours'
+  [ ''$mins -eq 1 ] && m='minute' || m='minutes'
+	uptime="''$days ''$d ''$hours ''$h ''$mins ''$m"
 
   hibernate='󰽥'
   shutdown=''
@@ -15,32 +22,32 @@ pkgs.writeShellScript "rofi-powermenu" ''
 
   rofi_cmd() {
   	rofi -dmenu \
-  		-mesg "Uptime: $uptime" \
+  		-mesg "Uptime: ''$uptime" \
   		-theme "''${dir}/''${theme}".rasi
   }
 
   run_rofi() {
-  	echo -e "$suspend\n$reboot\n$shutdown\n$lock\n$logout\n$hibernate" | rofi_cmd
+  	echo -e "''$suspend\n''$reboot\n''$shutdown\n''$lock\n''$logout\n''$hibernate" | rofi_cmd
   }
 
     chosen="$(run_rofi)"
     case ''${chosen} in
-      "$shutdown")
+      "''$shutdown")
         systemctl poweroff
         ;;
-      "$reboot")
+      "''$reboot")
         systemctl reboot
         ;;
-      "$hibernate")
+      "''$hibernate")
         systemctl hibernate
         ;;
-      "$lock")
+      "''$lock")
         swaylock -c 000000
         ;;
-      "$suspend")
+      "''$suspend")
         systemctl suspend
         ;;
-      "$logout")
+      "''$logout")
         hyprctl dispatch exit
         ;;
     esac
