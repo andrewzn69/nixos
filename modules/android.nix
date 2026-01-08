@@ -5,6 +5,4 @@
     android-tools
     eas-cli
   ];
-
-  programs.adb.enable = true;
 }
