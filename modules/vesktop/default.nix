@@ -1,7 +1,7 @@
 { nixcord, pkgs, ... }:
 
 {
-  imports = [ nixcord.homeManagerModules.nixcord ];
+  imports = [ nixcord.homeModules.nixcord ];
 
   programs.nixcord = {
     enable = true;
