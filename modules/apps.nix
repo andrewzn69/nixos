@@ -9,7 +9,7 @@
 
     # communication
     beeper
-    # vesktop
+    vesktop
     kotatogram-desktop
 
     # media
