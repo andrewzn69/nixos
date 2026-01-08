@@ -1,16 +1,16 @@
 {
-  betterUploadButton.enable = true;
-  showHiddenChannels.enable = true;
-  clearURLs.enable = true;
+  BetterUploadButton.enable = true;
+  ShowHiddenChannels.enable = true;
+  ClearURLs.enable = true;
 
-  messageLogger = {
+  MessageLogger = {
     enable = true;
     deleteStyle = "overlay";
     logDeletes = true;
     logEdits = true;
   };
 
-  betterRoleDot = {
+  BetterRoleDot = {
     enable = true;
     copyRoleColorInProfilePopout = true;
   };
