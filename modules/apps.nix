@@ -1,15 +1,9 @@
 { pkgs, ... }:
 
 {
-  # TODO: configure when migrating desktop
-
   environment.systemPackages = with pkgs; [
-    # browsers
-    # zen-browser
-
     # communication
     beeper
-    vesktop
     kotatogram-desktop
 
     # media
