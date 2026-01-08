@@ -1,17 +1,36 @@
 {
-  BetterUploadButton.enable = true;
-  ShowHiddenChannels.enable = true;
-  ClearURLs.enable = true;
-
-  MessageLogger = {
+  anonymiseFileNames = {
     enable = true;
-    deleteStyle = "overlay";
-    logDeletes = true;
-    logEdits = true;
+    anonymiseByDefault = true;
+    consistent = "image";
+    method = 0; # random characters
   };
 
-  BetterRoleDot = {
+  showHiddenChannels = {
     enable = true;
-    copyRoleColorInProfilePopout = true;
+    channelStyle = 0; # classic
+  };
+
+  ClearURLs = {
+    enable = true;
+  };
+
+  messageLogger = {
+    enable = true;
+    collapseDeleted = false;
+    deleteStyle = "overlay";
+  };
+
+  ircColors = {
+    enable = true;
+    applyColorOnlyInDms = false;
+    applyColorOnlyToUsersWithoutColor = false;
+    lightness = 70;
+    memberListColors = true;
+  };
+
+  imageFilename = {
+    enable = true;
+    showFullUrl = false;
   };
 }
