@@ -13,6 +13,10 @@
 /* import theme modules */
 @import url('https://refact0r.github.io/midnight-discord/build/midnight.css');
 
+* {
+	border-radius: 0 !important;
+}
+
 body {
 	/* font, change to '' for default discord font */
 	--font: 'figtree';
