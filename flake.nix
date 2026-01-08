@@ -28,6 +28,7 @@
       ags,
       zen-browser,
       firefox-addons,
+      nixcord,
       ...
     }:
     {
@@ -50,7 +51,7 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.zemn = import ./users/zemn/home.nix;
-              home-manager.extraSpecialArgs = { inherit ags zen-browser firefox-addons; };
+              home-manager.extraSpecialArgs = { inherit ags zen-browser firefox-addons nixcord; };
             }
           ];
         };
