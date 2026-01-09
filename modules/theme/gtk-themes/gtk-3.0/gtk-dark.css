@@ -44484,7 +44484,7 @@ filechooser .dialog-action-box {
 
 filechooser #pathbarbox {
   border-bottom: 1px solid rgba(249, 245, 215, 0.12);
-  background-color: #1d2021;
+  background-color: #2A2B2C;
 }
 
 filechooser stack.view {
@@ -44646,7 +44646,7 @@ placessidebar.sidebar row > revealer {
 }
 
 placessidebar.sidebar row:selected {
-  background-color: #eee0b7;
+  background-color: #2A2B2C;
   font-weight: 500;
 }
 
