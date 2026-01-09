@@ -65,4 +65,7 @@
   stylus = { };
   tabliss = { };
   violentmonkey = { };
+  istilldontcareaboutcookies = { };
+  reddit-enhancement-suite = { };
+  refined-github = { };
 }
