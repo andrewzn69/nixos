@@ -51060,12 +51060,14 @@ XfdesktopIconView.view .rubberband {
  * Thunar *
  **********/
 .thunar #location-toolbar,
-window.background.csd.thunar toolbar#location-toolbar {
+window.background.csd.thunar toolbar#location-toolbar,
+ThunarPathentry {
   border-bottom: 1px solid rgba(249, 245, 215, 0.12);
   background-color: #2A2B2C;
 }
 
-window.background.csd.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane treeview.view:selected {
+window.background.csd.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane treeview.view:selected,
+ThunarShortcutsView.view:selected {
   background-color: #2A2B2C;
   color: #f9f5d7;
 }
