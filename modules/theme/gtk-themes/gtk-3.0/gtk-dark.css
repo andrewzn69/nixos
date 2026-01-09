@@ -39459,8 +39459,8 @@ filechooser
   flowbox
   treeview.view:not(.progressbar):not(.trough)
   .rubberband {
-  border: 1px solid #eee0b7;
-  background-color: rgba(238, 224, 183, 0.3);
+  border: 1px solid #6A3837;
+  background-color: rgba(42, 43, 44, 0.6);
 }
 
 flowbox flowboxchild {
