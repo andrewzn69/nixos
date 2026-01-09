@@ -281,8 +281,8 @@ window#gnome-system-monitor.background.csd
   > scrolledwindow
   treeview.view:selected:not(.progressbar):not(.trough),
 filechooser stack.view scrolledwindow treeview.view:selected {
-  color: #f9f5d7;
-  background-color: #2A2B2C;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #eee0b7;
 }
 
 .linked:not(.vertical) > button,
@@ -51058,9 +51058,15 @@ XfdesktopIconView.view .rubberband {
 /**********
  * Thunar *
  **********/
-.thunar #location-toolbar {
+.thunar #location-toolbar,
+window.background.csd.thunar toolbar#location-toolbar {
   border-bottom: 1px solid rgba(249, 245, 215, 0.12);
   background-color: #2A2B2C;
+}
+
+window.background.csd.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane treeview.view:selected {
+  background-color: #2A2B2C;
+  color: #f9f5d7;
 }
 
 .thunar .standard-view.frame {
