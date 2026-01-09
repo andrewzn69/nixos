@@ -9,11 +9,11 @@
 /* widget base background color */
 @define-color theme_bg_color #1d2021;
 /* text widgets and the like base background color */
-@define-color theme_base_color #32302f;
+@define-color theme_base_color #2A2B2C;
 /* base background color of selections */
-@define-color theme_selected_bg_color #eee0b7;
+@define-color theme_selected_bg_color #2A2B2C;
 /* text/foreground color of selections */
-@define-color theme_selected_fg_color rgba(0, 0, 0, 0.87);
+@define-color theme_selected_fg_color #f9f5d7;
 /* base background color of insensitive widgets */
 @define-color insensitive_bg_color #1d2021;
 /* text foreground color of insensitive widgets */
@@ -29,9 +29,9 @@
 /* text widgets and the like base background color on backdrop windows */
 @define-color theme_unfocused_base_color #1d2021;
 /* base background color of selections on backdrop windows */
-@define-color theme_unfocused_selected_bg_color #eee0b7;
+@define-color theme_unfocused_selected_bg_color #2A2B2C;
 /* text/foreground color of selections on backdrop windows */
-@define-color theme_unfocused_selected_fg_color rgba(0, 0, 0, 0.87);
+@define-color theme_unfocused_selected_fg_color #f9f5d7;
 /* insensitive color on backdrop windows */
 @define-color unfocused_insensitive_color rgba(249, 245, 215, 0.5);
 /* widgets main borders color */
@@ -51058,17 +51058,8 @@ XfdesktopIconView.view .rubberband {
 /**********
  * Thunar *
  **********/
-.thunar #location-toolbar,
-window.background.csd.thunar toolbar#location-toolbar,
-ThunarPathentry {
+.thunar #location-toolbar {
   border-bottom: 1px solid rgba(249, 245, 215, 0.12);
-  background-color: #2A2B2C;
-}
-
-window.background.csd.thunar > grid.horizontal > paned.horizontal > scrolledwindow.frame.sidebar.shortcuts-pane treeview.view:selected,
-ThunarShortcutsView.view:selected {
-  background-color: #2A2B2C;
-  color: #f9f5d7;
 }
 
 .thunar .standard-view.frame {
