@@ -259,8 +259,8 @@ window#gnome-system-monitor.background.csd
   treeview.view:selected:not(.progressbar):not(.trough),
 .background.csd filechooser stack.view scrolledwindow treeview.view:selected,
 filechooser stack.view scrolledwindow .background.csd treeview.view:selected {
-  color: #eee0b7;
-  background-color: rgba(238, 224, 183, 0.2);
+  color: #F9F5D7;
+  background-color: #2A2B2C;
 }
 
 .nemo-window .nemo-window-pane widget.entry:selected,
