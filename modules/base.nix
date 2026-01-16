@@ -43,6 +43,9 @@
     XDG_CONFIG_HOME = "$HOME/.config";
     XDG_CACHE_HOME = "$HOME/.cache";
 
+    # claude
+    ANTHROPIC_MODEL = "claude-sonnet-4-5-20250929";
+
     # ???
     ANSIBLE_NOCOWS = "1";
   };
