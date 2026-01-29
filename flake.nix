@@ -18,6 +18,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixcord.url = "github:kaylorben/nixcord";
+    PolyMC.url = "github:PolyMC/PolyMC";
   };
 
   outputs =
@@ -29,6 +30,7 @@
       zen-browser,
       firefox-addons,
       nixcord,
+      PolyMC,
       ...
     }:
     {
@@ -43,7 +45,7 @@
 
         desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit claude-code-nix; };
+          specialArgs = { inherit claude-code-nix PolyMC; };
           modules = [
             ./hosts/desktop/default.nix
             home-manager.nixosModules.home-manager
@@ -51,7 +53,14 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.zemn = import ./users/zemn/home.nix;
-              home-manager.extraSpecialArgs = { inherit ags zen-browser firefox-addons nixcord; };
+              home-manager.extraSpecialArgs = {
+                inherit
+                  ags
+                  zen-browser
+                  firefox-addons
+                  nixcord
+                  ;
+              };
             }
           ];
         };
