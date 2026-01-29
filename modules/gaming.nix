@@ -31,6 +31,8 @@
     gamescope
     mangohud
 
+    lutris
+
     polymc
   ];
 
