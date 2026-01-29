@@ -16,5 +16,6 @@
     wf-recorder
     hyprshade
     hyprsunset
+    playerctl
   ];
 }
