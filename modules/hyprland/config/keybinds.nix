@@ -110,8 +110,8 @@ in
       # ", code:123, exec, $HOME/Development/lights/lightson.sh"
       # ", code:121, exec, $HOME/Development/lights/lightsoff.sh"
 
-      # wlsunset
-      # ", code: 174, exec wlsunset"
+      # hyprsunset
+      ", code:174, exec, pkill hyprsunset || hyprsunset -t 3000"
 
       # lock screen
       "$mainMod SHIFT, Tab, exec, swaylock -c 000000"
