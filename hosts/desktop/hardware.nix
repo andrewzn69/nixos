@@ -28,6 +28,15 @@
   ];
   boot.kernelModules = [ "kvm-amd" ];
   boot.extraModulePackages = [ ];
+  boot.kernelPatches = [
+    {
+      name = "disable-nova";
+      patch = null;
+      structuredExtraConfig = with lib.kernel; {
+        DRM_NOVA = lib.mkForce no;
+      };
+    }
+  ];
 
   services.xserver.videoDrivers = [ "amdgpu" ];
 
