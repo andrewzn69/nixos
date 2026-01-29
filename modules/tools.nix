@@ -25,6 +25,7 @@
     qemu-utils
     cosign
     act
+    p7zip
     # ggshield
     claude-code-nix.packages.x86_64-linux.default
   ];
