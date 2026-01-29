@@ -1,4 +1,9 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  PolyMC,
+  ...
+}:
 
 {
   programs.steam = {
@@ -24,6 +29,8 @@
     gamemode
     gamescope
     mangohud
+
+    polymc
   ];
 
   nixpkgs.config.allowUnfreePredicate =
@@ -34,4 +41,8 @@
       "steam-unwrapped"
       "steam-run"
     ];
+
+  nixpkgs.overlays = [
+    PolyMC.overlay
+  ];
 }
