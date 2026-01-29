@@ -26,6 +26,7 @@
     cosign
     act
     p7zip
+    psmisc # small proc filesystem utils
     # ggshield
     claude-code-nix.packages.x86_64-linux.default
   ];
