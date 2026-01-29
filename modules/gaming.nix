@@ -24,6 +24,7 @@
     vkd3d
 
     winetricks
+    winePackages.fonts
     faudio
 
     gamemode
