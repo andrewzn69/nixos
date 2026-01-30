@@ -14,6 +14,10 @@ in
   wayland.windowManager.hyprland.settings = {
     "$mainMod" = "SUPER";
 
+    binds = {
+      workspace_back_and_forth = true;
+    };
+
     bind = [
       # window manipulation
       "$mainMod SHIFT, Q, killactive,"
@@ -53,30 +57,6 @@ in
       "$mainMod CTRL, up, resizeactive, 0 -20"
       "$mainMod CTRL, down, resizeactive, 0 20"
 
-      # switch workspace
-      "$mainMod, 1, workspace, 1"
-      "$mainMod, 2, workspace, 2"
-      "$mainMod, 3, workspace, 3"
-      "$mainMod, 4, workspace, 4"
-      "$mainMod, 5, workspace, 5"
-      "$mainMod, 6, workspace, 6"
-      "$mainMod, 7, workspace, 7"
-      "$mainMod, 8, workspace, 8"
-      "$mainMod, 9, workspace, 9"
-      "$mainMod, 0, workspace, 10"
-
-      # move to workspace
-      "$mainMod SHIFT, 1, movetoworkspace, 1"
-      "$mainMod SHIFT, 2, movetoworkspace, 2"
-      "$mainMod SHIFT, 3, movetoworkspace, 3"
-      "$mainMod SHIFT, 4, movetoworkspace, 4"
-      "$mainMod SHIFT, 5, movetoworkspace, 5"
-      "$mainMod SHIFT, 6, movetoworkspace, 6"
-      "$mainMod SHIFT, 7, movetoworkspace, 7"
-      "$mainMod SHIFT, 8, movetoworkspace, 8"
-      "$mainMod SHIFT, 9, movetoworkspace, 9"
-      "$mainMod SHIFT, 0, movetoworkspace, 10"
-
       # programs
       "$mainMod, Return, exec, ${term}"
       "$mainMod SHIFT, Return, exec, ${browser}"
@@ -115,7 +95,15 @@ in
 
       # lock screen
       "$mainMod SHIFT, Tab, exec, swaylock -c 000000"
-    ];
+    ]
+    # switch workspace
+    ++ (map (i: "$mainMod, ${toString (if i == 10 then 0 else i)}, workspace, ${toString i}") (
+      builtins.genList (x: x + 1) 10
+    ))
+    # move to workspace
+    ++ (map (
+      i: "$mainMod SHIFT, ${toString (if i == 10 then 0 else i)}, movetoworkspace, ${toString i}"
+    ) (builtins.genList (x: x + 1) 10));
 
     # mouse binds for window manipulation
     bindm = [
