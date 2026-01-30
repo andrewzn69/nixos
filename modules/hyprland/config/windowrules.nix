@@ -2,50 +2,50 @@
 
 {
   wayland.windowManager.hyprland.settings = {
-    windowrulev2 = [
+    windowrule = [
       # float
-      "float,class:^(org.kde.polkit-kde-authentication-agent-1)$"
-      "float,class:^(pavucontrol)$"
-      "float,class:^(file_progress)$"
-      "float,class:^(confirm)$"
-      "float,class:^(dialog)$"
-      "float,class:^(download)$"
-      "float,class:^(notification)$"
-      "float,class:^(error)$"
-      "float,class:^(confirmreset)$"
-      "float,title:^(Media viewer)$"
-      "float,title:^(Volume Control)$"
-      "float,title:^(Picture-in-Picture)$"
-      "float,title:^(DevTools)$"
-      "float,title:^(Open File)$"
-      "float,title:^(branchdialog)$"
-      "float,title:^(Confirm to replace files)$"
-      "float,title:^(File Operation Progress)$"
+      "match:class ^(org.kde.polkit-kde-authentication-agent-1)$, float"
+      "match:class ^(pavucontrol)$, float"
+      "match:class ^(file_progress)$, float"
+      "match:class ^(confirm)$, float"
+      "match:class ^(dialog)$, float"
+      "match:class ^(download)$, float"
+      "match:class ^(notification)$, float"
+      "match:class ^(error)$, float"
+      "match:class ^(confirmreset)$, float"
+      "match:title ^(Media viewer)$, float"
+      "match:title ^(Volume Control)$, float"
+      "match:title ^(Picture-in-Picture)$, float"
+      "match:title ^(DevTools)$, float"
+      "match:title ^(Open File)$, float"
+      "match:title ^(branchdialog)$, float"
+      "match:title ^(Confirm to replace files)$, float"
+      "match:title ^(File Operation Progress)$, float"
 
       # position
-      "move 75 44%,title:^(Volume Control)$"
+      "match:title ^(Volume Control)$, move 75 44%"
 
       # workspace
-      "workspace 1,class:^(firefox)$"
-      "workspace 2,class:^(vesktop)$"
-      "workspace 2,class:^(org.kotatogram.desktop)$"
-      # "workspace 2,class:^(beeper)$"
-      "workspace 6,class:^(Spotify)$"
-      "workspace 8,class:^(Steam)$"
-      "workspace 8,class:^(steam)$"
-      "workspace 8,class:^(steamwebhelper)$"
+      "match:class ^(firefox)$, workspace 1"
+      "match:class ^(vesktop)$, workspace 2"
+      "match:class ^(org.kotatogram.desktop)$, workspace 2"
+      # "match:class ^(beeper)$, workspace 2"
+      "match:class ^(Spotify)$, workspace 6"
+      "match:class ^(Steam)$, workspace 8"
+      "match:class ^(steam)$, workspace 8"
+      "match:class ^(steamwebhelper)$, workspace 8"
 
       # size
-      "size 800 600,class:^(download)$"
-      "size 800 600,class:^(Open File)$"
-      "size 800 600,class:^(Save File)$"
-      "size 800 600,class:^(Volume Control)$"
+      "match:class ^(download)$, size 800 600"
+      "match:class ^(Open File)$, size 800 600"
+      "match:class ^(Save File)$, size 800 600"
+      "match:title ^(Volume Control)$, size 800 600"
 
       # XWaylandVideoBridge
-      "opacity 0.0 override 0.0 override,class:^(xwaylandvideobridge)$"
-      "noanim,class:^(xwaylandvideobridge)$"
-      "nofocus,class:^(xwaylandvideobridge)$"
-      "noinitialfocus,class:^(xwaylandvideobridge)$"
+      "match:class ^(xwaylandvideobridge)$, opacity 0.0 override 0.0 override"
+      "match:class ^(xwaylandvideobridge)$, noanim"
+      "match:class ^(xwaylandvideobridge)$, nofocus"
+      "match:class ^(xwaylandvideobridge)$, noinitialfocus"
     ];
   };
 }
