@@ -19,6 +19,10 @@
     };
     nixcord.url = "github:kaylorben/nixcord";
     PolyMC.url = "github:PolyMC/PolyMC";
+    obsidian-addons = {
+      url = "github:MikhaD/nix-obsidian-addons";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -31,6 +35,7 @@
       firefox-addons,
       nixcord,
       PolyMC,
+      obsidian-addons,
       ...
     }:
     {
@@ -45,7 +50,7 @@
 
         desktop = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit claude-code-nix PolyMC; };
+          specialArgs = { inherit claude-code-nix PolyMC obsidian-addons; };
           modules = [
             ./hosts/desktop/default.nix
             home-manager.nixosModules.home-manager
@@ -59,6 +64,7 @@
                   zen-browser
                   firefox-addons
                   nixcord
+                  obsidian-addons
                   ;
               };
             }
