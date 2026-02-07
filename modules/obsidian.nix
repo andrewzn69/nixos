@@ -1,94 +1,96 @@
 { config, pkgs, ... }:
 
-let
-  vaultPath = "${config.home.homeDirectory}/docs/obsidian";
-in
 {
-  home.packages = [ pkgs.obsidian ];
+  programs.obsidian = {
+    enable = true;
 
-  home.file."${vaultPath}/.obsidian/community-plugins.json" = {
-    force = true;
-    text = builtins.toJSON [
-      # core zettelkasten
-      "dataview"
-      "templater-obsidian"
-      "tag-wrangler"
+    vaults = {
+      knowledge = {
+        path = "${config.home.homeDirectory}/docs/obsidian";
 
-      # navigation & search
-      "omnisearch"
-      "calendar"
-      "obsidian-projects"
+        # Community plugins to install and enable
+        community-plugins = [
+          # core zettelkasten
+          "dataview"
+          "templater-obsidian"
+          "tag-wrangler"
 
-      # editor & git
-      "obsidian-vimrc-support"
-      "obsidian-git"
+          # navigation & search
+          "omnisearch"
+          "calendar"
+          "obsidian-projects"
 
-      # diagrams & visualization
-      "obsidian-excalidraw-plugin"
-      "excalibrain"
-      "obsidian-plantuml"
+          # editor & git
+          "obsidian-vimrc-support"
+          "obsidian-git"
 
-      # export & content
-      "copy-document-as-html"
-      "obsidian-admonition"
+          # diagrams & visualization
+          "obsidian-excalidraw-plugin"
+          "excalibrain"
+          "obsidian-plantuml"
 
-      # media handling
-      "copy-image"
-      "image-converter"
+          # export & content
+          "copy-document-as-html"
+          "obsidian-admonition"
 
-      # automation
-      "obsidian-linter"
-      "note-folder-autorename"
+          # media handling
+          "copy-image"
+          "image-converter"
 
-      # ui/ux Improvements
-      "remember-cursor-position"
-      "obsidian-scroll-offset"
-      "obsidian-style-settings"
-      "statusbar-organizer"
-      "settings-search"
+          # automation
+          "obsidian-linter"
+          "note-folder-autorename"
 
-      # utils
-      "obsidian-auto-link-title"
-      "blockreffer"
-    ];
-  };
+          # ui/ux improvements
+          "remember-cursor-position"
+          "obsidian-scroll-offset"
+          "obsidian-style-settings"
+          "statusbar-organizer"
+          "settings-search"
 
-  # obsidian-git config
-  home.file."${vaultPath}/.obsidian/plugins/obsidian-git/data.json" = {
-    force = true; # Overwrite existing file
-    text = builtins.toJSON {
-      commitMessage = "vault backup: {{date}}";
-      autoCommitMessage = "vault backup: {{date}}";
-      commitDateFormat = "YYYY-MM-DD HH:mm:ss";
-      autoSaveInterval = 10; # auto commit every 10 minutes
-      autoPushInterval = 10; # auto push every 10 minutes
-      autoPullInterval = 10; # auto pull every 10 minutes
-      autoPullOnBoot = true;
-      disablePush = false;
-      pullBeforePush = true;
-      disablePopups = true; # no notification spam
-      listChangedFilesInMessageBody = false;
-      showStatusBar = true;
-      updateSubmodules = false;
-      syncMethod = "merge";
-      customMessageOnAutoBackup = false;
-      autoBackupAfterFileChange = false;
-      treeStructure = false;
-      refreshSourceControl = true;
-      basePath = "";
-      differentIntervalCommitAndPush = false;
-      changedFilesInStatusBar = false;
-      showedMobileNotice = true;
-      refreshSourceControlTimer = 7000;
-      showBranchStatusBar = true;
-      setLastSaveToLastCommit = false;
-      submoduleRecurseCheckout = false;
-      gitDir = "";
-      showFileMenu = true;
-      lineAuthor = {
-        show = false;
+          # utilities
+          "obsidian-auto-link-title"
+          "blockreffer"
+        ];
+
+        # Plugin configurations
+        plugin-config = {
+          obsidian-git = {
+            commitMessage = "vault backup: {{date}}";
+            autoCommitMessage = "vault backup: {{date}}";
+            commitDateFormat = "YYYY-MM-DD HH:mm:ss";
+            autoSaveInterval = 10;
+            autoPushInterval = 10;
+            autoPullInterval = 10;
+            autoPullOnBoot = true;
+            disablePush = false;
+            pullBeforePush = true;
+            disablePopups = true;
+            listChangedFilesInMessageBody = false;
+            showStatusBar = true;
+            updateSubmodules = false;
+            syncMethod = "merge";
+            customMessageOnAutoBackup = false;
+            autoBackupAfterFileChange = false;
+            treeStructure = false;
+            refreshSourceControl = true;
+            basePath = "";
+            differentIntervalCommitAndPush = false;
+            changedFilesInStatusBar = false;
+            showedMobileNotice = true;
+            refreshSourceControlTimer = 7000;
+            showBranchStatusBar = true;
+            setLastSaveToLastCommit = false;
+            submoduleRecurseCheckout = false;
+            gitDir = "";
+            showFileMenu = true;
+            lineAuthor = {
+              show = false;
+            };
+            autoCommitAfterFileChange = false;
+          };
+        };
       };
-      autoCommitAfterFileChange = false;
     };
   };
 }
