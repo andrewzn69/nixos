@@ -68,4 +68,5 @@
   istilldontcareaboutcookies = { };
   reddit-enhancement-suite = { };
   refined-github = { };
+  bypass-paywalls-clean = { };
 }
