@@ -22,7 +22,6 @@
     ../../modules/gaming.nix
     ../../modules/apps.nix
     ../../modules/fonts.nix
-    ../../modules/obsidian.nix
   ];
 
   services.hardware.openrgb.enable = true;
