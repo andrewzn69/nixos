@@ -16,8 +16,6 @@
     ];
 
     extraConfig = ''
-      unbind -n C-h
-
       # terminal features
       set-option -sa terminal-features ',xterm-256color:RGB'
       set -g focus-events on
@@ -36,40 +34,13 @@
       # terminal cursor shape changes
       set-option -g terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[ q'
 
-      # copy mode binds
-      bind -n C-S-Escape copy-mode
+      # copy mode vi binds
       bind-key -T copy-mode-vi 'v' send -X begin-selection
       bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
       bind-key -T copy-mode-vi 'r' send -X rectangle-toggle
 
       # session rename using prefix + R
       bind R command-prompt -I "#{session_name}" "rename-session '%%'"
-
-      # window rename
-      bind -n C-S-R command-prompt -I "#{window_name}" "rename-window '%%'"
-
-      # window management
-      bind -n C-w kill-window
-      bind-key -n C-S-H previous-window
-      bind-key -n C-S-L next-window
-      bind -n C-D detach-client
-
-      # toggle fullscreen
-      bind -n C-f resize-pane -Z
-
-      # pane creation with Ctrl+t+h/j/k/l (Ctrl+t enters pane_create mode)
-      bind -n C-t switch-client -T pane_create
-      bind -T pane_create h split-window -hb -c "#{pane_current_path}"
-      bind -T pane_create l split-window -h -c "#{pane_current_path}"
-      bind -T pane_create j split-window -v -c "#{pane_current_path}"
-      bind -T pane_create k split-window -vb -c "#{pane_current_path}"
-      bind -T pane_create t new-window -c "#{pane_current_path}"
-
-      # pane navigation
-      bind -n C-h select-pane -L
-      bind -n C-j select-pane -D
-      bind -n C-k select-pane -U
-      bind -n C-l select-pane -R
 
       # plugin settings
       set -g @resurrect-capture-pane-contents 'on'
