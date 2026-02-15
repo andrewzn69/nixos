@@ -37,7 +37,7 @@
       font_size = "11.0";
 
       foreground = "#EBDBB2";
-      background = "#171A1C";
+      background = "#171A1C"; # for some reason, `#171A1C` renders as `#1D2022`
       selection_foreground = "#EBDBB2";
       selection_background = "#3C3C3C";
 
@@ -53,7 +53,7 @@
       wayland_titlebar_color = "background";
 
       # 16 terminal colors
-      color0 = "#1D2022";
+      color0 = "#171A1C";
       color8 = "#4B4B4B";
       color1 = "#CC241D";
       color9 = "#CC241D";
