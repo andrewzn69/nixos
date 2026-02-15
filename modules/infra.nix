@@ -7,7 +7,7 @@
     kubernetes-helm
     k9s
     kubectx
-    argocd
+    # argocd # broken in nixpkgs 3.3.0 - fetchYarnDeps hash mismatch
     kubeseal
 
     # iac
