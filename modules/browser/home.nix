@@ -7,7 +7,7 @@
 }:
 
 let
-  extensions = import ./extensions.nix;
+  extensions = import ./config/extensions.nix;
 in
 {
   imports = [ zen-browser.homeModules.default ];
@@ -15,7 +15,7 @@ in
   programs.zen-browser = {
     enable = true;
 
-    policies = import ./policies.nix;
+    policies = import ./config/policies.nix;
 
     profiles.default = {
       extensions = {
@@ -31,8 +31,8 @@ in
           }
         ) (lib.filterAttrs (_n: v: v ? settings && v.settings != { }) extensions);
       };
-      search = import ./engines.nix { inherit pkgs; };
-      settings = import ./settings.nix;
+      search = import ./config/engines.nix { inherit pkgs; };
+      settings = import ./config/settings.nix;
     };
   };
 }
