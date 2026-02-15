@@ -7,7 +7,7 @@
       gaps_out = 10;
       border_size = 2;
       "col.active_border" = "0xff6A3837";
-      "col.inactive_border" = "0xff2A2B2C";
+      "col.inactive_border" = "0xff363636";
     };
 
     decoration = {
