@@ -17,7 +17,7 @@
       initial_window_height = 700;
       placement_strategy = "center";
       hide_window_decorations = false;
-      window_padding_width = "5 10";
+      window_padding_width = "5 5";
       enabled_layouts = "*";
       sync_to_monitor = true;
 
