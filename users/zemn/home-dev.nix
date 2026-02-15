@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../modules/neovim
+    ../../modules/neovim/home.nix
     ../../modules/tmux.nix
   ];
 

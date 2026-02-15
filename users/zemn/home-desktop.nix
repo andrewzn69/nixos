@@ -4,7 +4,7 @@
   imports = [
     ../../modules/hyprland/home.nix
     ../../modules/ags/home.nix
-    ../../modules/neovim
+    ../../modules/neovim/home.nix
     ../../modules/browser
     ../../modules/theme
     ../../modules/rofi
