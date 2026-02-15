@@ -9,7 +9,6 @@
     ../../modules/fish
     ../../modules/neovim
     ../../modules/git.nix
-    ../../modules/tmux.nix
     ../../modules/tools.nix
     ../../modules/languages.nix
     ../../modules/containers.nix
