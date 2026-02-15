@@ -7,7 +7,7 @@
     settings = {
       term = "xterm-kitty";
       editor = "nvim";
-      shell_integration = "no-cursor";
+      shell_integration = "enabled no-cursor";
       kitty_mod = "ctrl+shift";
 
       # window
