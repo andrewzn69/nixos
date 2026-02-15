@@ -82,7 +82,7 @@
       set -g status-left "#[fg=colour4,bold] #S #[fg=colour8]│ "
 
       # Status right (path, CPU, RAM)
-      set -g status-right "#{?window_zoomed_flag,#[fg=colour7][f] #[fg=colour8]│ ,}#[fg=colour4] #[fg=colour7]#([ #{pane_current_path} = $HOME ] && echo '~' || basename #{pane_current_path}) #[fg=colour8]│ #[fg=colour6]󰍛 #[fg=colour7]#(top -bn1 | grep 'Cpu(s)' | awk '{print 100 - $8\"%\"}') #[fg=colour8]│ #[fg=colour6]  #[fg=colour7]#(free --si | awk '/^Mem/ { printf(\"%.1fG/%.1fG\", \$3/1000000, \$2/1000000) }' | tr ',' '.') "
+      set -g status-right "#{?window_zoomed_flag,#[fg=colour7][f] #[fg=colour8]│ ,}#[fg=colour4]󰉋 #[fg=colour7]#([ #{pane_current_path} = $HOME ] && echo '~' || basename #{pane_current_path}) #[fg=colour8]│ #[fg=colour4]󰍛 #[fg=colour7]#(top -bn1 | grep 'Cpu(s)' | awk '{print 100 - $8\"%\"}') #[fg=colour8]│ #[fg=colour4]  #[fg=colour7]#(free --si | awk '/^Mem/ { printf(\"%.1fG/%.1fG\", \$3/1000000, \$2/1000000) }' | tr ',' '.') "
 
       # copy mode
       set -g mode-style "bg=colour2,fg=colour0"
