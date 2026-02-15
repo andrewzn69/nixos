@@ -37,7 +37,7 @@
       font_size = "11.0";
 
       foreground = "#EBDBB2";
-      background = "#1D2022";
+      background = "#181D1F";
       selection_foreground = "#EBDBB2";
       selection_background = "#3C3C3C";
 
