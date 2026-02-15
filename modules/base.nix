@@ -49,7 +49,4 @@
     # ???
     ANSIBLE_NOCOWS = "1";
   };
-
-  # services
-  services.openssh.enable = true;
 }
