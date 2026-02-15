@@ -34,7 +34,7 @@
       bold_font = "auto";
       # TODO: replace with cartographcf italic
       italic_font = "auto";
-      font_size = "10.0";
+      font_size = "11.0";
 
       foreground = "#EBDBB2";
       background = "#1D2022";
