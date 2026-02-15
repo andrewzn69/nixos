@@ -9,6 +9,7 @@
     ../../modules/rofi
     ../../modules/vesktop
     ../../modules/obsidian.nix
+    ../../modules/kitty.nix
   ];
 
   home.stateVersion = "25.11";
