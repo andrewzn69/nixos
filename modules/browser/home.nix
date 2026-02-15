@@ -10,7 +10,7 @@ let
   extensions = import ./config/extensions.nix;
 in
 {
-  imports = [ zen-browser.homeModules.default ];
+  imports = [ zen-browser.homeModules.twilight ];
 
   programs.zen-browser = {
     enable = true;
