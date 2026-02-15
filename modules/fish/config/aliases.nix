@@ -8,7 +8,6 @@
 
     # git
     g = "git";
-    d = "/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME";
     cz = "gcz";
 
     # nvim
@@ -21,7 +20,7 @@
     mp3 = "yt-dlp --extract-audio --audio-format mp3";
     mp4 = "yt-dlp -f \"bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4\"";
 
-    # useful aliases
+    # useful
     mkdir = "mkdir -p";
     rm = "rm -iv";
     mv = "mv -iv";
@@ -29,8 +28,6 @@
 
     # programs
     py = "python3";
-    # cal = "cal -y";
-    # freeram = "sudo sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'";
     wttr = "curl wttr.in";
     pastebin = "nc termbin.com 9999";
 
@@ -43,12 +40,8 @@
     # terraform
     tp = "terraform plan -out .tfplan";
     ta = "terraform apply .tfplan";
-    td = "terraform destroy --auto-approve";
 
     # nixos
     up = "nix flake update --flake ~/.config/nixos && sudo nixos-rebuild switch --flake ~/.config/nixos#(hostname)";
-
-    # etc
-    knowledgebase = "cd /home/zemn/Development/knowledgebase && claude @CLAUDE.md @JOURNAL.md @PROJECTS.md";
   };
 }

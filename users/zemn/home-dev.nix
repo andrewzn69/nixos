@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../../modules/fish/home.nix
     ../../modules/neovim/home.nix
     ../../modules/tmux.nix
   ];

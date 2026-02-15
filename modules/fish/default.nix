@@ -1,14 +1,5 @@
 { ... }:
 
 {
-  imports = [
-    ./aliases.nix
-    ./prompt.nix
-    ./keybinds.nix
-    ./ssh-tmux.nix
-  ];
-
-  programs.fish = {
-    enable = true;
-  };
+  programs.fish.enable = true;
 }
