@@ -40,6 +40,12 @@
           specialArgs = { inherit claude-code-nix; };
           modules = [
             ./hosts/dev/default.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.zemn = import ./users/zemn/home-dev.nix;
+            }
           ];
         };
 
@@ -52,7 +58,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.zemn = import ./users/zemn/home.nix;
+              home-manager.users.zemn = import ./users/zemn/home-desktop.nix;
               home-manager.extraSpecialArgs = {
                 inherit
                   ags
