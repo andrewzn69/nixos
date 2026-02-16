@@ -7,6 +7,7 @@
     enable = true;
     extraPackages = [
       ags.packages.${pkgs.system}.hyprland
+      ags.packages.${pkgs.system}.mpris
     ];
   };
 
