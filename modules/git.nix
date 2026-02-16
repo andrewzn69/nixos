@@ -9,7 +9,7 @@
         email = "ondrejzeman@zemn.xyz";
       };
       credential = {
-        helper = "store";
+        helper = "${pkgs.gitFull}/libexec/git-core/git-credential-libsecret";
       };
       init = {
         defaultBranch = "master";
@@ -28,7 +28,7 @@
       };
       core = {
         editor = "nvim";
-        excludesFile = "/home/zemn/.config/git/ignore";
+        excludesFile = "~/.config/git/ignore";
       };
     };
   };
