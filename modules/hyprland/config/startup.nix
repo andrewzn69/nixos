@@ -10,8 +10,7 @@
       # "systemctl --user restart pipewire"
       "ags run"
       "systemctl --user restart hyprpaper"
-      "openrgb --profile red"
-      "openrgb --profile red" # run twice since it sometimes doesnt apply correctly on the first run
+      "bash -c 'sleep 3 && openrgb --profile red'"
       "[workspace 1 silent] zen"
       "[workspace 2 silent] beeper"
       "spotify"
