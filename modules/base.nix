@@ -34,6 +34,9 @@
     options = "--delete-older-than 7d";
   };
 
+  nix.settings.auto-optimise-store = true;
+  boot.loader.systemd-boot.configurationLimit = 5;
+
   # env
   environment.sessionVariables = {
     TERMINAL = "kitty";
