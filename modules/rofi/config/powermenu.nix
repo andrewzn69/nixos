@@ -40,7 +40,7 @@ with theme;
     layout = mkLiteral "vertical";
     reverse = false;
     fixed-height = true;
-    fixed-colums = true;
+    fixed-columns = true;
     spacing = 15;
     margin = 15;
     padding = mkLiteral "0 0 0";
