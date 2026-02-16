@@ -25,8 +25,8 @@ in
       "$mainMod, Space, togglefloating,"
       "$mainMod, P, pseudo,"
       "$mainMod, S, togglesplit,"
-      "$mainMod SHFIT, Space, workspaceopt, allfloat"
-      "$mainMod SHFIT, P, workspaceopt, allpseudo"
+      "$mainMod SHIFT, Space, workspaceopt, allfloat"
+      "$mainMod SHIFT, P, workspaceopt, allpseudo"
 
       # window focus
       "$mainMod, h, movefocus, l"
