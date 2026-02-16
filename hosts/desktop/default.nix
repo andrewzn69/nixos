@@ -21,6 +21,7 @@
     ../../modules/gaming.nix
     ../../modules/apps.nix
     ../../modules/fonts.nix
+    ../../modules/keyring.nix
   ];
 
   services.hardware.openrgb.enable = true;
