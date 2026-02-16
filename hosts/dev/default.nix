@@ -7,7 +7,6 @@
     ./networking.nix
     ../../modules/base.nix
     ../../modules/fish
-    ../../modules/git.nix
     ../../modules/tools.nix
     ../../modules/languages.nix
     ../../modules/containers.nix

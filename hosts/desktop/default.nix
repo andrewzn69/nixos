@@ -10,7 +10,6 @@
     # shared
     ../../modules/base.nix
     ../../modules/fish
-    ../../modules/git.nix
     ../../modules/tools.nix
     ../../modules/tailscale.nix
     ../../users/zemn

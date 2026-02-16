@@ -5,6 +5,7 @@
 
   imports = [
     ../../modules/fish/home.nix
+    ../../modules/git/home.nix
     ../../modules/hyprland/home.nix
     ../../modules/ags/home.nix
     ../../modules/neovim/home.nix
