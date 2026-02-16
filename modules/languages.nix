@@ -8,7 +8,6 @@
     nodejs
     nodePackages.npm
     pnpm
-    bash
 
     # build tools
     gcc
