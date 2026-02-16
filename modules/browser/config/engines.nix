@@ -4,7 +4,7 @@
   force = true;
   default = "ddg";
   engines = {
-    amazondotcom-us.metaData.hidden = true;
+    amazondotcom-us.metadata.hidden = true;
     bing.metadata.hidden = true;
     ebay.metadata.hidden = true;
     startpage = {
