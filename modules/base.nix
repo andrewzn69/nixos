@@ -27,9 +27,16 @@
     };
   };
 
+  # nix gc
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+
   # env
   environment.sessionVariables = {
-    TERMINAL = "xterm";
+    TERMINAL = "kitty";
     VISUAL = "nvim";
     EDITOR = "nvim";
     MANPAGER = "nvim +Man!";
@@ -38,10 +45,6 @@
     PF_INFO = "ascii title os uptime pkgs";
     PF_COL1 = "7";
     PF_COL3 = "5";
-
-    # xdg
-    XDG_CONFIG_HOME = "$HOME/.config";
-    XDG_CACHE_HOME = "$HOME/.cache";
 
     # claude
     ANTHROPIC_MODEL = "claude-sonnet-4-5-20250929";
