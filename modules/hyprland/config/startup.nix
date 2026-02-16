@@ -11,7 +11,7 @@
       "ags run"
       "systemctl --user restart hyprpaper"
       "bash -c 'sleep 3 && openrgb --profile red'"
-      "[workspace 1 silent] zen"
+      "[workspace 1 silent] zen-twilight"
       "[workspace 2 silent] beeper"
       "spotify"
       "[workspace 7 silent] evolution"
