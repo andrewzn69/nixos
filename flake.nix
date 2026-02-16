@@ -23,6 +23,7 @@
 
   outputs =
     {
+      self,
       nixpkgs,
       claude-code-nix,
       home-manager,
