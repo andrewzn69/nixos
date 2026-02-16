@@ -3,17 +3,18 @@
 {
   programs.git = {
     enable = true;
-    userName = "Ondřej Zeman";
-    userEmail = "ondrejzeman@zemn.xyz";
 
-    aliases = {
-      d = "difftool";
-      s = "status";
-      c = "commit";
-      mergetool = "!nvim -c DiffviewOpen";
-    };
+    settings = {
+      user.name = "Ondřej Zeman";
+      user.email = "ondrejzeman@zemn.xyz";
 
-    extraConfig = {
+      alias = {
+        d = "difftool";
+        s = "status";
+        c = "commit";
+        mergetool = "!nvim -c DiffviewOpen";
+      };
+
       credential.helper = "${pkgs.gitFull}/libexec/git-core/git-credential-libsecret";
       init.defaultBranch = "master";
       diff.tool = "nvimdiff";
