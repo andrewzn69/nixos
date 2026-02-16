@@ -13,7 +13,7 @@
     ../../modules/rofi
     ../../modules/vesktop
     ../../modules/obsidian.nix
-    ../../modules/kitty.nix
+    ../../modules/kitty/home.nix
   ];
 
   home.stateVersion = "25.11";
