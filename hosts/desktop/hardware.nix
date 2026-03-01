@@ -64,7 +64,12 @@
     fsType = "ext4";
   };
 
-  fileSystems."/mnt" = {
+  fileSystems."/mnt/games" = {
+    device = "/dev/disk/by-uuid/bc0ca251-2995-4832-be2c-8838b37dbe80";
+    fsType = "ext4";
+  };
+
+  fileSystems."/mnt/diskd" = {
     device = "/dev/disk/by-uuid/381BD5331FAC60A0";
     fsType = "ntfs-3g";
     options = [
