@@ -16,5 +16,6 @@
 
     # providers
     oci-cli
+    infisical
   ];
 }
