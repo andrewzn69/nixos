@@ -70,12 +70,8 @@
   };
 
   fileSystems."/mnt/diskd" = {
-    device = "/dev/disk/by-uuid/381BD5331FAC60A0";
-    fsType = "ntfs-3g";
-    options = [
-      "rw"
-      "uid=1000"
-    ];
+    device = "/dev/disk/by-uuid/615136fb-d2d1-4f25-b7eb-9ab577c2a3b1";
+    fsType = "ext4";
   };
 
   swapDevices = [
