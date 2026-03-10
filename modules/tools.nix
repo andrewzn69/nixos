@@ -27,6 +27,7 @@
     act
     p7zip
     psmisc # small proc filesystem utils
+    just
     # ggshield
     claude-code-nix.packages.x86_64-linux.default
   ];
