@@ -5,6 +5,7 @@
     # communication
     beeper
     kotatogram-desktop
+    teamspeak6-client
 
     # media
     spotify
