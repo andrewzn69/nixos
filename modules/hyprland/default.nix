@@ -5,7 +5,12 @@
 
   xdg.portal = {
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-    config.hyprland.FileChooser = "gtk";
+    config = {
+      hyprland = {
+        default = [ "hyprland" "gtk" ];
+        FileChooser = [ "gtk" ];
+      };
+    };
   };
 
   environment.systemPackages = with pkgs; [
