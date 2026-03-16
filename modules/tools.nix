@@ -29,6 +29,7 @@
     psmisc # small proc filesystem utils
     just
     openssl
+    file
     # ggshield
     claude-code-nix.packages.x86_64-linux.default
     kubescape
