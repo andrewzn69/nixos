@@ -12,6 +12,7 @@
     ../../modules/fish
     ../../modules/tools.nix
     ../../modules/tailscale.nix
+    ../../modules/nfs-mounts.nix
     ../../users/zemn
 
     # desktop-specific
