@@ -10,6 +10,7 @@
     ripgrep
     fd
     jq
+    yq
     gawk
     wget
     tree
