@@ -6,6 +6,7 @@
     ./hardware.nix
     ./networking.nix
     ./disks.nix
+    ./greeter.nix
 
     # shared
     ../../modules/base.nix
