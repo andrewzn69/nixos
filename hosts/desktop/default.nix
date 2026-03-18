@@ -2,10 +2,10 @@
 
 {
   imports = [
-    # ./boot.nix
-    # ./hardware.nix
-    # ./networking.nix
-    ./defaultsettings.nix
+    ./boot.nix
+    ./hardware.nix
+    ./networking.nix
+    ./disks.nix
 
     # shared
     ../../modules/base.nix
@@ -13,6 +13,7 @@
     ../../modules/tools.nix
     ../../modules/tailscale.nix
     ../../modules/nfs-mounts.nix
+    ../../modules/android.nix
     ../../users/zemn
 
     # desktop-specific
@@ -25,4 +26,6 @@
   ];
 
   services.hardware.openrgb.enable = true;
+
+  system.stateVersion = "25.11";
 }
