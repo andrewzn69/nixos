@@ -13,9 +13,9 @@
       "bash -c 'sleep 3 && openrgb --profile red'"
       "[workspace 1 silent] zen-twilight"
       "[workspace 2 silent] beeper"
-      "spotify"
+      "[workspace 6 silent] spotify"
       "[workspace 7 silent] evolution"
-      "steam"
+      "[workspace 8 silent] steam"
       "syncthing --no-browser"
       # "$HOME/Development/lights/lighton.sh"
     ];
