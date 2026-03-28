@@ -10,13 +10,14 @@
       # "systemctl --user restart pipewire"
       "ags run"
       "systemctl --user restart hyprpaper"
-      "bash -c 'sleep 3 && openrgb --profile red'"
       "[workspace 1 silent] zen-twilight"
       "[workspace 2 silent] beeper"
+      "[workspace 2 silent] TeamSpeak"
       "[workspace 6 silent] spotify"
       "[workspace 7 silent] evolution"
       "[workspace 8 silent] steam"
       "syncthing --no-browser"
+      "bash -c 'sleep 3 && openrgb --profile red'"
       # "$HOME/Development/lights/lighton.sh"
     ];
   };
