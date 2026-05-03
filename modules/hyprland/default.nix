@@ -28,7 +28,7 @@
     grimblast
     wl-clipboard
     swaylock
-    swww
+    awww
     # waybar
     dunst
     rofi
