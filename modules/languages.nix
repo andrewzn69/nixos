@@ -5,7 +5,7 @@
     # languages
     python3
     nodejs
-    nodePackages.npm
+    npm
     pnpm
 
     # build tools
