@@ -26,5 +26,6 @@
     wf-recorder
     bitwarden-desktop
     scrcpy
+    rustdesk
   ];
 }
