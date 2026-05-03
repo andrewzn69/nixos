@@ -50,7 +50,7 @@
     PF_COL3 = "5";
 
     # claude
-    ANTHROPIC_MODEL = "claude-sonnet-4-5-20250929";
+    # ANTHROPIC_MODEL = "claude-sonnet-4-5-20250929";
 
     # ???
     ANSIBLE_NOCOWS = "1";
