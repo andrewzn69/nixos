@@ -6,6 +6,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    awscli2
     fzf
     ripgrep
     fd
