@@ -24,6 +24,7 @@
     ../../modules/apps.nix
     ../../modules/fonts.nix
     ../../modules/keyring.nix
+    ../../modules/email.nix
   ];
 
   services.hardware.openrgb.enable = true;
