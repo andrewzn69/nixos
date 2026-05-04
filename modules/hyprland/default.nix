@@ -30,7 +30,6 @@
     swaylock
     awww
     # waybar
-    dunst
     rofi
     wf-recorder
     hyprshade
