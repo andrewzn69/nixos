@@ -8,6 +8,7 @@
     extraPackages = [
       ags.packages.${pkgs.system}.hyprland
       ags.packages.${pkgs.system}.mpris
+      ags.packages.${pkgs.system}.notifd
     ];
   };
 
