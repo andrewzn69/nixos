@@ -24,7 +24,6 @@ in
       "$mainMod, F, fullscreen,"
       "$mainMod, Space, togglefloating,"
       "$mainMod, P, pseudo,"
-      "$mainMod, S, togglesplit,"
       "$mainMod SHIFT, Space, workspaceopt, allfloat"
       "$mainMod SHIFT, P, workspaceopt, allpseudo"
 
