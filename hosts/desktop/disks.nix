@@ -25,6 +25,11 @@
     fsType = "ext4";
   };
 
+  fileSystems."/mnt/games-nvme" = {
+    device = "/dev/disk/by-uuid/8b5a7848-6ff4-4e48-8ab7-fda1a76bbcf5";
+    fsType = "ext4";
+  };
+
   fileSystems."/mnt/diskd" = {
     device = "/dev/disk/by-uuid/615136fb-d2d1-4f25-b7eb-9ab577c2a3b1";
     fsType = "ext4";
