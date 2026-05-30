@@ -37,5 +37,6 @@
     # ggshield
     claude-code-nix.packages.x86_64-linux.default
     kubescape
+    gh
   ];
 }
