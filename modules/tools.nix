@@ -6,6 +6,7 @@
 
 {
   environment.systemPackages = with pkgs; [
+    ansible
     awscli2
     fzf
     ripgrep
