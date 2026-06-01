@@ -1,13 +1,15 @@
 { lib, config, ... }:
 
 let
-  cfg = config.fileBrowser;
+  desktopFiles = {
+    thunar = "thunar.desktop";
+  };
 in
 {
   imports = [ ./thunar.nix ];
 
-  options.fileBrowser.default = lib.mkOption {
-    type = lib.types.enum [ "thunar" ];
+  options.fileBrowser = lib.mkOption {
+    type = lib.types.enum (builtins.attrNames desktopFiles);
     default = "thunar";
   };
 
