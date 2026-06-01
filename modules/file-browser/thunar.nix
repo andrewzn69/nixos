@@ -12,4 +12,5 @@ lib.mkIf (config.fileBrowser == "thunar") {
 
   services.tumbler.enable = true;
   services.gvfs.enable = true;
+  programs.xfconf.enable = true;
 }
