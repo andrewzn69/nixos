@@ -10,7 +10,7 @@
 
     # shared
     ../../modules/base.nix
-    ../../modules/fish
+    ../../modules/shell
     ../../modules/tools.nix
     ../../modules/tailscale.nix
     ../../modules/nfs-mounts.nix
@@ -28,6 +28,10 @@
     ../../modules/email.nix
   ];
 
+  shells = [
+    "fish"
+    # "zsh"
+  ];
   fileBrowser = "thunar";
 
   services.hardware.openrgb.enable = true;

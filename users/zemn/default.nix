@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ ... }:
 
 {
   users.users.zemn = {
@@ -8,6 +8,5 @@
       "networkmanager"
       "wheel"
     ];
-    shell = pkgs.fish;
   };
 }
