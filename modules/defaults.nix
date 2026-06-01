@@ -4,9 +4,6 @@
   xdg.mimeApps = {
     enable = true;
     defaultApplications = {
-      # directories
-      "inode/directory" = "thunar.desktop";
-
       # images
       "image/bmp" = "xviewer.desktop";
       "image/gif" = "xviewer.desktop";

@@ -11,9 +11,6 @@ in
     default = "thunar";
   };
 
-  config = lib.mkIf (cfg.default != "thunar") {
-    programs.thunar.enable = lib.mkForce false;
-    services.tumbler.enable = lib.mkForce false;
-    services.gvfs.enable = lib.mkForce false;
-  };
+  config.home-manager.users.zemn.xdg.mimeApps.defaultApplications."inode/directory" =
+    desktopFiles.${config.fileBrowser};
 }
