@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
-{
+lib.mkIf (config.fileBrowser == "thunar") {
   programs.thunar = {
     enable = true;
     plugins = with pkgs.xfce; [
