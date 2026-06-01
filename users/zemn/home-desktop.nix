@@ -4,6 +4,7 @@
   home.sessionVariables.NVIM_THEME = "gruvbox";
 
   imports = [
+    ../../modules/defaults.nix
     ../../modules/fish/home.nix
     ../../modules/git/home.nix
     ../../modules/hyprland/home.nix
