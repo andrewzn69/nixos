@@ -18,7 +18,6 @@
 
     # utilities
     qbittorrent
-    thunar
     pavucontrol
     gparted
     zathura
