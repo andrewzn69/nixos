@@ -14,8 +14,10 @@
     ../../modules/theme
     ../../modules/rofi
     ../../modules/obsidian.nix
-    ../../modules/kitty/home.nix
+    ../../modules/terminal
   ];
+
+  terminal = "kitty";
 
   home.stateVersion = "25.11";
 }
