@@ -13,7 +13,6 @@
     ../../modules/browser/home.nix
     ../../modules/theme
     ../../modules/rofi
-    ../../modules/vesktop
     ../../modules/obsidian.nix
     ../../modules/kitty/home.nix
   ];
