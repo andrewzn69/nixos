@@ -28,7 +28,7 @@
     ../../modules/email.nix
   ];
 
-  fileBrowser.default = "thunar";
+  fileBrowser = "thunar";
 
   services.hardware.openrgb.enable = true;
 
