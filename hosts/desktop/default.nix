@@ -22,10 +22,13 @@
     ../../modules/audio.nix
     ../../modules/gaming.nix
     ../../modules/apps.nix
+    ../../modules/file-browser
     ../../modules/fonts.nix
     ../../modules/keyring.nix
     ../../modules/email.nix
   ];
+
+  fileBrowser.default = "thunar";
 
   services.hardware.openrgb.enable = true;
 
