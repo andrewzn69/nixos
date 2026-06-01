@@ -18,7 +18,6 @@
 
     # utilities
     qbittorrent
-    pavucontrol
     gparted
     zathura
     yt-dlp
