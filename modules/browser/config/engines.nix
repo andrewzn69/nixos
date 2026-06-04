@@ -19,5 +19,11 @@
       icon = "${pkgs.nixos-icons}/share/icons/hicolor/scalable/apps/nix-snowflake.svg";
       definedAliases = [ "@np" ];
     };
+    terraform-registry = {
+      name = "Terraform Registry";
+      urls = [ { template = "https://registry.terraform.io/search?q={searchTerms}"; } ];
+      iconMapObj."32" = "https://registry.terraform.io/favicon.ico";
+      definedAliases = [ "@tr" ];
+    };
   };
 }
