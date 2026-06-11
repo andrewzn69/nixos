@@ -63,7 +63,7 @@
   # wappalyzer = { };
   bitwarden = { };
   stylus = { };
-  tabliss = { };
+  tablissng = { };
   violentmonkey = { };
   istilldontcareaboutcookies = { };
   reddit-enhancement-suite = { };
