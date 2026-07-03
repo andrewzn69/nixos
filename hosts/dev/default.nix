@@ -7,7 +7,7 @@
     ./networking.nix
     ../../modules/base.nix
     ../../modules/shell
-../../modules/tools.nix
+    ../../modules/tools.nix
     ../../modules/languages.nix
     ../../modules/containers.nix
     ../../modules/infra.nix
