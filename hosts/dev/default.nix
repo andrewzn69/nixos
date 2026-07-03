@@ -14,7 +14,6 @@
     ../../modules/android.nix
     ../../modules/tailscale.nix
     ../../modules/ssh.nix
-    ../../modules/nfs-mounts.nix
     ../../users/zemn
   ];
 

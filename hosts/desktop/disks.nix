@@ -38,4 +38,19 @@
   swapDevices = [
     { device = "/dev/mapper/vg0-swap"; }
   ];
+
+  # nfs
+  services.rpcbind.enable = true;
+
+  fileSystems."/home/zemn/docs/obsidian" = {
+    device = "100.64.100.10:/storage/apps/obsidian";
+    fsType = "nfs";
+    options = [
+      "x-systemd.automount"
+      "noauto"
+      "x-systemd.idle-timeout=600"
+      "nfsvers=4"
+      "rw"
+    ];
+  };
 }

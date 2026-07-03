@@ -13,7 +13,6 @@
     ../../modules/shell
     ../../modules/tools.nix
     ../../modules/tailscale.nix
-    ../../modules/nfs-mounts.nix
     ../../modules/android.nix
     ../../users/zemn
 
