@@ -26,18 +26,6 @@
   boot.kernelModules = [ "virtio_gpu" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" = {
-    device = "/dev/disk/by-uuid/68551f1e-8b5c-4bed-8f56-fbbd337a5732";
-    fsType = "ext4";
-  };
-
-  swapDevices = [
-    {
-      device = "/swapfile";
-      size = 4096;
-    }
-  ];
-
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
   # (the default) this is the recommended approach. When using systemd-networkd it's
   # still possible to use this option, but it's recommended to use it in conjunction
