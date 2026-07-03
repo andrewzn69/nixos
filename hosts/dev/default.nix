@@ -12,7 +12,7 @@
     ../../modules/containers.nix
     ../../modules/infra.nix
     ../../modules/android.nix
-    ../../modules/tailscale.nix
+    # ../../modules/tailscale.nix
     ../../modules/ssh.nix
     ../../users/zemn
   ];
