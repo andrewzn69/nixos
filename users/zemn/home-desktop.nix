@@ -12,7 +12,7 @@
     ../../modules/neovim/home.nix
     ./config/browser
     ../../modules/theme
-    ../../modules/rofi
+    ./config/rofi
     ./config/terminal
   ];
 
