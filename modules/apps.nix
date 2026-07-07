@@ -25,5 +25,6 @@
     bitwarden-desktop
     scrcpy
     rustdesk
+    obsidian
   ];
 }
