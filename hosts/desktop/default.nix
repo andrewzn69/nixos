@@ -12,7 +12,6 @@
     ../../modules/base.nix
     ../../modules/shell
     ../../modules/tools.nix
-    ../../modules/tailscale.nix
     ../../modules/android.nix
     ../../users/zemn
 
