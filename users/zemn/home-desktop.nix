@@ -10,7 +10,7 @@
     ../../modules/hyprland/home.nix
     ../../modules/ags/home.nix
     ../../modules/neovim/home.nix
-    ../../modules/browser/home.nix
+    ./config/browser
     ../../modules/theme
     ../../modules/rofi
     ./config/terminal
