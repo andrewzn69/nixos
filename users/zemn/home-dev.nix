@@ -5,7 +5,7 @@
     ./shell/home.nix
     ../../modules/git/home.nix
     ../../modules/neovim/home.nix
-    ../../modules/tmux.nix
+    ./config/tmux.nix
   ];
 
   shell.default = "fish";
