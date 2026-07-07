@@ -14,8 +14,6 @@
   ];
 
   # nfs
-  services.rpcbind.enable = true;
-
   fileSystems."/home/zemn/docs/obsidian" = {
     device = "100.64.100.10:/storage/apps/obsidian";
     fsType = "nfs";
