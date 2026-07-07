@@ -14,7 +14,6 @@
     ../../modules/infra.nix
     ../../modules/android.nix
     # ../../modules/tailscale.nix
-    ../../modules/ssh.nix
     ../../users/zemn
   ];
 
