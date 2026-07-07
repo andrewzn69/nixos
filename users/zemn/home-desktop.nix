@@ -5,7 +5,7 @@
 
   imports = [
     ./shell/home.nix
-    ../../modules/defaults.nix
+    ./config/xdg.nix
     ../../modules/git/home.nix
     ../../modules/hyprland/home.nix
     ../../modules/ags/home.nix
@@ -13,7 +13,6 @@
     ../../modules/browser/home.nix
     ../../modules/theme
     ../../modules/rofi
-    ../../modules/obsidian.nix
     ../../modules/terminal
   ];
 
