@@ -7,7 +7,7 @@
     ./shell/home.nix
     ./config/xdg.nix
     ./config/git.nix
-    ../../modules/hyprland/home.nix
+    ./config/hyprland
     ../../modules/ags/home.nix
     ../../modules/neovim/home.nix
     ./config/browser
