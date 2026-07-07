@@ -6,7 +6,7 @@
   imports = [
     ./shell/home.nix
     ./config/xdg.nix
-    ../../modules/git/home.nix
+    ./config/git.nix
     ../../modules/hyprland/home.nix
     ../../modules/ags/home.nix
     ../../modules/neovim/home.nix
