@@ -13,6 +13,7 @@
     ./config/windowrules.nix
     ./config/wallpaper.nix
     ./config/misc.nix
+    ./config/hyprshade.nix
   ];
 
   wayland.windowManager.hyprland.enable = true;
