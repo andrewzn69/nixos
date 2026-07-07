@@ -13,7 +13,6 @@
     ../../modules/containers.nix
     ../../modules/infra.nix
     ../../modules/android.nix
-    # ../../modules/tailscale.nix
     ../../users/zemn
   ];
 
