@@ -13,7 +13,7 @@
     ../../modules/browser/home.nix
     ../../modules/theme
     ../../modules/rofi
-    ../../modules/terminal
+    ./config/terminal
   ];
 
   terminal = "kitty";
