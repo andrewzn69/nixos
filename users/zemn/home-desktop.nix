@@ -11,7 +11,7 @@
     ../../modules/ags/home.nix
     ../../modules/neovim/home.nix
     ./config/browser
-    ../../modules/theme
+    ./config/theme
     ./config/rofi
     ./config/terminal
   ];
