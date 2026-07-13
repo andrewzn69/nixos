@@ -8,7 +8,7 @@
     ./config/xdg.nix
     ./config/git.nix
     ./config/hyprland
-    ../../modules/ags/home.nix
+    ./config/zorya.nix
     ../../modules/neovim/home.nix
     ./config/browser
     ./config/theme

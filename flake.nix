@@ -8,10 +8,7 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    ags = {
-      url = "github:aylur/ags";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    zorya.url = "github:andrewzn69/zorya-shell";
     zen-browser.url = "github:0xc000022070/zen-browser-flake";
     firefox-addons = {
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
@@ -27,7 +24,7 @@
       nixpkgs,
       claude-code-nix,
       home-manager,
-      ags,
+      zorya,
       zen-browser,
       firefox-addons,
       nixcord,
@@ -62,7 +59,7 @@
               home-manager.users.zemn = import ./users/zemn/home-desktop.nix;
               home-manager.extraSpecialArgs = {
                 inherit
-                  ags
+                  zorya
                   zen-browser
                   firefox-addons
                   nixcord

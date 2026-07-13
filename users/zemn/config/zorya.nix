@@ -1,0 +1,78 @@
+{ zorya, ... }:
+
+{
+  imports = [ zorya.homeManagerModules.default ];
+
+  programs.zorya = {
+    enable = true;
+
+    settings = {
+      version = 1;
+
+      theme = {
+        colors = {
+          background = "#1D2022";
+          surface = "#1D2022";
+          border = "#3C3C3C";
+          muted = "#3C3C3C";
+          text = "#EBDBB2";
+          primary = "#AD685A";
+          secondary = "#98971A";
+          tertiary = "#458588";
+        };
+        fonts = {
+          family = "Cantarell";
+          size = 14;
+        };
+        spacing = {
+          margin = 10;
+          padding = 8;
+          border_width = 2;
+        };
+      };
+
+      bar = {
+        enabled = true;
+        layouts = {
+          "*" = {
+            left = [ ];
+            center = [ "workspaces" ];
+            right = [ ];
+          };
+          "HDMI-A-1" = {
+            left = [ "workspaces" ];
+            center = [ "spotify" ];
+            right = [ "clock" ];
+          };
+          "DP-3" = {
+            left = [ "workspaces" ];
+            center = [ "cpu" "ram" "disk" "network" ];
+            right = [ "clock" ];
+          };
+        };
+        spacing = {
+          padding_large = 16;
+          workspace_spacing = 4;
+          workspace_size = 14;
+          workspace_pill_width = 36;
+        };
+      };
+
+      notifications = {
+        enabled = true;
+        monitor = "DP-3";
+        corner = "top-right";
+        duration = 5000;
+        width = 240;
+        image_size = 64;
+        max_chars = 30;
+        colors.border = "#6A3837";
+        fonts = {
+          size_app = 10;
+          size_summary = 14;
+          size_body = 12;
+        };
+      };
+    };
+  };
+}
