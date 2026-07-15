@@ -28,6 +28,7 @@
           margin = 10;
           padding = 8;
           border_width = 2;
+          border_radius = 0;
         };
       };
 
@@ -66,12 +67,16 @@
         width = 240;
         image_size = 64;
         max_chars = 30;
-        colors.border = "#6A3837";
         fonts = {
           size_app = 10;
           size_summary = 14;
           size_body = 12;
         };
+      };
+
+      polling = {
+        default = 2000;
+        clock = 1000;
       };
     };
   };
