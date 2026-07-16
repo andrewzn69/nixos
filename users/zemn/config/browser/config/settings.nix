@@ -22,7 +22,6 @@
 
   "findbar.highlightAll" = true;
 
-  # fingerprinting resistance
-  "privacy.resistFingerprinting" = true;
-  "privacy.resistFingerprinting.letterboxing" = false;
+  "privacy.fingerprintingProtection" = true;
+  "privacy.fingerprintingProtection.overrides" = "+JSDateTimeUTC,+WebGLRenderInfo,+NavigatorHWConcurrency";
 }
