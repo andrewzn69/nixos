@@ -24,5 +24,5 @@
 
   # fingerprinting resistance
   "privacy.resistFingerprinting" = true;
-  # "privacy.resistFingerprinting.letterboxing" = true;
+  "privacy.resistFingerprinting.letterboxing" = false;
 }
