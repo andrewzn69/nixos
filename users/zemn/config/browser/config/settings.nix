@@ -22,6 +22,7 @@
 
   "findbar.highlightAll" = true;
 
+  "privacy.resistFingerprinting" = false;
   "privacy.fingerprintingProtection" = true;
   "privacy.fingerprintingProtection.overrides" = "-AllTargets,+CanvasRandomization,+JSDateTimeUTC,+WebGLRenderInfo,+NavigatorHWConcurrency";
 }
