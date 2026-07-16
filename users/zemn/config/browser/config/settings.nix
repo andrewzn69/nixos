@@ -2,8 +2,10 @@
 
 let
   userAgents = builtins.fromJSON (builtins.readFile "${user-agents}/user-agents.json");
-  edge = builtins.filter (ua: builtins.match ".*Edg/.*" ua != null) userAgents;
-  userAgent = builtins.elemAt edge (builtins.length edge - 1);
+  windowsChrome = builtins.filter (
+    ua: builtins.match ".*Windows NT 10.0.*Chrome/.*" ua != null && builtins.match ".*Edg/.*" ua == null
+  ) userAgents;
+  userAgent = builtins.elemAt windowsChrome (builtins.length windowsChrome - 1);
 in
 {
   "browser.tabs.warnOnClose" = false;
