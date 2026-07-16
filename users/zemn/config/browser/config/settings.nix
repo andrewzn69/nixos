@@ -1,3 +1,10 @@
+{ user-agents }:
+
+let
+  userAgents = builtins.fromJSON (builtins.readFile "${user-agents}/user-agents.json");
+  edge = builtins.filter (ua: builtins.match ".*Edg/.*" ua != null) userAgents;
+  userAgent = builtins.elemAt edge (builtins.length edge - 1);
+in
 {
   "browser.tabs.warnOnClose" = false;
   "browser.tabs.closeWindowWithLastTab" = false;
@@ -26,7 +33,7 @@
   "privacy.fingerprintingProtection" = true;
   "privacy.fingerprintingProtection.overrides" = "-AllTargets,+CanvasRandomization,+JSDateTimeUTC,+WebGLRenderInfo,+NavigatorHWConcurrency,+AudioContext";
 
-  "general.useragent.override" = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/150.0.0.0 Safari/537.36 Edg/150.0.0.0";
+  "general.useragent.override" = userAgent;
   "general.platform.override" = "Win32";
   "general.oscpu.override" = "Windows NT 10.0; Win64; x64";
   "general.appversion.override" = "5.0 (Windows)";

@@ -1,6 +1,7 @@
 {
   zen-browser,
   firefox-addons,
+  user-agents,
   pkgs,
   lib,
   ...
@@ -32,7 +33,7 @@ in
         ) (lib.filterAttrs (_n: v: v ? settings && v.settings != { }) extensions);
       };
       search = import ./config/engines.nix { inherit pkgs; };
-      settings = import ./config/settings.nix;
+      settings = import ./config/settings.nix { inherit user-agents; };
     };
   };
 }

@@ -16,6 +16,10 @@
     };
     nixcord.url = "github:kaylorben/nixcord";
     PolyMC.url = "github:PolyMC/PolyMC";
+    user-agents = {
+      url = "github:jnrbsn/user-agents";
+      flake = false;
+    };
   };
 
   outputs =
@@ -29,6 +33,7 @@
       firefox-addons,
       nixcord,
       PolyMC,
+      user-agents,
       ...
     }:
     {
@@ -63,6 +68,7 @@
                   zen-browser
                   firefox-addons
                   nixcord
+                  user-agents
                   ;
               };
             }
