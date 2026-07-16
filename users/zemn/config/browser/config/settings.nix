@@ -24,5 +24,5 @@
 
   "privacy.resistFingerprinting" = false;
   "privacy.fingerprintingProtection" = true;
-  "privacy.fingerprintingProtection.overrides" = "-AllTargets,+CanvasRandomization,+JSDateTimeUTC,+WebGLRenderInfo,+NavigatorHWConcurrency";
+  "privacy.fingerprintingProtection.overrides" = "-AllTargets,+CanvasRandomization,+JSDateTimeUTC,+WebGLRenderInfo,+NavigatorHWConcurrency,+AudioContext";
 }
