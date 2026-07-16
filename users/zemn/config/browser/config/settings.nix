@@ -21,4 +21,8 @@
   "signon.rememberSignons" = false;
 
   "findbar.highlightAll" = true;
+
+  # fingerprinting resistance
+  "privacy.resistFingerprinting" = true;
+  "privacy.resistFingerprinting.letterboxing" = true;
 }
