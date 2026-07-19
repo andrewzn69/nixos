@@ -2,10 +2,10 @@
 
 let
   userAgents = builtins.fromJSON (builtins.readFile "${user-agents}/user-agents.json");
-  windowsChrome = builtins.filter (
-    ua: builtins.match ".*Windows NT 10.0.*Chrome/.*" ua != null && builtins.match ".*Edg/.*" ua == null
+  windowsFirefox = builtins.filter (
+    ua: builtins.match ".*Windows NT 10.0.*Firefox/.*" ua != null
   ) userAgents;
-  userAgent = builtins.elemAt windowsChrome (builtins.length windowsChrome - 1);
+  userAgent = builtins.elemAt windowsFirefox (builtins.length windowsFirefox - 1);
 in
 {
   "browser.tabs.warnOnClose" = false;
