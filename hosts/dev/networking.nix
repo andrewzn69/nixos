@@ -98,10 +98,22 @@ in
       content = ''
         # inbound: mark connections destined for tailnet or accepted-subnet
         # ranges so they and their replies bypass the mullvad tunnel.
+        #
+        # exit-node caveat: the return traffic of a forwarded exit connection
+        # arrives from wg0-mullvad already de-masqueraded to a tailnet daddr, so
+        # it matches these rules too. it needs the meta (routing) mark to reach
+        # tailscale0, but must NOT get the ct mark - the ct mark tags the whole
+        # forwarded connection 0xf41, and mullvad's killswitch
+        # (oif "wg0-mullvad" ct mark 0xf41 drop) then drops that connection's
+        # outbound packets as they re-enter the tunnel, collapsing exit-node
+        # throughput to a trickle. so traffic arriving from wg0-mullvad gets the
+        # meta mark only; everything else gets the full ct + meta bypass mark.
         chain prerouting {
           type filter hook prerouting priority -90; policy accept;
-          ip daddr ${tailscaleCidr} ct mark set ${bypassCtMark} meta mark set ${bypassFwMark};
-          ip daddr ${acceptedSubnetCidr} ct mark set ${bypassCtMark} meta mark set ${bypassFwMark};
+          iifname "wg0-mullvad" ip daddr ${tailscaleCidr} meta mark set ${bypassFwMark};
+          iifname "wg0-mullvad" ip daddr ${acceptedSubnetCidr} meta mark set ${bypassFwMark};
+          iifname != "wg0-mullvad" ip daddr ${tailscaleCidr} ct mark set ${bypassCtMark} meta mark set ${bypassFwMark};
+          iifname != "wg0-mullvad" ip daddr ${acceptedSubnetCidr} ct mark set ${bypassCtMark} meta mark set ${bypassFwMark};
         }
 
         # outbound filter hook: same bypass logic for locally-originated traffic.
