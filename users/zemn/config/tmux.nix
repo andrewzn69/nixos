@@ -1,6 +1,58 @@
 { pkgs, ... }:
 
 {
+  home.packages = [
+    (pkgs.writeShellScriptBin "dev" ''
+      set -euo pipefail
+
+      roots=("$HOME/Development" "$HOME/.config")
+
+      arg="''${1:-}"
+      if [ -z "$arg" ]; then
+        root=$(git rev-parse --show-toplevel 2> /dev/null || echo "$PWD")
+        name=$(basename "$root")
+      else
+        name="$arg"
+        root=""
+        for r in "''${roots[@]}"; do
+          for candidate in "$r/$name" "$r"/*/"$name"; do
+            if [ -d "$candidate" ]; then
+              root="$candidate"
+              break 2
+            fi
+          done
+        done
+        if [ -z "$root" ]; then
+          echo "dev: no directory named '$name' under ''${roots[*]}" >&2
+          exit 1
+        fi
+      fi
+
+      # tmux addresses windows as session:window, so those two are not usable in a name
+      session=$(printf '%s' "$name" | tr '.:' '__')
+
+      enter() {
+        if [ -n "''${TMUX:-}" ]; then
+          exec tmux switch-client -t "=$session"
+        fi
+        exec tmux attach -t "=$session"
+      }
+
+      # =session is an exact match, otherwise `dev nix` finds `nixos`
+      if tmux has-session -t "=$session" 2> /dev/null; then
+        enter
+      fi
+
+      tmux new-session -d -s "$session" -c "$root" -n shell
+      tmux new-window -t "=$session:2" -c "$root" -n edit nvim
+      tmux new-window -t "=$session:3" -c "$root" -n cluster k9s
+      tmux new-window -t "=$session:4" -c "$root" -n watch
+      tmux new-window -t "=$session:5" -c "$root" -n scratch
+      tmux select-window -t "=$session:1"
+      enter
+    '')
+  ];
+
   programs.tmux = {
     enable = true;
     terminal = "screen-256color";
