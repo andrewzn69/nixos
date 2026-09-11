@@ -44,11 +44,11 @@
       fi
 
       tmux new-session -d -s "$session" -c "$root" -n shell
-      tmux new-window -t "=$session:2" -c "$root" -n edit nvim
-      tmux new-window -t "=$session:3" -c "$root" -n cluster k9s
-      tmux new-window -t "=$session:4" -c "$root" -n watch
-      tmux new-window -t "=$session:5" -c "$root" -n scratch
-      tmux select-window -t "=$session:1"
+      tmux new-window -t "=$session:1" -c "$root" -n edit nvim
+      tmux new-window -t "=$session:2" -c "$root" -n cluster k9s
+      tmux new-window -t "=$session:3" -c "$root" -n watch
+      tmux new-window -t "=$session:4" -c "$root" -n scratch
+      tmux select-window -t "=$session:0"
       enter
     '')
   ];
@@ -58,7 +58,6 @@
     terminal = "screen-256color";
     clock24 = true;
     keyMode = "vi";
-    baseIndex = 1;
     escapeTime = 0;
     mouse = true;
     historyLimit = 10000;
@@ -83,20 +82,10 @@
       set -s extended-keys on
       set -as terminal-features 'xterm*:extkeys'
 
-      # pane numbering
-      set -g pane-base-index 1
       set -g renumber-windows on
 
       # cursor shape passthrough
       set-option -g terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[ q'
-
-      # copy mode vi binds
-      bind-key -T copy-mode-vi 'v' send -X begin-selection
-      bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
-      bind-key -T copy-mode-vi 'r' send -X rectangle-toggle
-
-      # session rename
-      bind R command-prompt -I "#{session_name}" "rename-session '%%'"
 
       # status bar
       set -g status on
