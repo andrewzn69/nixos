@@ -28,7 +28,6 @@
         fi
       fi
 
-      # tmux addresses windows as session:window, so those two are not usable in a name
       session=$(printf '%s' "$name" | tr '.:' '__')
 
       enter() {
@@ -38,17 +37,16 @@
         exec tmux attach -t "=$session"
       }
 
-      # =session is an exact match, otherwise `dev nix` finds `nixos`
       if tmux has-session -t "=$session" 2> /dev/null; then
         enter
       fi
 
-      tmux new-session -d -s "$session" -c "$root" -n shell
-      tmux new-window -t "=$session:1" -c "$root" -n edit nvim
-      tmux new-window -t "=$session:2" -c "$root" -n cluster k9s
-      tmux new-window -t "=$session:3" -c "$root" -n watch
-      tmux new-window -t "=$session:4" -c "$root" -n scratch
-      tmux select-window -t "=$session:0"
+      first=$(tmux new-session -d -s "$session" -c "$root" -n shell -P -F '#{window_id}')
+      tmux new-window -t "=$session" -c "$root" -n edit nvim
+      tmux new-window -t "=$session" -c "$root" -n cluster k9s
+      tmux new-window -t "=$session" -c "$root" -n watch
+      tmux new-window -t "=$session" -c "$root" -n scratch
+      tmux select-window -t "$first"
       enter
     '')
   ];
