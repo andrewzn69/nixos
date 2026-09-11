@@ -78,7 +78,6 @@
       # terminal features
       set-option -sa terminal-features ',xterm-256color:RGB'
       set -g set-clipboard on
-      set -g detach-on-destroy off
 
       # extended keys
       set -s extended-keys on
