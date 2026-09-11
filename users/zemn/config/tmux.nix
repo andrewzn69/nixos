@@ -20,12 +20,6 @@
           set -g @resurrect-capture-pane-contents 'on'
         '';
       }
-      {
-        plugin = continuum;
-        extraConfig = ''
-          set -g @continuum-restore 'on'
-        '';
-      }
     ];
 
     extraConfig = ''
