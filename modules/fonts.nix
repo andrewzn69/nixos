@@ -5,6 +5,7 @@
     packages = with pkgs; [
       nerd-fonts.ubuntu
       nerd-fonts.jetbrains-mono
+      nerd-fonts.symbols-only
       noto-fonts-color-emoji
       freetype
       # TODO: add CartographCF later
