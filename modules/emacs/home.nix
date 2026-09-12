@@ -15,6 +15,7 @@
     enable = true;
     package = pkgs.emacs-pgtk;
     client.enable = true;
+    extraOptions = [ "--init-directory=${config.xdg.configHome}/emacs" ];
   };
 
   home.packages = with pkgs; [
