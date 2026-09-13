@@ -13,7 +13,7 @@
         colors = {
           background = "#1D2022";
           surface = "#1D2022";
-          border = "#3C3C3C";
+          border = "#363636";
           muted = "#3C3C3C";
           text = "#EBDBB2";
           primary = "#AD685A";
@@ -47,7 +47,12 @@
           };
           "DP-3" = {
             left = [ "workspaces" ];
-            center = [ "cpu" "ram" "disk" "network" ];
+            center = [
+              "cpu"
+              "ram"
+              "disk"
+              "network"
+            ];
             right = [ "clock" ];
           };
         };
