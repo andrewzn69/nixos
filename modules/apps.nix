@@ -22,7 +22,7 @@
     zathura
     yt-dlp
     wf-recorder
-    bitwarden-desktop
+    # bitwarden-desktop # pulls in insecure/EOL electron-39.8.10
     scrcpy
     rustdesk
     obsidian
