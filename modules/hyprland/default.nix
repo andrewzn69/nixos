@@ -32,7 +32,6 @@
     # waybar
     rofi
     wf-recorder
-    hyprshade
     hyprsunset
     playerctl
   ];

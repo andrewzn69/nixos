@@ -1,6 +1,21 @@
-{ ... }:
+{ pkgs, ... }:
 
+let
+  # hyprshade 5 assumes hyprland's lua config manager: `getoption` uses dot syntax
+  # (ls/current fail) and on/off/toggle go through `hyprctl eval`, which silently no-ops.
+  # patch both back to classic `decoration:screen_shader` + `keyword`.
+  hyprshade-fixed = pkgs.hyprshade.overrideAttrs (old: {
+    postPatch = (old.postPatch or "") + ''
+      substituteInPlace src/hyprshade/shader/hyprctl.py \
+        --replace-fail "decoration.screen_shader" "decoration:screen_shader" \
+        --replace-fail '"eval",' '"keyword", "decoration:screen_shader",' \
+        --replace-fail "f\"hl.config({{ decoration = {{ screen_shader = '{lua_escape_str(shader_path)}' }} }})\"," "shader_path,"
+    '';
+  });
+in
 {
+  home.packages = [ hyprshade-fixed ];
+
   home.file.".config/hypr/shaders/vibrance2.glsl".text = ''
     // from https://github.com/hyprwm/Hyprland/issues/1140#issuecomment-1614863627
 
