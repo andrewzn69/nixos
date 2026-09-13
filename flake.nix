@@ -14,7 +14,6 @@
       url = "gitlab:rycee/nur-expressions?dir=pkgs/firefox-addons";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nixcord.url = "github:kaylorben/nixcord";
     PolyMC.url = "github:PolyMC/PolyMC";
     user-agents = {
       url = "github:jnrbsn/user-agents";
@@ -31,7 +30,6 @@
       zorya,
       zen-browser,
       firefox-addons,
-      nixcord,
       PolyMC,
       user-agents,
       ...
@@ -67,7 +65,6 @@
                   zorya
                   zen-browser
                   firefox-addons
-                  nixcord
                   user-agents
                   ;
               };

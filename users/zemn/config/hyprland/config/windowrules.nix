@@ -27,7 +27,6 @@
 
       # workspace
       "match:class ^(firefox)$, workspace 1"
-      "match:class ^(vesktop)$, workspace 2"
       "match:class ^(org.kotatogram.desktop)$, workspace 2"
       # "match:class ^(beeper)$, workspace 2"
       "match:class ^(Spotify)$, workspace 6"
