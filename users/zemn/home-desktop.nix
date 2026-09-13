@@ -10,7 +10,6 @@
     ./config/hyprland
     ./config/zorya.nix
     ../../modules/neovim/home.nix
-    ../../modules/emacs/home.nix
     ./config/browser
     ./config/theme
     ./config/rofi
