@@ -8,7 +8,6 @@
       # "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
       # "/usr/lib/polkit-kde-authentication-agent-1"
       # "systemctl --user restart pipewire"
-      "ags run"
       "systemctl --user restart hyprpaper"
       "[workspace 1 silent] zen-twilight"
       "[workspace 2 silent] beeper"
