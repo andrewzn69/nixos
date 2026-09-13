@@ -4,6 +4,7 @@
   imports = [
     ./aliases.nix
     ./prompt.nix
+    ./functions.nix
   ];
 
   config = lib.mkIf (builtins.elem "fish" config.shell.enabled) {
