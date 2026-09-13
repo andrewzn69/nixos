@@ -2,12 +2,14 @@
 
 let
   scriptsDir = "$HOME/.config/hypr/scripts";
+  soundsDir = "$HOME/Sounds";
   term = "kitty";
   browser = "zen-twilight";
   files = "thunar";
   screenshot = "${scriptsDir}/screenshit.sh";
   colorpicker = "${scriptsDir}/colorpicker.sh";
   wallpaper = "${scriptsDir}/randompape.sh";
+  playSound = name: "pwsp-cli action play --concurrent ${soundsDir}/${name}";
 in
 
 {
@@ -94,6 +96,19 @@ in
 
       # lock screen
       "$mainMod SHIFT, Tab, exec, swaylock -c 000000"
+
+      # soundboard (files in ~/Sounds, played through the PWSP virtual mic).
+      # bound bare and with ALT so they fire whether or not Alt is held --
+      # Hyprland matches the exact modifier mask, so ", F1" won't trigger on
+      # ALT+F1 and needs its own bind.
+      ", F1, exec, ${playSound "1.mp3"}"
+      ", F2, exec, ${playSound "2.mp3"}"
+      ", F3, exec, ${playSound "3.mp3"}"
+      ", F4, exec, ${playSound "4.mp3"}"
+      "ALT, F1, exec, ${playSound "1.mp3"}"
+      "ALT, F2, exec, ${playSound "2.mp3"}"
+      "ALT, F3, exec, ${playSound "3.mp3"}"
+      "ALT, F4, exec, ${playSound "4.mp3"}"
     ]
     # switch workspace
     ++ (map (i: "$mainMod, ${toString (if i == 10 then 0 else i)}, workspace, ${toString i}") (
