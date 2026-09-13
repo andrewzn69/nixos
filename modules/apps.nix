@@ -26,5 +26,6 @@
     scrcpy
     rustdesk
     obsidian
+    monero-gui
   ];
 }
