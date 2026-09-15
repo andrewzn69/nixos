@@ -5,12 +5,12 @@ let
 in
 {
   colors = mkColors {
-    background = "#1D2022FF";
-    background-transparent = "#28282895";
-    background-alt = "#482626FF";
-    selected = "#6A3837FF";
+    background = "#171A1CFF";
+    background-transparent = "#171A1C95";
+    background-alt = "#3D2D2BFF";
+    selected = "#B36656FF";
     foreground = "#EBDBB2FF";
-    active = "#B8BB26FF";
+    active = "#98971AFF";
     urgent = "#FB4934FF";
   };
 
