@@ -39,22 +39,22 @@ lib.mkIf (config.terminal == "kitty") {
       foreground = "#EBDBB2";
       background = "#171A1C"; # for some reason, `#171A1C` renders as `#1D2022`
       selection_foreground = "#EBDBB2";
-      selection_background = "#3C3C3C";
+      selection_background = "#2F3131";
 
-      cursor = "#D5C4A1";
-      cursor_text_color = "#1E1E2E";
+      cursor = "#D2C4A1";
+      cursor_text_color = "#171A1C";
 
-      url_color = "#F5E0DC";
+      url_color = "#B36656";
 
-      active_border_color = "#C9CBFF";
-      inactive_border_color = "#575268";
-      bell_border_color = "#FAE3B0";
+      active_border_color = "#B36656";
+      inactive_border_color = "#2F3131";
+      bell_border_color = "#D79921";
 
       wayland_titlebar_color = "background";
 
       # 16 terminal colors
       color0 = "#171A1C";
-      color8 = "#4B4B4B";
+      color8 = "#4D4C44";
       color1 = "#CC241D";
       color9 = "#CC241D";
       color2 = "#98971A";
@@ -67,8 +67,8 @@ lib.mkIf (config.terminal == "kitty") {
       color13 = "#B16286";
       color6 = "#689D6A";
       color14 = "#689D6A";
-      color7 = "#A89984";
-      color15 = "#A89984";
+      color7 = "#A49B81";
+      color15 = "#A49B81";
     };
 
     keybindings = {

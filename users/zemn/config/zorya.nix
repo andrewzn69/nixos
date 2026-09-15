@@ -11,12 +11,12 @@
 
       theme = {
         colors = {
-          background = "#1D2022";
-          surface = "#1D2022";
-          border = "#363636";
-          muted = "#3C3C3C";
+          background = "#232628";
+          surface = "#282C2D";
+          border = "#2F3131";
+          muted = "#2F3131";
           text = "#EBDBB2";
-          primary = "#AD685A";
+          primary = "#B36656";
           secondary = "#98971A";
           tertiary = "#458588";
         };
