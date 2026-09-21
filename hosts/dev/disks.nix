@@ -14,8 +14,8 @@
   ];
 
   # nfs
-  fileSystems."/home/zemn/docs/obsidian" = {
-    device = "100.64.100.10:/storage/apps/obsidian";
+  fileSystems."/home/zemn/docs" = {
+    device = "100.64.100.10:/storage/docs";
     fsType = "nfs";
     options = [
       "x-systemd.automount"
