@@ -51,6 +51,7 @@
 
     # claude
     CLAUDE_CONFIG_DIR = "/home/zemn/.config/claude";
+    CLAUDE_CODE_PROJECT_DIR_NAME = "default";
 
     # ???
     ANSIBLE_NOCOWS = "1";
