@@ -11,7 +11,7 @@
 
       theme = {
         colors = {
-          background = "#232628";
+          background = "#171A1C";
           surface = "#282C2D";
           border = "#2F3131";
           muted = "#2F3131";
