@@ -14,6 +14,7 @@
     ./config/theme
     ./config/rofi
     ./config/terminal
+    ./config/jellyfin-mpv-shim.nix
   ];
 
   terminal = "kitty";
