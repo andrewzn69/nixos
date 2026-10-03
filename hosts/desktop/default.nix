@@ -23,6 +23,7 @@
     ../../modules/file-browser
     ../../modules/fonts.nix
     ../../modules/keyring.nix
+    ../../modules/gnupg.nix
     ../../modules/email.nix
   ];
 
