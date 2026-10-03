@@ -7,6 +7,7 @@
     settings = {
       user.name = "Ondřej Zeman";
       user.email = "ondrejzeman@zemn.xyz";
+      github.user = "andrewzn69";
 
       alias = {
         d = "difftool";
