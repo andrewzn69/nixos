@@ -15,6 +15,7 @@
     ./config/rofi
     ./config/terminal
     ./config/jellyfin-mpv-shim.nix
+    ./config/opencode.nix
   ];
 
   terminal = "kitty";
