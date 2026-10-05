@@ -38,5 +38,6 @@
     claude-code-nix.packages.x86_64-linux.default
     kubescape
     gh
+    python3Packages.trafilatura
   ];
 }
