@@ -24,7 +24,7 @@
         editor = "nvim";
         excludesFile = "~/.config/git/ignore";
       };
-      "url \"git@github.com:\"".insteadOf = "https://github.com/";
+      "url \"git@github.com:\"".pushInsteadOf = "https://github.com/";
     };
   };
 
