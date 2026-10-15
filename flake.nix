@@ -23,6 +23,10 @@
       url = "github:nix-community/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    disko = {
+      url = "github:nix-community/disko/latest";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -37,6 +41,7 @@
       PolyMC,
       user-agents,
       apple-silicon,
+      disko,
       ...
     }:
     {
@@ -82,6 +87,7 @@
           specialArgs = { inherit claude-code-nix; };
           modules = [
             apple-silicon.nixosModules.apple-silicon-support
+            disko.nixosModules.disko
             ./hosts/laptop/default.nix
             home-manager.nixosModules.home-manager
             {
