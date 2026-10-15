@@ -35,7 +35,7 @@
     file
     sqlite
     # ggshield
-    claude-code-nix.packages.x86_64-linux.default
+    claude-code-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
     kubescape
     gh
     python3Packages.trafilatura
