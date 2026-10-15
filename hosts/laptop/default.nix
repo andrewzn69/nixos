@@ -26,7 +26,5 @@
   shells = [ "fish" ];
   fileBrowser = "thunar";
 
-  zramSwap.enable = true;
-
   system.stateVersion = "26.11";
 }

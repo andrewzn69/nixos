@@ -46,4 +46,6 @@
     fsType = "vfat";
     options = [ "umask=0077" ];
   };
+
+  zramSwap.enable = true;
 }
