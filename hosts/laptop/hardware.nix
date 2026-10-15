@@ -8,7 +8,7 @@ let
     message = ''
       The Asahi peripheral firmware is missing from the nix store. Add it with
         sudo nix-store --add-fixed sha256 /boot/vendorfw/firmware.cpio
-      Rerunning the Asahi installer changes the file, so the hash in hosts/laptop/firmware.nix has to be updated as well.
+      Rerunning the Asahi installer changes the file, so the hash in hosts/laptop/hardware.nix has to be updated as well.
     '';
   };
   vendorfw = pkgs.linkFarm "asahi-vendorfw" [
@@ -19,7 +19,10 @@ let
   ];
 in
 {
+  hardware.asahi.enable = true;
   hardware.asahi.peripheralFirmwareDirectory = vendorfw;
   # keeps the cpio out of garbage collection since rebuilds of the firmware pkg need it
   environment.etc."asahi/vendorfw".source = vendorfw;
+
+  services.upower.enable = true;
 }

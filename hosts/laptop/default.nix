@@ -3,7 +3,7 @@
 {
   imports = [
     ./disks.nix
-    ./firmware.nix
+    ./hardware.nix
     ./boot.nix
 
     ../../modules/base.nix
@@ -21,8 +21,6 @@
     ../../modules/gnupg.nix
     ../../modules/email.nix
   ];
-
-  hardware.asahi.enable = true;
 
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;
@@ -43,7 +41,6 @@
   shells = [ "fish" ];
   fileBrowser = "thunar";
 
-  services.upower.enable = true;
   zramSwap.enable = true;
 
   system.stateVersion = "26.11";
