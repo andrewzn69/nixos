@@ -19,6 +19,10 @@
       url = "github:jnrbsn/user-agents";
       flake = false;
     };
+    apple-silicon = {
+      url = "github:nix-community/nixos-apple-silicon";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -32,6 +36,7 @@
       firefox-addons,
       PolyMC,
       user-agents,
+      apple-silicon,
       ...
     }:
     {
@@ -60,6 +65,29 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.zemn = import ./users/zemn/home-desktop.nix;
+              home-manager.extraSpecialArgs = {
+                inherit
+                  zorya
+                  zen-browser
+                  firefox-addons
+                  user-agents
+                  ;
+              };
+            }
+          ];
+        };
+
+        laptop = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          specialArgs = { inherit claude-code-nix; };
+          modules = [
+            apple-silicon.nixosModules.apple-silicon-support
+            ./hosts/laptop/default.nix
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.zemn = import ./users/zemn/home-laptop.nix;
               home-manager.extraSpecialArgs = {
                 inherit
                   zorya
