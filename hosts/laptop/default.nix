@@ -24,7 +24,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
 
-  networking.hostname = "macbook";
+  networking.hostName = "laptop";
   networking.networkmanager.enable = true;
   networking.networkmanager.wifi.backend = "iwd";
 
