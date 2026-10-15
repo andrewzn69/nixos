@@ -6,13 +6,13 @@
     ./hardware.nix
     ./networking.nix
     ./disks.nix
-    ./greeter.nix
 
     # shared
     ../../modules/base.nix
     ../../modules/shell
     ../../modules/tools.nix
     ../../modules/android.nix
+    ../../modules/greeter.nix
     ../../users/zemn
 
     # desktop-specific
