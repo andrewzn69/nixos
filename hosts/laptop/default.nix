@@ -3,6 +3,7 @@
 {
   imports = [
     ./disks.nix
+    ./firmware.nix
     ../desktop/greeter.nix
 
     ../../modules/base.nix
