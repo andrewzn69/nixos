@@ -5,10 +5,10 @@
     # communication
     beeper
     kotatogram-desktop
-    teamspeak6-client
+    # teamspeak6-client
 
     # media
-    spotify
+    # spotify
     spicetify-cli
     jellyfin-mpv-shim
     jellyfin-desktop
