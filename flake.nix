@@ -60,7 +60,6 @@
     {
       nixosConfigurations = {
         dev = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
           specialArgs = { inherit claude-code-nix; };
           modules = [
             ./hosts/dev/default.nix
@@ -74,7 +73,6 @@
         };
 
         desktop = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
           specialArgs = { inherit claude-code-nix PolyMC; };
           modules = [
             ./hosts/desktop/default.nix
@@ -96,7 +94,6 @@
         };
 
         laptop = nixpkgs.lib.nixosSystem {
-          system = "aarch64-linux";
           specialArgs = { inherit claude-code-nix; };
           modules = [
             apple-silicon.nixosModules.apple-silicon-support

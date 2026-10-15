@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ lib, pkgs, ... }:
 
 let
   # apple firmware is not redistributable, the asahi installer puts it on the esp
@@ -25,4 +25,6 @@ in
   environment.etc."asahi/vendorfw".source = vendorfw;
 
   services.upower.enable = true;
+
+  nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 }
