@@ -4,6 +4,7 @@
   imports = [
     ./disks.nix
     ./firmware.nix
+    ./uboot.nix
     ../desktop/greeter.nix
 
     ../../modules/base.nix
