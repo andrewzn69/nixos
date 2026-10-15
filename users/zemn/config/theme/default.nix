@@ -12,14 +12,13 @@ let
       hash = "sha256-4YqSucpxA7jsuJ9aADjJfKRPgPR89oq2l0T1N28+GV0=";
     };
     installPhase = ''
-      		  runHook preInstall
-      			mkdir -p $out/share/icons
-      			cp -r dist $out/share/icons/McMojave-cursors
-      			runHook postInstall
-      		'';
+      runHook preInstall
+      mkdir -p $out/share/icons
+      cp -r dist $out/share/icons/McMojave-cursors
+      runHook postInstall
+    '';
   };
 in
-
 {
   home.pointerCursor = {
     enable = true;
