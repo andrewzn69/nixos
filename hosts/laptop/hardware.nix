@@ -1,4 +1,9 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  apple-silicon,
+  ...
+}:
 
 let
   # apple firmware is not redistributable, the asahi installer puts it on the esp
@@ -19,6 +24,8 @@ let
   ];
 in
 {
+  imports = [ apple-silicon.nixosModules.apple-silicon-support ];
+
   hardware.asahi.enable = true;
   hardware.asahi.peripheralFirmwareDirectory = vendorfw;
   # keeps the cpio out of garbage collection since rebuilds of the firmware pkg need it

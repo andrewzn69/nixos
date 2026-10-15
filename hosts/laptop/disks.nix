@@ -1,6 +1,8 @@
-{ ... }:
+{ disko, ... }:
 
 {
+  imports = [ disko.nixosModules.disko ];
+
   disko.devices.disk.main = {
     type = "disk";
     # partition made by sgdisk in the free space, the gpt is shared with macos

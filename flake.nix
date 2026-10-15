@@ -43,78 +43,29 @@
   };
 
   outputs =
-    {
-      self,
-      nixpkgs,
-      claude-code-nix,
-      home-manager,
-      zorya,
-      zen-browser,
-      firefox-addons,
-      PolyMC,
-      user-agents,
-      apple-silicon,
-      disko,
-      ...
-    }:
+    inputs@{ nixpkgs, home-manager, ... }:
+    let
+      mkHost =
+        name:
+        nixpkgs.lib.nixosSystem {
+          specialArgs = inputs;
+          modules = [
+            ./hosts/${name}
+            home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.users.zemn = import ./users/zemn/home-${name}.nix;
+              home-manager.extraSpecialArgs = inputs;
+            }
+          ];
+        };
+    in
     {
       nixosConfigurations = {
-        dev = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit claude-code-nix; };
-          modules = [
-            ./hosts/dev/default.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.zemn = import ./users/zemn/home-dev.nix;
-            }
-          ];
-        };
-
-        desktop = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit claude-code-nix PolyMC; };
-          modules = [
-            ./hosts/desktop/default.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.zemn = import ./users/zemn/home-desktop.nix;
-              home-manager.extraSpecialArgs = {
-                inherit
-                  zorya
-                  zen-browser
-                  firefox-addons
-                  user-agents
-                  ;
-              };
-            }
-          ];
-        };
-
-        laptop = nixpkgs.lib.nixosSystem {
-          specialArgs = { inherit claude-code-nix; };
-          modules = [
-            apple-silicon.nixosModules.apple-silicon-support
-            disko.nixosModules.disko
-            ./hosts/laptop/default.nix
-            home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.zemn = import ./users/zemn/home-laptop.nix;
-              home-manager.extraSpecialArgs = {
-                inherit
-                  zorya
-                  zen-browser
-                  firefox-addons
-                  user-agents
-                  ;
-              };
-            }
-          ];
-        };
+        dev = mkHost "dev";
+        desktop = mkHost "desktop";
+        laptop = mkHost "laptop";
       };
     };
 }
