@@ -1,10 +1,30 @@
 { pkgs, ... }:
 
+let
+  # not packaged in nixpkgs
+  mcmojave-cursors = pkgs.stdenvNoCC.mkDerivation {
+    pname = "mcmojave-cursors";
+    version = "0-unstable-2021-02-24";
+    src = pkgs.fetchFromGitHub {
+      owner = "vinceliuice";
+      repo = "McMojave-cursors";
+      rev = "7d0bfc1f91028191cdc220b87fd335a235ee4439";
+      hash = "sha256-4YqSucpxA7jsuJ9aADjJfKRPgPR89oq2l0T1N28+GV0=";
+    };
+    installPhase = ''
+      		  runHook preInstall
+      			mkdir -p $out/share/icons
+      			cp -r dist $out/share/icons/McMojave-cursors
+      			runHook postInstall
+      		'';
+  };
+in
+
 {
   home.pointerCursor = {
     enable = true;
-    name = "capitaine-cursors";
-    package = pkgs.capitaine-cursors;
+    name = "McMojave-cursors";
+    package = mcmojave-cursors;
     size = 24;
     gtk.enable = true;
     x11.enable = true;
