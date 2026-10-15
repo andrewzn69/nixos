@@ -2,11 +2,12 @@
 
 {
   imports = [
-    ./disks.nix
-    ./hardware.nix
     ./boot.nix
+    ./hardware.nix
     ./networking.nix
+    ./disks.nix
 
+    # shared
     ../../modules/base.nix
     ../../modules/shell
     ../../modules/tools.nix
