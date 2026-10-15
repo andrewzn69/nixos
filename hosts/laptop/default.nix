@@ -4,7 +4,7 @@
   imports = [
     ./disks.nix
     ./firmware.nix
-    ./uboot.nix
+    ./boot.nix
 
     ../../modules/base.nix
     ../../modules/shell
@@ -23,8 +23,6 @@
   ];
 
   hardware.asahi.enable = true;
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = false;
 
   networking.hostName = "laptop";
   networking.networkmanager.enable = true;

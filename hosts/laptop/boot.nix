@@ -1,6 +1,9 @@
 { ... }:
 
 {
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = false;
+
   nixpkgs.overlays = [
     (final: prev: {
       # nixpkgs rewrites the dtc flags for its own dtc but uboot-asahi builds with the older dtc bundled in uboot
