@@ -20,7 +20,7 @@ in
 
     profiles.default = {
       extensions = {
-        packages = builtins.map (ext: firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}.${ext}) (
+        packages = map (ext: firefox-addons.packages.${pkgs.stdenv.hostPlatform.system}.${ext}) (
           builtins.attrNames extensions
         );
         force = true;
