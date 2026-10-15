@@ -1,7 +1,7 @@
 { pkgs, ... }:
 
 {
-  virtualisation.containers.registries.search = [
+  virtualisation.containers.registries.settings.unqualified-search-registries = [
     "docker.io"
     "quay.io"
   ];
