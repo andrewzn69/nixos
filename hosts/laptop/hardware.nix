@@ -22,6 +22,9 @@ let
       path = firmware;
     }
   ];
+  kbdBacklightRule = ''
+    ACTION=="add", SUBSYSTEM=="leds", KERNEL=="kbd_backlight", ATTR{brightness}="64"
+  '';
 in
 {
   imports = [ apple-silicon.nixosModules.apple-silicon-support ];
@@ -32,6 +35,13 @@ in
   environment.etc."asahi/vendorfw".source = vendorfw;
 
   services.upower.enable = true;
+
+  # keyboard backlight always on
+  boot.initrd.availableKernelModules = [ "pwm_apple" ];
+  boot.initrd.services.udev.rules = kbdBacklightRule;
+  services.udev.extraRules = kbdBacklightRule;
+  # stops systemd restoring the brightness saved at shutdown
+  systemd.services."systemd-backlight@leds:kbd_backlight".enable = false;
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
 }
