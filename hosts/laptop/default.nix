@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ./hardware-configuration.nix
+    ./disks.nix
     ../desktop/greeter.nix
 
     ../../modules/base.nix
