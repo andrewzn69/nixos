@@ -51,7 +51,7 @@ in
     plugins = [ pkgs.rofi-emoji ]; # emoji picker plugin
     theme = drunTheme;
 
-    extraConfig = {
+    settings = {
       modi = "drun";
       show-icons = true;
       display-drun = "󰍉";
