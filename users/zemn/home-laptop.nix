@@ -28,6 +28,7 @@
       "[workspace 7 silent] evolution"
     ];
     input.touchpad.natural_scroll = true;
+    bind = [ "CTRL SHIFT, 4, exec, grimblast copy area" ];
   };
 
   services.hyprpaper.settings.wallpaper = lib.mkForce [
