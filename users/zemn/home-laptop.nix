@@ -50,4 +50,8 @@
     };
     notifications.monitor = lib.mkForce "eDP-1";
   };
+
+  # zen multiplies touchpad scroll by this and the screen scale, the default (40) is awful
+  programs.zen-browser.profiles.default.settings."apz.gtk.pangesture.pixel_delta_mode_multiplier" =
+    "5";
 }
