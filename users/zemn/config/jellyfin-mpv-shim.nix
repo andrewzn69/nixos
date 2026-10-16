@@ -14,6 +14,9 @@
         { alang = "eng"; }
         { slang = "eng"; }
       ];
+
+      allow_background = true;
+      start_minimized = true;
     };
   };
 }
