@@ -43,11 +43,15 @@ in
   # stops systemd restoring the brightness saved at shutdown
   systemd.services."systemd-backlight@leds:kbd_backlight".enable = false;
 
-  # swap caps lock and esc on the builtin spi keyboard only, external keyboards keep their keys
+  # keep the built-in keyboard for humans
   services.udev.extraHwdb = ''
     evdev:input:b001Cv05ACp0342*
       KEYBOARD_KEY_70039=esc
       KEYBOARD_KEY_70029=capslock
+      KEYBOARD_KEY_ff0003=leftctrl
+      KEYBOARD_KEY_700e0=leftmeta
+      KEYBOARD_KEY_700e3=leftalt
+      KEYBOARD_KEY_700e7=fn
   '';
 
   nixpkgs.hostPlatform = lib.mkDefault "aarch64-linux";
