@@ -4,6 +4,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = false;
 
+  # the display driver hides the strip beside the notch unless told to use the full panel
+  boot.kernelParams = [ "appledrm.show_notch=1" ];
+
   nixpkgs.overlays = [
     (final: prev: {
       # nixpkgs rewrites the dtc flags for its own dtc but uboot-asahi builds with the older dtc bundled in uboot
