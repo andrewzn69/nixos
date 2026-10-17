@@ -128,6 +128,7 @@ in
       "X ${claudeTmpDir}/session-env"
       "d ${claudeTmpDir}/shell-snapshots 0700 - -"
       "x ${claudeTmpDir}/shell-snapshots"
+      "z ${configDir}/claude 0700 - -"
       "e ${configDir}/claude/projects - - - mM:${toString claudeRetentionDays}d"
       "d ${opencodeTmpDir} 0700 - - 1d"
     ];
