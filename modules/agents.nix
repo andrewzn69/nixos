@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   pkgs,
   claude-code-nix,
@@ -7,8 +8,24 @@
 
 let
   configDir = config.home-manager.users.zemn.xdg.configHome;
+  agentsDir = "${configDir}/agents";
   claudeTmpDir = "/tmp/claude";
   opencodeTmpDir = "/tmp/opencode";
+
+  inherit (config.home-manager.users.zemn.lib.file) mkOutOfStoreSymlink;
+
+  links = {
+    claude = {
+      "CLAUDE.md" = "AGENTS.md";
+      rules = "rules";
+      skills = "skills";
+      agents = "claude/agents";
+      hooks = "claude/hooks";
+      "settings.json" = "claude/settings.json";
+      "keybindings.json" = "claude/keybindings.json";
+      "claude-powerline.json" = "claude/claude-powerline.json";
+    };
+  };
 
   opencode-patched = pkgs.opencode.overrideAttrs (old: {
     postPatch = (old.postPatch or "") + ''
@@ -21,7 +38,7 @@ let
   });
 in
 {
-  fileSystems."${configDir}/agents" = {
+  fileSystems.${agentsDir} = {
     device = "100.64.100.10:/storage/agents";
     fsType = "nfs";
     options = [
@@ -44,6 +61,14 @@ in
       CLAUDE_CODE_TMPDIR = claudeTmpDir;
       OPENCODE_TOOL_OUTPUT_DIR = "${opencodeTmpDir}/tool-output";
     };
+
+    xdg.configFile = lib.concatMapAttrs (
+      tool: files:
+      lib.mapAttrs' (
+        name: target:
+        lib.nameValuePair "${tool}/${name}" { source = mkOutOfStoreSymlink "${agentsDir}/${target}"; }
+      ) files
+    ) links;
 
     programs.opencode = {
       enable = true;
