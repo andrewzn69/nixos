@@ -25,6 +25,7 @@ let
       "keybindings.json" = "${agentsDir}/claude/keybindings.json";
       "claude-powerline.json" = "${agentsDir}/claude/claude-powerline.json";
       jobs = "${claudeTmpDir}/jobs";
+      plans = "${claudeTmpDir}/plans";
     };
   };
 
@@ -80,6 +81,8 @@ in
       "d ${claudeTmpDir} 0700 - - 1d"
       "d ${claudeTmpDir}/jobs 0700 - -"
       "X ${claudeTmpDir}/jobs"
+      "d ${claudeTmpDir}/plans 0700 - -"
+      "X ${claudeTmpDir}/plans"
     ];
   };
 }
