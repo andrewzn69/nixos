@@ -10,29 +10,26 @@
 let
   configDir = config.home-manager.users.${user}.xdg.configHome;
   agentsDir = "${configDir}/agents";
-  claudeTmpDir = "/tmp/claude";
-  claudeSessionRetentionHours = 72;
-  claudeHistoryRetentionHours = 12;
-  opencodeTmpDir = "/tmp/opencode";
 
   inherit (config.home-manager.users.${user}.lib.file) mkOutOfStoreSymlink;
 
-  links = {
-    claude = {
-      "CLAUDE.md" = "${agentsDir}/AGENTS.md";
-      rules = "${agentsDir}/rules";
-      skills = "${agentsDir}/skills";
-      agents = "${agentsDir}/claude/agents";
-      hooks = "${agentsDir}/claude/hooks";
-      "settings.json" = "${agentsDir}/claude/settings.json";
-      "keybindings.json" = "${agentsDir}/claude/keybindings.json";
-      "claude-powerline.json" = "${agentsDir}/claude/claude-powerline.json";
-      jobs = "${claudeTmpDir}/jobs";
-      plans = "${claudeTmpDir}/plans";
-      session-env = "${claudeTmpDir}/session-env";
-      shell-snapshots = "${claudeTmpDir}/shell-snapshots";
-      paste-cache = "${claudeTmpDir}/paste-cache";
-    };
+  linkConfig =
+    tool: links:
+    lib.mapAttrs' (
+      name: target: lib.nameValuePair "${tool}/${name}" { source = mkOutOfStoreSymlink target; }
+    ) links;
+
+  claudeTmpDir = "/tmp/claude";
+  claudeSessionRetentionHours = 72;
+  claudeHistoryRetentionHours = 12;
+
+  # X keeps each dir as a link target, x also keeps a live session's shell snapshot
+  claudeTmpLinks = {
+    jobs = "X";
+    plans = "X";
+    session-env = "X";
+    shell-snapshots = "x";
+    paste-cache = "X";
   };
 
   # claude never prunes its prompt history (of course) and tmpfiles cannot age a single file
@@ -52,30 +49,7 @@ let
     '';
   };
 
-  opencode-patched = pkgs.opencode.overrideAttrs (old: {
-    postPatch = (old.postPatch or "") + ''
-      substituteInPlace packages/tui/src/routes/session/index.tsx \
-        --replace-fail 'flexDirection="row" flexGrow={1} minHeight={0}' 'flexDirection="row-reverse" flexGrow={1} minHeight={0}' \
-        --replace-fail 'alignItems="flex-end"' 'alignItems="flex-start"'
-      substituteInPlace packages/opencode/src/tool/truncation-dir.ts \
-        --replace-fail 'path.join(Global.Path.data, "tool-output")' '(process.env.OPENCODE_TOOL_OUTPUT_DIR || path.join(Global.Path.data, "tool-output"))'
-    '';
-  });
-in
-{
-  fileSystems.${agentsDir} = {
-    device = "100.64.100.10:/storage/agents";
-    fsType = "nfs";
-    options = [
-      "x-systemd.automount"
-      "noauto"
-      "x-systemd.idle-timeout=600"
-      "nfsvers=4"
-      "rw"
-    ];
-  };
-
-  home-manager.users.${user} = {
+  claude = {
     home.packages = [
       claude-code-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];
@@ -105,37 +79,33 @@ in
       DISABLE_UPGRADE_COMMAND = "1";
       DO_NOT_TRACK = "1";
       USE_BUILTIN_RIPGREP = "0";
-      OPENCODE_TOOL_OUTPUT_DIR = "${opencodeTmpDir}/tool-output";
     };
 
-    xdg.configFile = lib.concatMapAttrs (
-      tool: files:
-      lib.mapAttrs' (
-        name: target: lib.nameValuePair "${tool}/${name}" { source = mkOutOfStoreSymlink target; }
-      ) files
-    ) links;
-
-    programs.opencode = {
-      enable = true;
-      package = opencode-patched;
-    };
+    xdg.configFile = linkConfig "claude" (
+      {
+        "CLAUDE.md" = "${agentsDir}/AGENTS.md";
+        rules = "${agentsDir}/rules";
+        skills = "${agentsDir}/skills";
+        agents = "${agentsDir}/claude/agents";
+        hooks = "${agentsDir}/claude/hooks";
+        "settings.json" = "${agentsDir}/claude/settings.json";
+        "keybindings.json" = "${agentsDir}/claude/keybindings.json";
+        "claude-powerline.json" = "${agentsDir}/claude/claude-powerline.json";
+      }
+      // lib.mapAttrs (name: _: "${claudeTmpDir}/${name}") claudeTmpLinks
+    );
 
     systemd.user.tmpfiles.rules = [
       "d ${claudeTmpDir} 0700 - - 1d"
-      "d ${claudeTmpDir}/jobs 0700 - -"
-      "X ${claudeTmpDir}/jobs"
-      "d ${claudeTmpDir}/plans 0700 - -"
-      "X ${claudeTmpDir}/plans"
-      "d ${claudeTmpDir}/session-env 0700 - -"
-      "X ${claudeTmpDir}/session-env"
-      "d ${claudeTmpDir}/shell-snapshots 0700 - -"
-      "x ${claudeTmpDir}/shell-snapshots"
-      "d ${claudeTmpDir}/paste-cache 0700 - -"
-      "X ${claudeTmpDir}/paste-cache"
       "z ${configDir}/claude 0700 - -"
       "e ${configDir}/claude/projects - - - mM:${toString claudeSessionRetentionHours}h"
-      "d ${opencodeTmpDir} 0700 - - 1d"
-    ];
+    ]
+    ++ lib.concatLists (
+      lib.mapAttrsToList (name: exclude: [
+        "d ${claudeTmpDir}/${name} 0700 - -"
+        "${exclude} ${claudeTmpDir}/${name}"
+      ]) claudeTmpLinks
+    );
 
     systemd.user.services.claude-history-cleanup = {
       Unit.Description = "Delete claude prompt history past its retention";
@@ -154,4 +124,49 @@ in
       Install.WantedBy = [ "timers.target" ];
     };
   };
+
+  opencodeTmpDir = "/tmp/opencode";
+
+  opencode-patched = pkgs.opencode.overrideAttrs (old: {
+    postPatch = (old.postPatch or "") + ''
+      substituteInPlace packages/tui/src/routes/session/index.tsx \
+        --replace-fail 'flexDirection="row" flexGrow={1} minHeight={0}' 'flexDirection="row-reverse" flexGrow={1} minHeight={0}' \
+        --replace-fail 'alignItems="flex-end"' 'alignItems="flex-start"'
+      substituteInPlace packages/opencode/src/tool/truncation-dir.ts \
+        --replace-fail 'path.join(Global.Path.data, "tool-output")' '(process.env.OPENCODE_TOOL_OUTPUT_DIR || path.join(Global.Path.data, "tool-output"))'
+    '';
+  });
+
+  opencode = {
+    home.sessionVariables = {
+      OPENCODE_TOOL_OUTPUT_DIR = "${opencodeTmpDir}/tool-output";
+    };
+
+    programs.opencode = {
+      enable = true;
+      package = opencode-patched;
+    };
+
+    systemd.user.tmpfiles.rules = [
+      "d ${opencodeTmpDir} 0700 - - 1d"
+    ];
+  };
+in
+{
+  fileSystems.${agentsDir} = {
+    device = "100.64.100.10:/storage/agents";
+    fsType = "nfs";
+    options = [
+      "x-systemd.automount"
+      "noauto"
+      "x-systemd.idle-timeout=600"
+      "nfsvers=4"
+      "rw"
+    ];
+  };
+
+  home-manager.users.${user} = lib.mkMerge [
+    claude
+    opencode
+  ];
 }
