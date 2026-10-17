@@ -8,6 +8,7 @@
     ./disks.nix
 
     # shared
+    ../../modules/agents.nix
     ../../modules/base.nix
     ../../modules/shell
     ../../modules/tools.nix

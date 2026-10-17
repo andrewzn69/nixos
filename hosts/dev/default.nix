@@ -9,6 +9,7 @@
     ../../modules/base.nix
     ../../modules/shell
     ../../modules/tools.nix
+    ../../modules/agents.nix
     ../../modules/languages.nix
     ../../modules/containers.nix
     ../../modules/infra.nix

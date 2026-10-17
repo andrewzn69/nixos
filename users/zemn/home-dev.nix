@@ -6,7 +6,6 @@
     ./config/git.nix
     ../../modules/neovim/home.nix
     ./config/tmux.nix
-    ./config/opencode.nix
   ];
 
   shell.default = "fish";
