@@ -27,6 +27,7 @@ let
       jobs = "${claudeTmpDir}/jobs";
       plans = "${claudeTmpDir}/plans";
       session-env = "${claudeTmpDir}/session-env";
+      shell-snapshots = "${claudeTmpDir}/shell-snapshots";
     };
   };
 
@@ -85,6 +86,8 @@ in
       "X ${claudeTmpDir}/plans"
       "d ${claudeTmpDir}/session-env 0700 - -"
       "X ${claudeTmpDir}/session-env"
+      "d ${claudeTmpDir}/shell-snapshots 0700 - -"
+      "x ${claudeTmpDir}/shell-snapshots"
       "e ${configDir}/claude/projects - - - mM:3d"
       "d ${opencodeTmpDir} 0700 - - 1d"
     ];
