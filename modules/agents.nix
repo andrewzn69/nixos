@@ -8,6 +8,7 @@
 let
   configDir = config.home-manager.users.zemn.xdg.configHome;
   toolOutputDir = "/tmp/opencode/tool-output";
+  claudeTmpDir = "/tmp/claude";
 
   opencode-patched = pkgs.opencode.overrideAttrs (old: {
     postPatch = (old.postPatch or "") + ''
@@ -40,6 +41,7 @@ in
     home.sessionVariables = {
       CLAUDE_CONFIG_DIR = "${configDir}/claude";
       CLAUDE_CODE_PROJECT_DIR_NAME = "default";
+      CLAUDE_CODE_TMPDIR = claudeTmpDir;
       OPENCODE_TOOL_OUTPUT_DIR = toolOutputDir;
     };
 
