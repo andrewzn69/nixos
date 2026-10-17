@@ -1,7 +1,9 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 {
   imports = [ ./home-desktop.nix ];
+
+  home.packages = [ pkgs.brightnessctl ];
 
   wayland.windowManager.hyprland.settings = {
     monitor = lib.mkForce [
@@ -29,6 +31,11 @@
     ];
     input.touchpad.natural_scroll = true;
     bind = [ "CTRL SHIFT, 4, exec, grimblast copy area" ];
+
+    bindel = [
+      ", XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+"
+      ", XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
+    ];
   };
 
   services.hyprpaper.settings.wallpaper = lib.mkForce [
