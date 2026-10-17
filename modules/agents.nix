@@ -31,6 +31,7 @@ let
       plans = "${claudeTmpDir}/plans";
       session-env = "${claudeTmpDir}/session-env";
       shell-snapshots = "${claudeTmpDir}/shell-snapshots";
+      paste-cache = "${claudeTmpDir}/paste-cache";
     };
   };
 
@@ -129,6 +130,8 @@ in
       "X ${claudeTmpDir}/session-env"
       "d ${claudeTmpDir}/shell-snapshots 0700 - -"
       "x ${claudeTmpDir}/shell-snapshots"
+      "d ${claudeTmpDir}/paste-cache 0700 - -"
+      "X ${claudeTmpDir}/paste-cache"
       "z ${configDir}/claude 0700 - -"
       "e ${configDir}/claude/projects - - - mM:${toString claudeSessionRetentionHours}h"
       "d ${opencodeTmpDir} 0700 - - 1d"
