@@ -52,6 +52,7 @@ in
 
     systemd.user.tmpfiles.rules = [
       "d ${toolOutputDir} 0700 - - 1d"
+      "d ${claudeTmpDir} 0700 - - 1d"
     ];
   };
 }
