@@ -37,6 +37,8 @@
   nix.settings.auto-optimise-store = true;
   boot.loader.systemd-boot.configurationLimit = 5;
 
+  boot.tmp.useTmpfs = true;
+
   # env
   environment.sessionVariables = {
     TERMINAL = "kitty";
