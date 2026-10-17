@@ -11,6 +11,7 @@ let
   configDir = config.home-manager.users.${user}.xdg.configHome;
   agentsDir = "${configDir}/agents";
   claudeTmpDir = "/tmp/claude";
+  claudeRetentionDays = 3;
   opencodeTmpDir = "/tmp/opencode";
 
   inherit (config.home-manager.users.${user}.lib.file) mkOutOfStoreSymlink;
@@ -30,6 +31,23 @@ let
       session-env = "${claudeTmpDir}/session-env";
       shell-snapshots = "${claudeTmpDir}/shell-snapshots";
     };
+  };
+
+  # claude never prunes its prompt history (of course) and tmpfiles cannot age a single file
+  claudeHistoryCleanup = pkgs.writeShellApplication {
+    name = "claude-history-cleanup";
+    runtimeInputs = [
+      pkgs.coreutils
+      pkgs.jq
+    ];
+    text = ''
+      history="${configDir}/claude/history.jsonl"
+      [ -s "$history" ] || exit 0
+      oldest=$(jq -Rn '[inputs | fromjson? | .timestamp] | min / 1000 | floor' "$history")
+      if (( $(date +%s) - oldest > ${toString (claudeRetentionDays * 86400)} )); then
+        rm "$history"
+      fi
+    '';
   };
 
   opencode-patched = pkgs.opencode.overrideAttrs (old: {
@@ -110,8 +128,25 @@ in
       "X ${claudeTmpDir}/session-env"
       "d ${claudeTmpDir}/shell-snapshots 0700 - -"
       "x ${claudeTmpDir}/shell-snapshots"
-      "e ${configDir}/claude/projects - - - mM:3d"
+      "e ${configDir}/claude/projects - - - mM:${toString claudeRetentionDays}d"
       "d ${opencodeTmpDir} 0700 - - 1d"
     ];
+
+    systemd.user.services.claude-history-cleanup = {
+      Unit.Description = "Delete claude prompt history past its retention";
+      Service = {
+        Type = "oneshot";
+        ExecStart = lib.getExe claudeHistoryCleanup;
+      };
+    };
+
+    systemd.user.timers.claude-history-cleanup = {
+      Unit.Description = "Daily claude prompt history cleanup";
+      Timer = {
+        OnCalendar = "daily";
+        Persistent = true;
+      };
+      Install.WantedBy = [ "timers.target" ];
+    };
   };
 }
