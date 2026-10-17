@@ -47,5 +47,9 @@ in
       enable = true;
       package = opencode-patched;
     };
+
+    systemd.user.tmpfiles.rules = [
+      "d ${toolOutputDir} 0700 - - 1d"
+    ];
   };
 }
