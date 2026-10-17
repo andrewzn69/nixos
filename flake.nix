@@ -45,18 +45,22 @@
   outputs =
     inputs@{ nixpkgs, home-manager, ... }:
     let
+      user = "zemn";
+      args = inputs // {
+        inherit user;
+      };
       mkHost =
         name:
         nixpkgs.lib.nixosSystem {
-          specialArgs = inputs;
+          specialArgs = args;
           modules = [
             ./hosts/${name}
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.zemn = import ./users/zemn/home-${name}.nix;
-              home-manager.extraSpecialArgs = inputs;
+              home-manager.users.${user} = import ./users/${user}/home-${name}.nix;
+              home-manager.extraSpecialArgs = args;
             }
           ];
         };

@@ -2,17 +2,18 @@
   lib,
   config,
   pkgs,
+  user,
   claude-code-nix,
   ...
 }:
 
 let
-  configDir = config.home-manager.users.zemn.xdg.configHome;
+  configDir = config.home-manager.users.${user}.xdg.configHome;
   agentsDir = "${configDir}/agents";
   claudeTmpDir = "/tmp/claude";
   opencodeTmpDir = "/tmp/opencode";
 
-  inherit (config.home-manager.users.zemn.lib.file) mkOutOfStoreSymlink;
+  inherit (config.home-manager.users.${user}.lib.file) mkOutOfStoreSymlink;
 
   links = {
     claude = {
@@ -54,7 +55,7 @@ in
     ];
   };
 
-  home-manager.users.zemn = {
+  home-manager.users.${user} = {
     home.packages = [
       claude-code-nix.packages.${pkgs.stdenv.hostPlatform.system}.default
     ];

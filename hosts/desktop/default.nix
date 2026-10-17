@@ -1,4 +1,4 @@
-{ ... }:
+{ user, ... }:
 
 {
   imports = [
@@ -14,7 +14,7 @@
     ../../modules/tools.nix
     ../../modules/android.nix
     ../../modules/greeter.nix
-    ../../users/zemn
+    ../../users/${user}
 
     # desktop-specific
     ../../modules/hyprland

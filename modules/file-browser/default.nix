@@ -1,4 +1,9 @@
-{ lib, config, ... }:
+{
+  lib,
+  config,
+  user,
+  ...
+}:
 
 let
   desktopFiles = {
@@ -13,6 +18,6 @@ in
     default = "thunar";
   };
 
-  config.home-manager.users.zemn.xdg.mimeApps.defaultApplications."inode/directory" =
+  config.home-manager.users.${user}.xdg.mimeApps.defaultApplications."inode/directory" =
     desktopFiles.${config.fileBrowser};
 }

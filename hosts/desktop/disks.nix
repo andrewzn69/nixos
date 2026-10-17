@@ -1,4 +1,4 @@
-{ ... }:
+{ config, user, ... }:
 
 {
   fileSystems."/" = {
@@ -42,7 +42,7 @@
   # nfs
   services.rpcbind.enable = true;
 
-  fileSystems."/home/zemn/docs" = {
+  fileSystems."${config.users.users.${user}.home}/docs" = {
     device = "100.64.100.10:/storage/docs";
     fsType = "nfs";
     options = [

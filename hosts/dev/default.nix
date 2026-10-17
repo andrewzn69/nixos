@@ -1,4 +1,4 @@
-{ ... }:
+{ user, ... }:
 
 {
   imports = [
@@ -14,7 +14,7 @@
     ../../modules/containers.nix
     ../../modules/infra.nix
     ../../modules/android.nix
-    ../../users/zemn
+    ../../users/${user}
   ];
 
   # vm specific services

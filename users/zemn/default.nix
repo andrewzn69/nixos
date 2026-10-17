@@ -1,9 +1,8 @@
-{ ... }:
+{ user, ... }:
 
 {
-  users.users.zemn = {
+  users.users.${user} = {
     isNormalUser = true;
-    description = "Zemn";
     extraGroups = [
       "networkmanager"
       "wheel"

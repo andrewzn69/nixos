@@ -1,4 +1,4 @@
-{ ... }:
+{ user, ... }:
 
 {
   imports = [
@@ -12,7 +12,7 @@
     ../../modules/shell
     ../../modules/tools.nix
     ../../modules/greeter.nix
-    ../../users/zemn
+    ../../users/${user}
 
     ../../modules/hyprland
     ../../modules/audio.nix
