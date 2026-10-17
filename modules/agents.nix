@@ -77,12 +77,13 @@ in
     };
 
     systemd.user.tmpfiles.rules = [
-      "d ${opencodeTmpDir} 0700 - - 1d"
       "d ${claudeTmpDir} 0700 - - 1d"
       "d ${claudeTmpDir}/jobs 0700 - -"
       "X ${claudeTmpDir}/jobs"
       "d ${claudeTmpDir}/plans 0700 - -"
       "X ${claudeTmpDir}/plans"
+      "e ${configDir}/claude/projects - - - mM:3d"
+      "d ${opencodeTmpDir} 0700 - - 1d"
     ];
   };
 }
