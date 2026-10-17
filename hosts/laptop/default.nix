@@ -16,6 +16,7 @@
 
     ../../modules/hyprland
     ../../modules/audio.nix
+    ../../modules/bluetooth.nix
     ../../modules/apps.nix
     ../../modules/file-browser
     ../../modules/fonts.nix
