@@ -73,7 +73,7 @@
 
     extraConfig = ''
       # terminal features
-      set-option -sa terminal-features ',xterm-256color:RGB'
+      set-option -sa terminal-features ',xterm*:RGB'
       set -g set-clipboard on
 
       # extended keys
