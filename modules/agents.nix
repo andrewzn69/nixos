@@ -16,14 +16,15 @@ let
 
   links = {
     claude = {
-      "CLAUDE.md" = "AGENTS.md";
-      rules = "rules";
-      skills = "skills";
-      agents = "claude/agents";
-      hooks = "claude/hooks";
-      "settings.json" = "claude/settings.json";
-      "keybindings.json" = "claude/keybindings.json";
-      "claude-powerline.json" = "claude/claude-powerline.json";
+      "CLAUDE.md" = "${agentsDir}/AGENTS.md";
+      rules = "${agentsDir}/rules";
+      skills = "${agentsDir}/skills";
+      agents = "${agentsDir}/claude/agents";
+      hooks = "${agentsDir}/claude/hooks";
+      "settings.json" = "${agentsDir}/claude/settings.json";
+      "keybindings.json" = "${agentsDir}/claude/keybindings.json";
+      "claude-powerline.json" = "${agentsDir}/claude/claude-powerline.json";
+      jobs = "${claudeTmpDir}/jobs";
     };
   };
 
@@ -65,8 +66,7 @@ in
     xdg.configFile = lib.concatMapAttrs (
       tool: files:
       lib.mapAttrs' (
-        name: target:
-        lib.nameValuePair "${tool}/${name}" { source = mkOutOfStoreSymlink "${agentsDir}/${target}"; }
+        name: target: lib.nameValuePair "${tool}/${name}" { source = mkOutOfStoreSymlink target; }
       ) files
     ) links;
 
@@ -78,6 +78,8 @@ in
     systemd.user.tmpfiles.rules = [
       "d ${opencodeTmpDir} 0700 - - 1d"
       "d ${claudeTmpDir} 0700 - - 1d"
+      "d ${claudeTmpDir}/jobs 0700 - -"
+      "X ${claudeTmpDir}/jobs"
     ];
   };
 }
