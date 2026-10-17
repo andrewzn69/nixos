@@ -7,8 +7,8 @@
 
 let
   configDir = config.home-manager.users.zemn.xdg.configHome;
-  toolOutputDir = "/tmp/opencode/tool-output";
   claudeTmpDir = "/tmp/claude";
+  opencodeTmpDir = "/tmp/opencode";
 
   opencode-patched = pkgs.opencode.overrideAttrs (old: {
     postPatch = (old.postPatch or "") + ''
@@ -42,7 +42,7 @@ in
       CLAUDE_CONFIG_DIR = "${configDir}/claude";
       CLAUDE_CODE_PROJECT_DIR_NAME = "default";
       CLAUDE_CODE_TMPDIR = claudeTmpDir;
-      OPENCODE_TOOL_OUTPUT_DIR = toolOutputDir;
+      OPENCODE_TOOL_OUTPUT_DIR = "${opencodeTmpDir}/tool-output";
     };
 
     programs.opencode = {
@@ -51,7 +51,7 @@ in
     };
 
     systemd.user.tmpfiles.rules = [
-      "d ${toolOutputDir} 0700 - - 1d"
+      "d ${opencodeTmpDir} 0700 - - 1d"
       "d ${claudeTmpDir} 0700 - - 1d"
     ];
   };
