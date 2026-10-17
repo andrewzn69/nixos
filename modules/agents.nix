@@ -11,7 +11,8 @@ let
   configDir = config.home-manager.users.${user}.xdg.configHome;
   agentsDir = "${configDir}/agents";
   claudeTmpDir = "/tmp/claude";
-  claudeRetentionDays = 3;
+  claudeSessionRetentionHours = 72;
+  claudeHistoryRetentionHours = 12;
   opencodeTmpDir = "/tmp/opencode";
 
   inherit (config.home-manager.users.${user}.lib.file) mkOutOfStoreSymlink;
@@ -44,7 +45,7 @@ let
       history="${configDir}/claude/history.jsonl"
       [ -s "$history" ] || exit 0
       oldest=$(jq -Rn '[inputs | fromjson? | .timestamp] | min / 1000 | floor' "$history")
-      if (( $(date +%s) - oldest > ${toString (claudeRetentionDays * 86400)} )); then
+      if (( $(date +%s) - oldest > ${toString (claudeHistoryRetentionHours * 3600)} )); then
         rm "$history"
       fi
     '';
@@ -129,7 +130,7 @@ in
       "d ${claudeTmpDir}/shell-snapshots 0700 - -"
       "x ${claudeTmpDir}/shell-snapshots"
       "z ${configDir}/claude 0700 - -"
-      "e ${configDir}/claude/projects - - - mM:${toString claudeRetentionDays}d"
+      "e ${configDir}/claude/projects - - - mM:${toString claudeSessionRetentionHours}h"
       "d ${opencodeTmpDir} 0700 - - 1d"
     ];
 
@@ -142,9 +143,9 @@ in
     };
 
     systemd.user.timers.claude-history-cleanup = {
-      Unit.Description = "Daily claude prompt history cleanup";
+      Unit.Description = "Hourly claude prompt history cleanup";
       Timer = {
-        OnCalendar = "daily";
+        OnCalendar = "hourly";
         Persistent = true;
       };
       Install.WantedBy = [ "timers.target" ];
