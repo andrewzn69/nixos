@@ -23,7 +23,6 @@
     preLVM = true;
   };
   boot.resumeDevice = "/dev/vg0/swap";
-  boot.kernelParams = [ "resume=/dev/vg0/swap" ];
   boot.kernelPatches = [
     {
       name = "disable-nova";
