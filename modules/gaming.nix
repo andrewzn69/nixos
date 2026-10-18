@@ -26,7 +26,6 @@
     winePackages.fonts
     faudio
 
-    gamemode
     gamescope
     mangohud
 
