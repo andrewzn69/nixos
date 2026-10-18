@@ -7,7 +7,6 @@
       nerd-fonts.jetbrains-mono
       nerd-fonts.symbols-only
       noto-fonts-color-emoji
-      freetype
       corefonts
       # TODO: add CartographCF later
     ];
