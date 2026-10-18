@@ -19,6 +19,7 @@
     # desktop-specific
     ../../modules/hyprland
     ../../modules/audio.nix
+    ../../modules/soundboard.nix
     ../../modules/gaming.nix
     ../../modules/apps.nix
     ../../modules/file-browser

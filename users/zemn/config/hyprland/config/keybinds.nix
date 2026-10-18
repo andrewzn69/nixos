@@ -1,12 +1,11 @@
 { ... }:
 
 let
-  soundsDir = "$HOME/Sounds";
   term = "kitty";
   browser = "zen-twilight";
   files = "thunar";
   colorpicker = "hyprpicker -a";
-  playSound = name: "pwsp-cli action play --concurrent ${soundsDir}/${name}";
+  playSound = name: "soundboard play ${name}";
 in
 
 {
