@@ -1,5 +1,8 @@
 { ... }:
 
+let
+  bootEntries = 5;
+in
 {
   # nix settings
   nix.settings.experimental-features = [
@@ -35,7 +38,8 @@
   };
 
   nix.settings.auto-optimise-store = true;
-  boot.loader.systemd-boot.configurationLimit = 5;
+  boot.loader.systemd-boot.configurationLimit = bootEntries;
+  boot.loader.grub.configurationLimit = bootEntries;
 
   boot.tmp.useTmpfs = true;
 
