@@ -9,7 +9,6 @@
     grimblast
     wl-clipboard
     swaylock
-    awww
     # waybar
     rofi
     hyprsunset
