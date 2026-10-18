@@ -17,7 +17,6 @@
     tree
     btop
     dnsutils
-    openssh
     rsync
     mosh
     magic-wormhole
