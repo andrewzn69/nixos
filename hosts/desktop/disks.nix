@@ -10,8 +10,7 @@
     device = "/dev/disk/by-uuid/9E55-7A5A";
     fsType = "vfat";
     options = [
-      "fmask=0022"
-      "dmask=0022"
+      "umask=0077"
     ];
   };
 
