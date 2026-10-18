@@ -8,6 +8,7 @@
       nerd-fonts.symbols-only
       noto-fonts-color-emoji
       corefonts
+      cantarell-fonts
       # TODO: add CartographCF later
     ];
 
