@@ -13,7 +13,7 @@
         d = "difftool";
         s = "status";
         c = "commit";
-        mergetool = "!nvim -c DiffviewOpen";
+        m = "!nvim -c DiffviewOpen";
       };
 
       credential.helper = "${pkgs.gitFull}/libexec/git-core/git-credential-libsecret";
