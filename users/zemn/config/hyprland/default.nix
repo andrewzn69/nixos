@@ -14,6 +14,7 @@
     ./config/wallpaper.nix
     ./config/misc.nix
     ./config/hyprshade.nix
+    ./config/polkit.nix
   ];
 
   wayland.windowManager.hyprland.enable = true;
