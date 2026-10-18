@@ -65,10 +65,6 @@ in
       "$mainMod, period, exec, killall rofi || rofi -show emoji -emoji-format '{emoji}' -modi emoji"
       "$mainMod, code:115, exec, killall rofi || $HOME/.config/rofi/scripts/powermenu.sh"
 
-      # recording
-      "$mainMod, v, exec, notify-send 'wf-recorder' 'Recording' && wf-recorder -a -o $(hyprctl monitors -j | jq -r '.[] | select(.focused) | .name') -c h264_vaapi -f $HOME/Videos/screenrecording/$(date +'%H:%M:%S_%d-%m-%Y.mp4')"
-      "$mainMod SHIFT, v, exec, killall -s SIGINT wf-recorder && notify-send 'wf-recorder' 'Recording Stopped'"
-
       # color picker
       "$mainMod SHIFT, X, exec, ${colorpicker}"
 

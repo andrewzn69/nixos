@@ -12,7 +12,6 @@
     awww
     # waybar
     rofi
-    wf-recorder
     hyprsunset
     playerctl
   ];
