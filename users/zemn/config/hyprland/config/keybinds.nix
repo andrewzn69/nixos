@@ -1,14 +1,11 @@
 { ... }:
 
 let
-  scriptsDir = "$HOME/.config/hypr/scripts";
   soundsDir = "$HOME/Sounds";
   term = "kitty";
   browser = "zen-twilight";
   files = "thunar";
-  screenshot = "${scriptsDir}/screenshit.sh";
-  colorpicker = "${scriptsDir}/colorpicker.sh";
-  wallpaper = "${scriptsDir}/randompape.sh";
+  colorpicker = "hyprpicker -a";
   playSound = name: "pwsp-cli action play --concurrent ${soundsDir}/${name}";
 in
 
@@ -68,10 +65,6 @@ in
       "$mainMod, period, exec, killall rofi || rofi -show emoji -emoji-format '{emoji}' -modi emoji"
       "$mainMod, code:115, exec, killall rofi || $HOME/.config/rofi/scripts/powermenu.sh"
 
-      # screenshots
-      ", Print, exec, ${screenshot} area"
-      "SHIFT, Print, exec, ${screenshot} full"
-
       # recording
       "$mainMod, v, exec, notify-send 'wf-recorder' 'Recording' && wf-recorder -a -o HDMI-A-1 -c h264_vaapi -f $HOME/Videos/screenrecording/$(date +'%H:%M:%S_%d-%m-%Y.mp4')"
       "$mainMod SHIFT, v, exec, killall -s SIGINT wf-recorder && notify-send 'wf-recorder' 'Recording Stopped'"
@@ -83,9 +76,6 @@ in
       ", code:173, exec, playerctl --player=spotify previous"
       ", code:172, exec, playerctl --player=spotify play-pause"
       ", code:171, exec, playerctl --player=spotify next"
-
-      # wallpaper
-      "$mainMod, code:171, exec, ${wallpaper}"
 
       # rgb control
       # ", code:123, exec, $HOME/Development/lights/lightson.sh"
