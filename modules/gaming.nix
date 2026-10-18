@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   PolyMC,
   ...
 }:
@@ -35,15 +34,6 @@
 
     polymc
   ];
-
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "steam"
-      "steam-original"
-      "steam-unwrapped"
-      "steam-run"
-    ];
 
   nixpkgs.overlays = [
     PolyMC.overlay
