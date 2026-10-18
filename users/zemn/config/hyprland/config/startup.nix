@@ -16,7 +16,6 @@
       "[workspace 6 silent] spotify"
       "[workspace 7 silent] evolution"
       "[workspace 8 silent] steam"
-      "syncthing --no-browser"
       "bash -c 'sleep 3 && openrgb --profile red'"
       # "$HOME/Development/lights/lighton.sh"
     ];
