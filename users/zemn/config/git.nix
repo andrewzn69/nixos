@@ -24,6 +24,7 @@
         excludesFile = "~/.config/git/ignore";
       };
       "url \"git@github.com:\"".pushInsteadOf = "https://github.com/";
+      "url \"git@github.com:andrewzn69/\"".insteadOf = "https://github.com/andrewzn69/";
     };
   };
 
