@@ -18,6 +18,7 @@
     ../../modules/audio.nix
     ../../modules/bluetooth.nix
     ../../modules/apps.nix
+    ../../modules/spotify.nix
     ../../modules/file-browser
     ../../modules/fonts.nix
     ../../modules/keyring.nix
@@ -27,6 +28,7 @@
 
   shells = [ "fish" ];
   fileBrowser = "thunar";
+  spotify.soloist.enable = true;
 
   system.stateVersion = "26.11";
 }
