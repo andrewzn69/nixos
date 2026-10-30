@@ -20,7 +20,6 @@
   boot.extraModulePackages = [ ];
   boot.initrd.luks.devices.cryptlvm = {
     device = "/dev/nvme0n1p2";
-    preLVM = true;
   };
   boot.resumeDevice = "/dev/vg0/swap";
   boot.kernelPatches = [
