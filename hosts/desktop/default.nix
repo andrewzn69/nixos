@@ -22,6 +22,7 @@
     ../../modules/soundboard.nix
     ../../modules/gaming.nix
     ../../modules/apps.nix
+    ../../modules/spotify.nix
     ../../modules/file-browser
     ../../modules/fonts.nix
     ../../modules/keyring.nix
@@ -34,6 +35,7 @@
     # "zsh"
   ];
   fileBrowser = "thunar";
+  spotify.client.enable = true;
 
   services.hardware.openrgb.enable = true;
 

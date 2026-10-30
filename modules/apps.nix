@@ -10,8 +10,6 @@
       teamspeak6-client
 
       # media
-      spotify
-      spicetify-cli
       jellyfin-mpv-shim
       jellyfin-desktop
       mpv
