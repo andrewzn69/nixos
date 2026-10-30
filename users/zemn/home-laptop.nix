@@ -1,10 +1,7 @@
 { lib, pkgs, ... }:
 
 {
-  imports = [
-    ./home-desktop.nix
-    ./config/spotifyd.nix
-  ];
+  imports = [ ./home-desktop.nix ];
 
   home.packages = [ pkgs.brightnessctl ];
 
