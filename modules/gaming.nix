@@ -1,5 +1,6 @@
 {
   pkgs,
+  user,
   PolyMC,
   ...
 }:
@@ -13,6 +14,9 @@
   };
 
   programs.gamemode.enable = true;
+
+  home-manager.users.${user}.xdg.dataFile."Steam/compatibilitytools.d/GE-Proton".source =
+    pkgs.proton-ge-bin.steamcompattool;
 
   environment.systemPackages = with pkgs; [
     protonup-qt
