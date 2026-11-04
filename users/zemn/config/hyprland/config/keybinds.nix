@@ -1,6 +1,8 @@
-{ ... }:
+{ lib, ... }:
 
 let
+  inherit (lib.generators) mkLuaInline;
+  mod = "SUPER";
   term = "kitty";
   browser = "zen-twilight";
   files = "thunar";
@@ -10,104 +12,97 @@ in
 
 {
   wayland.windowManager.hyprland.settings = {
-    "$mainMod" = "SUPER";
-
-    binds = {
-      workspace_back_and_forth = true;
+    config.binds = {
+      workspace_back_and_forth = 1;
     };
 
     bind = [
       # window manipulation
-      "$mainMod SHIFT, Q, killactive,"
-      "$mainMod, F, fullscreen,"
-      "$mainMod, Space, togglefloating,"
-      "$mainMod, P, pseudo,"
-      "$mainMod SHIFT, Space, workspaceopt, allfloat"
-      "$mainMod SHIFT, P, workspaceopt, allpseudo"
+      { _args = [ "${mod} + SHIFT + Q" (mkLuaInline "hl.dsp.window.close()") ]; }
+      { _args = [ "${mod} + F" (mkLuaInline "hl.dsp.window.fullscreen({ mode = \"fullscreen\" })") ]; }
+      { _args = [ "${mod} + Space" (mkLuaInline "hl.dsp.window.float()") ]; }
+      { _args = [ "${mod} + P" (mkLuaInline "hl.dsp.window.pseudo()") ]; }
 
       # window focus
-      "$mainMod, h, movefocus, l"
-      "$mainMod, l, movefocus, r"
-      "$mainMod, k, movefocus, u"
-      "$mainMod, j, movefocus, d"
-      "$mainMod, left, movefocus, l"
-      "$mainMod, right, movefocus, r"
-      "$mainMod, up, movefocus, u"
-      "$mainMod, down, movefocus, d"
+      { _args = [ "${mod} + h" (mkLuaInline "hl.dsp.focus({ direction = \"left\" })") ]; }
+      { _args = [ "${mod} + l" (mkLuaInline "hl.dsp.focus({ direction = \"right\" })") ]; }
+      { _args = [ "${mod} + k" (mkLuaInline "hl.dsp.focus({ direction = \"up\" })") ]; }
+      { _args = [ "${mod} + j" (mkLuaInline "hl.dsp.focus({ direction = \"down\" })") ]; }
+      { _args = [ "${mod} + left" (mkLuaInline "hl.dsp.focus({ direction = \"left\" })") ]; }
+      { _args = [ "${mod} + right" (mkLuaInline "hl.dsp.focus({ direction = \"right\" })") ]; }
+      { _args = [ "${mod} + up" (mkLuaInline "hl.dsp.focus({ direction = \"up\" })") ]; }
+      { _args = [ "${mod} + down" (mkLuaInline "hl.dsp.focus({ direction = \"down\" })") ]; }
 
-      "$mainMod, Tab, cyclenext,"
-      "$mainMod, Tab, bringactivetotop,"
+      { _args = [ "${mod} + Tab" (mkLuaInline "function() hl.dispatch(hl.dsp.window.cycle_next()) hl.dispatch(hl.dsp.window.alter_zorder({ mode = \"top\" })) end") ]; }
 
       # move window
-      "$mainMod SHIFT, h, movewindow, l"
-      "$mainMod SHIFT, l, movewindow, r"
-      "$mainMod SHIFT, k, movewindow, u"
-      "$mainMod SHIFT, j, movewindow, d"
-      "$mainMod SHIFT, left, movewindow, l"
-      "$mainMod SHIFT, right, movewindow, r"
-      "$mainMod SHIFT, up, movewindow, u"
-      "$mainMod SHIFT, down, movewindow, d"
+      { _args = [ "${mod} + SHIFT + h" (mkLuaInline "hl.dsp.window.move({ direction = \"left\" })") ]; }
+      { _args = [ "${mod} + SHIFT + l" (mkLuaInline "hl.dsp.window.move({ direction = \"right\" })") ]; }
+      { _args = [ "${mod} + SHIFT + k" (mkLuaInline "hl.dsp.window.move({ direction = \"up\" })") ]; }
+      { _args = [ "${mod} + SHIFT + j" (mkLuaInline "hl.dsp.window.move({ direction = \"down\" })") ]; }
+      { _args = [ "${mod} + SHIFT + left" (mkLuaInline "hl.dsp.window.move({ direction = \"left\" })") ]; }
+      { _args = [ "${mod} + SHIFT + right" (mkLuaInline "hl.dsp.window.move({ direction = \"right\" })") ]; }
+      { _args = [ "${mod} + SHIFT + up" (mkLuaInline "hl.dsp.window.move({ direction = \"up\" })") ]; }
+      { _args = [ "${mod} + SHIFT + down" (mkLuaInline "hl.dsp.window.move({ direction = \"down\" })") ]; }
 
       # resize window
-      "$mainMod CTRL, left, resizeactive, -20 0"
-      "$mainMod CTRL, right, resizeactive, 20 0"
-      "$mainMod CTRL, up, resizeactive, 0 -20"
-      "$mainMod CTRL, down, resizeactive, 0 20"
+      { _args = [ "${mod} + CTRL + left" (mkLuaInline "hl.dsp.window.resize({ x = -20, y = 0, relative = true })") ]; }
+      { _args = [ "${mod} + CTRL + right" (mkLuaInline "hl.dsp.window.resize({ x = 20, y = 0, relative = true })") ]; }
+      { _args = [ "${mod} + CTRL + up" (mkLuaInline "hl.dsp.window.resize({ x = 0, y = -20, relative = true })") ]; }
+      { _args = [ "${mod} + CTRL + down" (mkLuaInline "hl.dsp.window.resize({ x = 0, y = 20, relative = true })") ]; }
 
       # programs
-      "$mainMod, Return, exec, ${term}"
-      "$mainMod SHIFT, Return, exec, ${browser}"
-      "$mainMod, M, exec, ${files}"
+      { _args = [ "${mod} + Return" (mkLuaInline "hl.dsp.exec_cmd(\"${term}\")") ]; }
+      { _args = [ "${mod} + SHIFT + Return" (mkLuaInline "hl.dsp.exec_cmd(\"${browser}\")") ]; }
+      { _args = [ "${mod} + M" (mkLuaInline "hl.dsp.exec_cmd(\"${files}\")") ]; }
 
       # rofi
-      "$mainMod, D, exec, killall rofi || rofi -show drun"
-      "$mainMod, period, exec, killall rofi || rofi -show emoji -emoji-format '{emoji}' -modi emoji"
-      "$mainMod, code:115, exec, killall rofi || $HOME/.config/rofi/scripts/powermenu.sh"
+      { _args = [ "${mod} + D" (mkLuaInline "hl.dsp.exec_cmd(\"killall rofi || rofi -show drun\")") ]; }
+      { _args = [ "${mod} + period" (mkLuaInline "hl.dsp.exec_cmd(\"killall rofi || rofi -show emoji -emoji-format '{emoji}' -modi emoji\")") ]; }
+      { _args = [ "${mod} + code:115" (mkLuaInline "hl.dsp.exec_cmd(\"killall rofi || $HOME/.config/rofi/scripts/powermenu.sh\")") ]; }
 
       # color picker
-      "$mainMod SHIFT, X, exec, ${colorpicker}"
+      { _args = [ "${mod} + SHIFT + X" (mkLuaInline "hl.dsp.exec_cmd(\"${colorpicker}\")") ]; }
 
       # media controls
-      ", code:173, exec, playerctl --player=spotify previous"
-      ", code:172, exec, playerctl --player=spotify play-pause"
-      ", code:171, exec, playerctl --player=spotify next"
+      { _args = [ "code:173" (mkLuaInline "hl.dsp.exec_cmd(\"playerctl --player=spotify previous\")") ]; }
+      { _args = [ "code:172" (mkLuaInline "hl.dsp.exec_cmd(\"playerctl --player=spotify play-pause\")") ]; }
+      { _args = [ "code:171" (mkLuaInline "hl.dsp.exec_cmd(\"playerctl --player=spotify next\")") ]; }
 
       # rgb control
-      # ", code:123, exec, $HOME/Development/lights/lightson.sh"
-      # ", code:121, exec, $HOME/Development/lights/lightsoff.sh"
+      # { _args = [ "code:123" (mkLuaInline "hl.dsp.exec_cmd(\"$HOME/Development/lights/lightson.sh\")") ]; }
+      # { _args = [ "code:121" (mkLuaInline "hl.dsp.exec_cmd(\"$HOME/Development/lights/lightsoff.sh\")") ]; }
 
       # hyprsunset
-      ", code:174, exec, pkill hyprsunset || hyprsunset -t 3000"
+      { _args = [ "code:174" (mkLuaInline "hl.dsp.exec_cmd(\"pkill hyprsunset || hyprsunset -t 3000\")") ]; }
 
       # lock screen
-      "$mainMod SHIFT, Tab, exec, swaylock -c 000000"
+      { _args = [ "${mod} + SHIFT + Tab" (mkLuaInline "hl.dsp.exec_cmd(\"swaylock -c 000000\")") ]; }
 
       # soundboard (files in ~/Sounds, played through the PWSP virtual mic).
       # bound bare and with ALT so they fire whether or not Alt is held --
-      # Hyprland matches the exact modifier mask, so ", F1" won't trigger on
+      # Hyprland matches the exact modifier mask, so "F1" won't trigger on
       # ALT+F1 and needs its own bind.
-      ", F1, exec, ${playSound "1.mp3"}"
-      ", F2, exec, ${playSound "2.mp3"}"
-      ", F3, exec, ${playSound "3.mp3"}"
-      ", F4, exec, ${playSound "4.mp3"}"
-      "ALT, F1, exec, ${playSound "1.mp3"}"
-      "ALT, F2, exec, ${playSound "2.mp3"}"
-      "ALT, F3, exec, ${playSound "3.mp3"}"
-      "ALT, F4, exec, ${playSound "4.mp3"}"
+      { _args = [ "F1" (mkLuaInline "hl.dsp.exec_cmd(\"${playSound "1.mp3"}\")") ]; }
+      { _args = [ "F2" (mkLuaInline "hl.dsp.exec_cmd(\"${playSound "2.mp3"}\")") ]; }
+      { _args = [ "F3" (mkLuaInline "hl.dsp.exec_cmd(\"${playSound "3.mp3"}\")") ]; }
+      { _args = [ "F4" (mkLuaInline "hl.dsp.exec_cmd(\"${playSound "4.mp3"}\")") ]; }
+      { _args = [ "ALT + F1" (mkLuaInline "hl.dsp.exec_cmd(\"${playSound "1.mp3"}\")") ]; }
+      { _args = [ "ALT + F2" (mkLuaInline "hl.dsp.exec_cmd(\"${playSound "2.mp3"}\")") ]; }
+      { _args = [ "ALT + F3" (mkLuaInline "hl.dsp.exec_cmd(\"${playSound "3.mp3"}\")") ]; }
+      { _args = [ "ALT + F4" (mkLuaInline "hl.dsp.exec_cmd(\"${playSound "4.mp3"}\")") ]; }
+
+      # mouse binds for window manipulation
+      { _args = [ "${mod} + mouse:272" (mkLuaInline "hl.dsp.window.drag()") { mouse = true; } ]; }
+      { _args = [ "${mod} + mouse:273" (mkLuaInline "hl.dsp.window.resize()") { mouse = true; } ]; }
     ]
     # switch workspace
-    ++ (map (i: "$mainMod, ${toString (if i == 10 then 0 else i)}, workspace, ${toString i}") (
+    ++ (map (i: { _args = [ "${mod} + ${toString (if i == 10 then 0 else i)}" (mkLuaInline "hl.dsp.focus({ workspace = ${toString i} })") ]; }) (
       builtins.genList (x: x + 1) 10
     ))
     # move to workspace
     ++ (map (
-      i: "$mainMod SHIFT, ${toString (if i == 10 then 0 else i)}, movetoworkspace, ${toString i}"
+      i: { _args = [ "${mod} + SHIFT + ${toString (if i == 10 then 0 else i)}" (mkLuaInline "hl.dsp.window.move({ workspace = ${toString i}, follow = true })") ]; }
     ) (builtins.genList (x: x + 1) 10));
-
-    # mouse binds for window manipulation
-    bindm = [
-      "$mainMod, mouse:272, movewindow"
-      "$mainMod, mouse:273, resizewindow"
-    ];
   };
 }

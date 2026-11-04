@@ -2,26 +2,24 @@
 
 {
   wayland.windowManager.hyprland.settings = {
-    animations = {
-      enabled = true;
+    config.animations.enabled = true;
 
-      bezier = [
-        "wind,0.05,0.9,0.1,1"
-        "winIn,0.1,1.1,0.1,1"
-        "winOut,0.1,-0.1,0.1,1"
-        "liner,1,1,1,1"
-      ];
+    curve = [
+      { _args = [ "wind" { type = "bezier"; points = [ [ 0.05 0.9 ] [ 0.1 1 ] ]; } ]; }
+      { _args = [ "winIn" { type = "bezier"; points = [ [ 0.1 1.1 ] [ 0.1 1 ] ]; } ]; }
+      { _args = [ "winOut" { type = "bezier"; points = [ [ 0.1 (-0.1) ] [ 0.1 1 ] ]; } ]; }
+      { _args = [ "liner" { type = "bezier"; points = [ [ 1 1 ] [ 1 1 ] ]; } ]; }
+    ];
 
-      animation = [
-        "windows,1,6,wind,slide"
-        "windowsIn,1,5,winIn,slide"
-        "windowsOut,1,5,winOut,slide"
-        "windowsMove,1,5,winIn,slide"
-        "border,1,1,liner"
-        "borderangle,1,30,liner,loop"
-        "fade,1,10,default"
-        "workspaces,1,5,wind"
-      ];
-    };
+    animation = [
+      { leaf = "windows"; enabled = true; speed = 6; bezier = "wind"; style = "slide"; }
+      { leaf = "windowsIn"; enabled = true; speed = 5; bezier = "winIn"; style = "slide"; }
+      { leaf = "windowsOut"; enabled = true; speed = 5; bezier = "winOut"; style = "slide"; }
+      { leaf = "windowsMove"; enabled = true; speed = 5; bezier = "winIn"; style = "slide"; }
+      { leaf = "border"; enabled = true; speed = 1; bezier = "liner"; }
+      { leaf = "borderangle"; enabled = true; speed = 30; bezier = "liner"; style = "loop"; }
+      { leaf = "fade"; enabled = true; speed = 10; bezier = "default"; }
+      { leaf = "workspaces"; enabled = true; speed = 5; bezier = "wind"; }
+    ];
   };
 }

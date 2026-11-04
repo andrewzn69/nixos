@@ -2,7 +2,7 @@
 
 {
   wayland.windowManager.hyprland.settings = {
-    input = {
+    config.input = {
       kb_layout = "us,cz";
       kb_variant = ",qwerty";
       # kb_options = "grp:alt_shift_toggle";
@@ -10,7 +10,7 @@
       repeat_delay = 300;
       follow_mouse = 1;
       numlock_by_default = true;
-      force_no_accel = 0;
+      force_no_accel = false;
       accel_profile = "flat";
     };
   };

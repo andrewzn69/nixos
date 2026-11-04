@@ -2,19 +2,19 @@
 
 {
   wayland.windowManager.hyprland.settings = {
-    general = {
+    config.general = {
       layout = "dwindle";
     };
 
-    dwindle = {
+    config.dwindle = {
       preserve_split = true;
     };
 
-    master = {
+    config.master = {
       new_status = "master";
     };
 
-    binds = {
+    config.binds = {
       allow_workspace_cycles = true;
     };
   };

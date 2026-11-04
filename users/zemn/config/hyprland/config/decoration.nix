@@ -2,15 +2,15 @@
 
 {
   wayland.windowManager.hyprland.settings = {
-    general = {
+    config.general = {
       gaps_in = 8;
       gaps_out = 10;
       border_size = 2;
-      "col.active_border" = "0xffB36656";
-      "col.inactive_border" = "0xff2F3131";
+      col.active_border = "rgb(B36656)";
+      col.inactive_border = "rgb(2F3131)";
     };
 
-    decoration = {
+    config.decoration = {
       rounding = 0;
       active_opacity = 1.0;
       inactive_opacity = 1.0;
