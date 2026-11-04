@@ -127,15 +127,17 @@ let
 
   opencodeTmpDir = "/tmp/opencode";
 
-  opencode-patched = pkgs.opencode.overrideAttrs (old: {
-    postPatch = (old.postPatch or "") + ''
-      substituteInPlace packages/tui/src/routes/session/index.tsx \
-        --replace-fail 'flexDirection="row" flexGrow={1} minHeight={0}' 'flexDirection="row-reverse" flexGrow={1} minHeight={0}' \
-        --replace-fail 'alignItems="flex-end"' 'alignItems="flex-start"'
-      substituteInPlace packages/opencode/src/tool/truncation-dir.ts \
-        --replace-fail 'path.join(Global.Path.data, "tool-output")' '(process.env.OPENCODE_TOOL_OUTPUT_DIR || path.join(Global.Path.data, "tool-output"))'
-    '';
-  });
+  opencode-patched = pkgs.opencode.overrideAttrs (
+    old:
+    {
+      postPatch = (old.postPatch or "") + "";
+    }
+    // lib.optionalAttrs (old.node_modules.outputHash == "sha256-xfOVcw1+waLVNhFDwzOtzxrUSQEogvn88YomydOlhwc=") {
+      node_modules = old.node_modules.overrideAttrs {
+        outputHash = "sha256-prx9dX7kUvs/E3zopkaPk5LXh3xJAy5sZeum/W8L7cA=";
+      };
+    }
+  );
 
   opencode = {
     home.sessionVariables = {
