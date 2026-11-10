@@ -27,8 +27,8 @@
         spacing = {
           margin = 10;
           padding = 8;
-          border_width = 2;
-          border_radius = 0;
+          borderWidth = 2;
+          borderRadius = 0;
         };
       };
 
@@ -57,10 +57,10 @@
           };
         };
         spacing = {
-          padding_large = 16;
-          workspace_spacing = 4;
-          workspace_size = 14;
-          workspace_pill_width = 36;
+          paddingLarge = 16;
+          workspaceSpacing = 4;
+          workspaceSize = 14;
+          workspacePillWidth = 36;
         };
       };
 
@@ -70,12 +70,12 @@
         corner = "top-right";
         duration = 5000;
         width = 240;
-        image_size = 64;
-        max_chars = 30;
+        imageSize = 64;
+        maxChars = 30;
         fonts = {
-          size_app = 10;
-          size_summary = 14;
-          size_body = 12;
+          sizeApp = 10;
+          sizeSummary = 14;
+          sizeBody = 12;
         };
       };
 
