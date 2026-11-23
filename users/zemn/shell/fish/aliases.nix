@@ -25,6 +25,7 @@
     rm = "rm -iv";
     mv = "mv -iv";
     cp = "cp -iv";
+    clip = "tr -d '\n' | tmux load-buffer -w -";
 
     # programs
     py = "python3";
