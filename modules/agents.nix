@@ -73,6 +73,7 @@ let
       CLAUDE_CODE_FORK_SUBAGENT = "0";
       CLAUDE_CODE_GLOB_NO_IGNORE = "false";
       CLAUDE_CODE_NATIVE_CURSOR = "1";
+      CLAUDE_CODE_THINKING_DISPLAY_UPDATES = "false";
       CLAUDE_CODE_TMUX_TRUECOLOR = "1";
       DISABLE_AUTO_COMPACT = "1";
       DISABLE_DOCTOR_COMMAND = "1";
@@ -134,11 +135,14 @@ let
     {
       postPatch = (old.postPatch or "") + "";
     }
-    // lib.optionalAttrs (old.node_modules.outputHash == "sha256-xfOVcw1+waLVNhFDwzOtzxrUSQEogvn88YomydOlhwc=") {
-      node_modules = old.node_modules.overrideAttrs {
-        outputHash = "sha256-prx9dX7kUvs/E3zopkaPk5LXh3xJAy5sZeum/W8L7cA=";
-      };
-    }
+    //
+      lib.optionalAttrs
+        (old.node_modules.outputHash == "sha256-xfOVcw1+waLVNhFDwzOtzxrUSQEogvn88YomydOlhwc=")
+        {
+          node_modules = old.node_modules.overrideAttrs {
+            outputHash = "sha256-prx9dX7kUvs/E3zopkaPk5LXh3xJAy5sZeum/W8L7cA=";
+          };
+        }
   );
 
   opencode = {
