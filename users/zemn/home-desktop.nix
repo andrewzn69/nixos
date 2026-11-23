@@ -1,4 +1,4 @@
-{ ... }:
+{ nvim, ... }:
 
 {
   home.sessionVariables.NVIM_THEME = "gruvbox";
@@ -9,7 +9,7 @@
     ./config/git.nix
     ./config/hyprland
     ./config/zorya.nix
-    ../../modules/neovim/home.nix
+    nvim.homeModules.default
     ./config/browser
     ./config/theme
     ./config/rofi

@@ -15,6 +15,7 @@
       url = "github:andrewzn69/zorya-shell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nvim.url = "github:andrewzn69/nvim";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -1,10 +1,10 @@
-{ ... }:
+{ nvim, ... }:
 
 {
   imports = [
     ./shell/home.nix
     ./config/git.nix
-    ../../modules/neovim/home.nix
+    nvim.homeModules.default
     ./config/tmux.nix
   ];
 

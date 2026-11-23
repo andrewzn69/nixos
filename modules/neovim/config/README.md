@@ -1,4 +1,0 @@
-# nvim
-neovim config
-
-test

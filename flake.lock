@@ -237,6 +237,21 @@
         "type": "github"
       }
     },
+    "nvim": {
+      "locked": {
+        "lastModified": 1795434213,
+        "narHash": "sha256-j+3Z/6XCpsFxISehH2Yc9sV6K/jisYBRLGyotvRZFHs=",
+        "owner": "andrewzn69",
+        "repo": "nvim",
+        "rev": "99abda2c6ec84d9763148ce13094ab60fb37d95c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "andrewzn69",
+        "repo": "nvim",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "PolyMC": "PolyMC",
@@ -246,6 +261,7 @@
         "firefox-addons": "firefox-addons",
         "home-manager": "home-manager",
         "nixpkgs": "nixpkgs",
+        "nvim": "nvim",
         "user-agents": "user-agents",
         "zen-browser": "zen-browser",
         "zorya": "zorya"
